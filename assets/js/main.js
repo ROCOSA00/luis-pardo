@@ -284,6 +284,9 @@
         el.src = box.getAttribute("data-video");
         el.controls = true; el.autoplay = true; el.playsInline = true;
         el.setAttribute("playsinline", "");
+        el.addEventListener("error", function () {
+          box.innerHTML = '<div class="video-missing"><strong>Este vídeo no está disponible ahora mismo.</strong><span>Vuelve a intentarlo más tarde o escríbenos por WhatsApp.</span></div>';
+        });
       }
       box.innerHTML = "";
       box.appendChild(el);
@@ -342,7 +345,7 @@
   $$("[data-player]").forEach(function (root) {
     var audio = new Audio();
     audio.preload = "none";
-    var items = $$(".player-list li", root);
+    var items = $$(".player-list li[data-src]", root);
     var titleEl = $(".player-title", root);
     var playBtn = $(".play", root);
     var bar = $(".player-bar", root), fill = $(".player-bar span", root);
@@ -391,14 +394,9 @@
       var r = bar.getBoundingClientRect();
       audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
     });
-    var full = $("[data-full-album]", root);
-    if (full) full.addEventListener("click", function () {
-      items.forEach(function (li) { li.classList.remove("is-active"); });
-      index = -1;
-      audio.src = full.getAttribute("data-full-album");
-      titleEl.textContent = full.getAttribute("data-title");
-      audio.play().catch(function () {});
-    });
+    // "Escuchar el disco entero": reproduce todas las pistas seguidas desde la primera.
+    var playAll = $("[data-play-all]", root);
+    if (playAll) playAll.addEventListener("click", function () { load(0, true); });
   });
 
   /* ---------- Truco: "Te voy a leer la mente" ----------
