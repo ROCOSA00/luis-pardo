@@ -1,0 +1,5 @@
+# Archivos que no deben publicarse en Vercel
+partials
+tools
+.htaccess
+README.md
