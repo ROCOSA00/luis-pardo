@@ -1,0 +1,149 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/inicio{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/spiritcocktailsbcn{/}?",
+      "destination": "/spirit-club-bcn/#cocteleria",
+      "permanent": true
+    },
+    {
+      "source": "/sala-museo{/}?",
+      "destination": "/spirit-club-bcn/",
+      "permanent": true
+    },
+    {
+      "source": "/television{/}?",
+      "destination": "/el-mentalista/#television",
+      "permanent": true
+    },
+    {
+      "source": "/luis-pardo-mentalista-y-chatgpt{/}?",
+      "destination": "/luna-iae/#historia",
+      "permanent": true
+    },
+    {
+      "source": "/el-clan-secreto{/}?",
+      "destination": "/curso/#clan-secreto",
+      "permanent": true
+    },
+    {
+      "source": "/clases-secretas{/}?",
+      "destination": "/curso/#clan-secreto",
+      "permanent": true
+    },
+    {
+      "source": "/psiquemagia{/}?",
+      "destination": "/curso/#psiquemagia",
+      "permanent": true
+    },
+    {
+      "source": "/psiquemagia-feliz{/}?",
+      "destination": "/curso/#psiquemagia",
+      "permanent": true
+    },
+    {
+      "source": "/curso-prueba{/}?",
+      "destination": "/curso/",
+      "permanent": true
+    },
+    {
+      "source": "/dossier-dejar-de-fumar{/}?",
+      "destination": "/dejar-de-fumar/#dossier",
+      "permanent": true
+    },
+    {
+      "source": "/audio-gratuito-del-mpma{/}?",
+      "destination": "/mpma/#muestra",
+      "permanent": true
+    },
+    {
+      "source": "/hipno-audio-de-muestra{/}?",
+      "destination": "/mpma/#muestra",
+      "permanent": true
+    },
+    {
+      "source": "/hipnoaudio-de-muestra-mpma{/}?",
+      "destination": "/mpma/#muestra",
+      "permanent": true
+    },
+    {
+      "source": "/gracias-mpma{/}?",
+      "destination": "/mpma/#muestra",
+      "permanent": true
+    },
+    {
+      "source": "/hipnoaudio-de-muestra-formulario{/}?",
+      "destination": "/hipnoaudios-personalizados/#muestra",
+      "permanent": true
+    },
+    {
+      "source": "/hipnoaudio-de-muestra-hipnoaudios{/}?",
+      "destination": "/hipnoaudios-personalizados/#muestra",
+      "permanent": true
+    },
+    {
+      "source": "/gracias-hipnoaudios{/}?",
+      "destination": "/hipnoaudios-personalizados/#muestra",
+      "permanent": true
+    },
+    {
+      "source": "/formulario-te-voy-a-leer-la-mente{/}?",
+      "destination": "/voy-a-entrar-en-tu-mente/#leer-la-mente",
+      "permanent": true
+    },
+    {
+      "source": "/regala-emociones{/}?",
+      "destination": "/comprar_entradas/",
+      "permanent": true
+    },
+    {
+      "source": "/el-clan-de-la-hipnosis{/}?",
+      "destination": "/espectaculos-anteriores/",
+      "permanent": true
+    },
+    {
+      "source": "/comment-page-:n(\\d+){/}?",
+      "destination": "/#opiniones",
+      "permanent": true
+    },
+    {
+      "source": "/feed{/}?",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    }
+  ]
+}
