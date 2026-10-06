@@ -1,21 +1,21 @@
 {% extends "layouts/base.njk" %}
 {% block head %}
-<title>Libros de Luis Pardo · Mentalismo L-Mental y Poemas Prohibidos</title>
-<meta name="description" content="Los dos libros de Luis Pardo: «Mentalismo L-Mental», para iniciarse en el mentalismo, y «Poemas Prohibidos», 35 poemas oscuros con fotografías de Luis Gascón.">
-<link rel="canonical" href="https://luis-pardo.vercel.app/libros/">
-<meta property="og:title" content="Libros · Luis Pardo">
-<meta property="og:image" content="https://luis-pardo.vercel.app/assets/img/libro-l-mental.webp">
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
+<meta property="og:title" content="{{ c.seo.titulo_redes | texto }}">
+<meta property="og:image" content="{{ sitio.url }}{{ c.seo.imagen_redes }}">
 {% endblock %}
 {% block main %}
 <main id="main">
   <section class="page-hero">
-    <div class="hero-bg"><img src="../assets/img/libro-poemas.webp" width="1600" height="1600" alt="" fetchpriority="high"></div>
+    <div class="hero-bg"><img {{ c.cabecera.imagen | img }} alt="" fetchpriority="high"></div>
     <div class="wrap">
       <div class="page-hero-inner">
         <nav class="breadcrumb" aria-label="Migas de pan" data-reveal><a href="../">Inicio</a><span aria-hidden="true">/</span><a href="../el-mentalista/">Luis Pardo</a><span aria-hidden="true">/</span><span>Libros</span></nav>
-        <span class="eyebrow" data-reveal>Libros</span>
-        <h1 class="display" data-reveal style="--d:.1s">Adéntrate en lo más <span class="text-gradient">profundo de su mente</span></h1>
-        <p class="lead" data-reveal style="--d:.2s">Dos libros, dos caras de Luis Pardo: los secretos del mentalista y la intimidad del poeta.</p>
+        <span class="eyebrow" data-reveal>{{ c.cabecera.antetitulo | texto }}</span>
+        <h1 class="display" data-reveal style="--d:.1s">{{ c.cabecera.titulo | titulo }}</h1>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.cabecera.entradilla | md }}</p>
       </div>
     </div>
   </section>
@@ -24,23 +24,18 @@
     <div class="wrap stack-lg">
       <article class="book" id="mentalismo-l-mental">
         <div class="book-covers" data-reveal="left">
-          <img src="../assets/img/libro-l-mental.webp" width="1600" height="1600" alt="Portada de Mentalismo L-Mental" loading="lazy">
-          <img src="../assets/img/libro-l-mental-contra.webp" width="1600" height="1600" alt="Contraportada de Mentalismo L-Mental" loading="lazy">
+          <img {{ c.seccion_2.mentalismo_mental.imagen.src | img }} alt="{{ c.seccion_2.mentalismo_mental.imagen.alt | texto }}" loading="lazy">
+          <img {{ c.seccion_2.mentalismo_mental.imagen_2.src | img }} alt="{{ c.seccion_2.mentalismo_mental.imagen_2.alt | texto }}" loading="lazy">
         </div>
         <div class="stack-lg">
           <div class="stack">
-            <span class="eyebrow" data-reveal>Iniciación · Ediciones Marré</span>
-            <h2 class="h2" data-reveal style="--d:.1s">Mentalismo L-Mental</h2>
-            <p class="lead" data-reveal style="--d:.2s">Un libro para iniciarse en el apasionante mundo del mentalismo.</p>
+            <span class="eyebrow" data-reveal>{{ c.seccion_2.mentalismo_mental.antetitulo | texto }}</span>
+            <h2 class="h2" data-reveal style="--d:.1s">{{ c.seccion_2.mentalismo_mental.titulo | titulo }}</h2>
+            <p class="lead" data-reveal style="--d:.2s">{{ c.seccion_2.mentalismo_mental.entradilla | md }}</p>
           </div>
-          <ul class="checklist" data-reveal style="--d:.25s">
-            <li><span>La <strong>historia del mentalismo</strong> desde su nacimiento y su vínculo con el espiritismo.</span></li>
-            <li><span>Las ramas de la <strong>psicología aplicadas</strong> al mentalismo y los grandes mentalistas de la historia.</span></li>
-            <li><span>Cada faceta explicada: <strong>telepatía, predicciones, telekinesia, espiritismo, control mental sobre el cuerpo</strong>…</span></li>
-            <li><span><strong>10 efectos</strong> que Luis Pardo lleva años realizando: cinco con técnicas de ilusionismo y cinco solo psicológicos.</span></li>
-          </ul>
-          <p class="muted" data-reveal style="--d:.3s">Prólogo de Alberto Granados, periodista y escritor.</p>
-          <div class="notice" data-reveal style="--d:.35s"><strong>De venta en exclusiva</strong> en el merchandising de la sala, al terminar el espectáculo.</div>
+          <ul class="checklist" data-reveal style="--d:.25s">{% for p in c.seccion_2.mentalismo_mental.puntos %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
+          <p class="muted" data-reveal style="--d:.3s">{{ c.seccion_2.mentalismo_mental.texto | md }}</p>
+          <div class="notice" data-reveal style="--d:.35s">{{ c.seccion_2.mentalismo_mental.aviso | md }}</div>
         </div>
       </article>
 
@@ -49,20 +44,17 @@
       <article class="book" id="poemas-prohibidos">
         <div class="stack-lg">
           <div class="stack">
-            <span class="eyebrow" data-reveal>Poesía · Apache Libros</span>
-            <h2 class="h2" data-reveal style="--d:.1s">Poemas Prohibidos</h2>
-            <p class="lead" data-reveal style="--d:.2s">Un viaje a lo más íntimo de Luis Pardo en forma de 35 poemas oscuros sobre sus pasiones, sus miedos y sus deseos.</p>
+            <span class="eyebrow" data-reveal>{{ c.seccion_2.poemas_prohibidos.antetitulo | texto }}</span>
+            <h2 class="h2" data-reveal style="--d:.1s">{{ c.seccion_2.poemas_prohibidos.titulo | titulo }}</h2>
+            <p class="lead" data-reveal style="--d:.2s">{{ c.seccion_2.poemas_prohibidos.entradilla | md }}</p>
           </div>
-          <div class="prose" data-reveal style="--d:.25s">
-            <p>Cada poema va acompañado de una fotografía en blanco y negro, sin censura, de <strong>Luis Gascón</strong>. En ellas colaboran artistas y amigos como Antonio Díaz (El Mago Pop), Chiqui Martí, Dani Nel·lo, Dani el Rojo, Marcos Larva, Mamba o Miquel Tarín, entre otros.</p>
-            <p>Si quieres conocer los rincones más secretos de uno de los mejores mentalistas del mundo, cada verso te lleva a lo que muy pocas personas saben de él.</p>
-          </div>
-          <p class="muted" data-reveal style="--d:.3s">Prólogo de Mistress Minerva, compañera de viaje en la vida y en la muerte de Luis Pardo.</p>
-          <div class="notice" data-reveal style="--d:.35s"><strong>De venta en exclusiva</strong> en el merchandising de la sala, al terminar el espectáculo.</div>
+          <div class="prose" data-reveal style="--d:.25s">{{ c.seccion_2.poemas_prohibidos.texto | mdBloque }}</div>
+          <p class="muted" data-reveal style="--d:.3s">{{ c.seccion_2.poemas_prohibidos.texto_2 | md }}</p>
+          <div class="notice" data-reveal style="--d:.35s">{{ c.seccion_2.poemas_prohibidos.aviso | md }}</div>
         </div>
         <div class="book-covers order-first-mobile" data-reveal="right">
-          <img src="../assets/img/libro-poemas.webp" width="1600" height="1600" alt="Portada de Poemas Prohibidos" loading="lazy">
-          <img src="../assets/img/libro-poemas-contra.webp" width="1600" height="1600" alt="Contraportada de Poemas Prohibidos" loading="lazy">
+          <img {{ c.seccion_2.poemas_prohibidos.imagen.src | img }} alt="{{ c.seccion_2.poemas_prohibidos.imagen.alt | texto }}" loading="lazy">
+          <img {{ c.seccion_2.poemas_prohibidos.imagen_2.src | img }} alt="{{ c.seccion_2.poemas_prohibidos.imagen_2.alt | texto }}" loading="lazy">
         </div>
       </article>
     </div>
@@ -70,8 +62,8 @@
 
   <section class="section cta-final bg-2">
     <div class="wrap-narrow stack-lg" style="justify-items:center">
-      <h2 class="h2" data-reveal>Llévatelos firmados después del espectáculo</h2>
-      <div class="row center" data-reveal style="--d:.1s"><a class="btn btn-blood btn-lg" href="../comprar_entradas/">Comprar entradas</a></div>
+      <h2 class="h2" data-reveal>{{ c.llevatelos_firmados_despues.titulo | titulo }}</h2>
+      <div class="row center" data-reveal style="--d:.1s"><a class="btn btn-blood btn-lg" {{ c.llevatelos_firmados_despues.boton.enlace | enlace }}>{{ c.llevatelos_firmados_despues.boton.texto | texto }}</a></div>
     </div>
   </section>
 </main>

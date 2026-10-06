@@ -1,0 +1,74 @@
+{
+  "seo": {
+    "titulo": "Sesiones espiritistas privadas con Luis Pardo · Barcelona",
+    "descripcion": "Sesiones espiritistas privadas, guiadas y personalizadas con Luis Pardo. Péndulo, tablero, escritura y viaje extático. 150 €; si no hay conexión, no pagas.",
+    "titulo_redes": "Sesiones espiritistas privadas · Luis Pardo",
+    "imagen_redes": "/assets/img/sesion-espiritista.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/sesion-espiritista.webp",
+    "antetitulo": "Sesiones privadas de espiritismo",
+    "titulo": "¿Te quedó algo por decir a alguien que *ya no está*?",
+    "entradilla": "Posiblemente sea uno de los deseos más antiguos del ser humano. Luis Pardo te guía, en privado, para intentar entablar esa conexión.",
+    "boton": {
+      "texto": "Solicitar mi sesión",
+      "enlace": "#solicitar"
+    },
+    "etiqueta": "**150 €** · si no hay conexión, no pagas"
+  },
+  "necesario_creer_algo": {
+    "antetitulo": "Más de tres décadas",
+    "titulo": "No es necesario creer en algo para que ese algo exista",
+    "texto": "Luis Pardo lleva más de treinta años adentrado en el espiritismo y lo paranormal, tanto en escena como en su vida privada. En ese tiempo ha vivido cosas maravillosas y asombrosas; algunas, inexplicables. Pero ocurren.\n\nDa igual si crees o no en el más allá: cuando lo vives en primera persona, sabes que lo que sientes es real.",
+    "imagen": {
+      "src": "/assets/img/sesion-cartel.webp",
+      "alt": "Tablero de sesión espiritista con Luis Pardo"
+    }
+  },
+  "una_conexion_directa": {
+    "antetitulo": "¿En qué consiste?",
+    "titulo": "Una conexión directa con quien tú elijas",
+    "entradilla": "Todas las sesiones son personalizadas: nos centramos en ti y en la presencia con la que quieres contactar, para que puedas hacer tus preguntas.",
+    "pendulo": {
+      "titulo": "Péndulo",
+      "texto": "Respuestas a tus preguntas a través del movimiento."
+    },
+    "tablero_espiritista": {
+      "titulo": "Tablero espiritista",
+      "texto": "El método clásico, guiado con seguridad."
+    },
+    "escritura_espiritista": {
+      "titulo": "Escritura espiritista",
+      "texto": "Mensajes que surgen a través de tu mano."
+    },
+    "viaje_extatico": {
+      "titulo": "Viaje extático",
+      "texto": "El centro de la sesión: visualizaciones guiadas para ver, sentir e incluso escuchar a esa presencia."
+    }
+  },
+  "llevas_pendulo_tablero": {
+    "imagen": {
+      "src": "/assets/img/sesion-pendulo.webp",
+      "alt": "Péndulo sobre un tablero"
+    },
+    "antetitulo": "De regalo",
+    "titulo": "Te llevas un péndulo y un tablero espiritista",
+    "entradilla": "Al terminar, recibirás un péndulo cargado de buenas energías y un tablero para volver a conectar cuando quieras. Luis te enseña a usarlos para preguntar y obtener respuestas con facilidad.",
+    "antetitulo_2": "Mitos",
+    "titulo_2": "Hacer espiritismo no tiene ningún peligro",
+    "texto": "Desde mediados del siglo XIX y durante buena parte del XX, el tablero era habitual en muchísimas casas, sin malas experiencias. Fue a partir de 1973, con *El Exorcista*, cuando la ficción empezó a asociar el espiritismo con el mal.\n\nLuis Pardo ha hecho miles de sesiones durante más de 25 años y nunca ha tenido una mala experiencia. Incluso las personas más escépticas han logrado conectar en sus sesiones guiadas.",
+    "imagen_2": {
+      "src": "/assets/img/sesion-mesa.webp",
+      "alt": "Ilustración antigua de dos personas con un tablero espiritista"
+    }
+  },
+  "solicitar": {
+    "antetitulo": "Reserva",
+    "titulo": "Solicita día y hora para tu sesión",
+    "entradilla": "Una experiencia inolvidable, llena de sensaciones y emociones que te harán ver ciertas cosas de otra manera.",
+    "texto": "150 €",
+    "texto_2": "sesión privada y guiada",
+    "aviso": "**Sin riesgo:** si no conseguimos entablar conexión, no tendrás que abonar nada.",
+    "texto_3": "¿Prefieres hablar antes? [Escríbenos por WhatsApp](https://wa.me/34616346365?text=Hola%20Luis%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20sesi%C3%B3n%20espiritista%20privada)."
+  }
+}

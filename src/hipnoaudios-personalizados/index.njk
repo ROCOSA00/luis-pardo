@@ -1,24 +1,24 @@
 {% extends "layouts/base.njk" %}
 {% block head %}
-<title>MPM personalizados · HipnoAudios hechos para ti | Luis Pardo</title>
-<meta name="description" content="Método de Programación Mental: un HipnoAudio de 60 a 90 minutos creado solo para ti por Luis Pardo para ansiedad, sueño, autoestima, fobias, tabaco o peso. Escucha una muestra gratuita.">
-<link rel="canonical" href="https://luis-pardo.vercel.app/hipnoaudios-personalizados/">
-<meta property="og:title" content="MPM personalizados · Luis Pardo">
-<meta property="og:image" content="https://luis-pardo.vercel.app/assets/img/mpm-escucha.webp">
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
+<meta property="og:title" content="{{ c.seo.titulo_redes | texto }}">
+<meta property="og:image" content="{{ sitio.url }}{{ c.seo.imagen_redes }}">
 {% endblock %}
 {% block main %}
 <main id="main">
   <section class="page-hero">
-    <div class="hero-bg"><img src="../assets/img/mpm-escucha.webp" width="1024" height="1024" alt="" fetchpriority="high" style="object-position:right center"></div>
+    <div class="hero-bg"><img {{ c.cabecera.imagen | img }} alt="" fetchpriority="high" style="object-position:right center"></div>
     <div class="wrap">
       <div class="page-hero-inner">
         <nav class="breadcrumb" aria-label="Migas de pan" data-reveal><a href="../">Inicio</a><span aria-hidden="true">/</span><a href="../curso/">Tu mente</a><span aria-hidden="true">/</span><span>MPM</span></nav>
-        <span class="eyebrow" data-reveal>Método de Programación Mental</span>
-        <h1 class="display" data-reveal style="--d:.1s">Un audio con <span class="text-gradient">tu nombre, tu historia</span> y tu necesidad</h1>
-        <p class="lead" data-reveal style="--d:.2s">La forma en que te hablas no es solo pensamiento: es información que tu cerebro transmite al cuerpo. Cambia ese diálogo y cambiará cómo responde.</p>
+        <span class="eyebrow" data-reveal>{{ c.cabecera.antetitulo | texto }}</span>
+        <h1 class="display" data-reveal style="--d:.1s">{{ c.cabecera.titulo | titulo }}</h1>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.cabecera.entradilla | md }}</p>
         <div class="row" data-reveal style="--d:.3s">
-          <a class="btn btn-gold btn-lg" href="#muestra">Escuchar la muestra gratis</a>
-          <a class="btn btn-whatsapp btn-lg" href="https://wa.me/34616346365?text=Hola%20Luis,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20mi%20MPM%20personalizado" target="_blank" rel="noopener">Quiero mi MPM</a>
+          <a class="btn btn-gold btn-lg" {{ c.cabecera.boton.enlace | enlace }}>{{ c.cabecera.boton.texto | texto }}</a>
+          <a class="btn btn-whatsapp btn-lg" href="{{ c.cabecera.boton_2.mensaje | whatsapp(ajustes.whatsapp) }}" target="_blank" rel="noopener">{{ c.cabecera.boton_2.texto | texto }}</a>
         </div>
       </div>
     </div>
@@ -29,22 +29,16 @@
       <div class="grid-2">
         <div data-reveal="left">
           <div class="video" data-video="../assets/media/mpm.mp4">
-            <img src="../assets/img/mpm-metodo.webp" width="1024" height="1024" alt="" loading="lazy">
-            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">Este vídeo te puede cambiar la vida</span></button>
+            <img {{ c.disenado_para_llegar.video.portada | img }} alt="" loading="lazy">
+            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.disenado_para_llegar.video.titulo | texto }}</span></button>
           </div>
         </div>
         <div class="stack-lg">
           <div class="stack">
-            <span class="eyebrow" data-reveal>¿Cómo funciona?</span>
-            <h2 class="h2" data-reveal style="--d:.1s">Diseñado para llegar justo donde nada más llega</h2>
+            <span class="eyebrow" data-reveal>{{ c.disenado_para_llegar.antetitulo | texto }}</span>
+            <h2 class="h2" data-reveal style="--d:.1s">{{ c.disenado_para_llegar.titulo | titulo }}</h2>
           </div>
-          <ul class="checklist" data-reveal style="--d:.2s">
-            <li><span><strong>La voz de Luis</strong> guiándote en relajación profunda, con un lenguaje que tu subconsciente entiende y absorbe con facilidad.</span></li>
-            <li><span><strong>Frecuencias cerebrales</strong> específicas (theta y delta) que facilitan la transformación.</span></li>
-            <li><span><strong>Mensajes subliminales</strong> en la música que tu mente consciente no escucha… pero tu subconsciente sí.</span></li>
-            <li><span><strong>Palabras clave, símbolos y sugestiones</strong> diseñados exclusivamente para ti.</span></li>
-            <li><span>Lo escuchas <strong>todas las veces que quieras</strong>: cuanto más lo escuchas, más transforma.</span></li>
-          </ul>
+          <ul class="checklist" data-reveal style="--d:.2s">{% for p in c.disenado_para_llegar.puntos %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
         </div>
       </div>
     </div>
@@ -53,16 +47,14 @@
   <section class="section bg-2">
     <div class="wrap">
       <div class="section-head center">
-        <span class="eyebrow center" data-reveal>¿Para qué sirve?</span>
-        <h2 class="h2" data-reveal style="--d:.1s">Para cualquier cosa que dependa de tu mente</h2>
+        <span class="eyebrow center" data-reveal>{{ c.para_cualquier_cosa.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.para_cualquier_cosa.titulo | titulo }}</h2>
       </div>
-      <ul class="pill-list" style="justify-content:center" data-reveal>
-        <li>Dejar de fumar</li><li>Adelgazar con una «banda gástrica mental»</li><li>Dormir profundamente</li><li>Calmar la ansiedad</li><li>Ansiedad social</li><li>Recuperar la autoestima</li><li>Superar miedos y fobias</li><li>Hablar en público</li><li>Concentración en los estudios</li><li>Tomar decisiones</li><li>Romper un patrón</li><li>Relaciones íntimas</li><li>Cuidar tu cuerpo desde el deseo</li><li>Activar tu poder interior</li>
-      </ul>
+      <ul class="pill-list" style="justify-content:center" data-reveal>{% for p in c.para_cualquier_cosa.puntos %}<li>{{ p | md }}</li>{% endfor %}</ul>
       <ol class="steps mt-4 wrap-narrow" data-reveal>
-        <li><div><h3>Test de 50 preguntas</h3><p>Para que tu audio sea 100% exclusivo para ti y tu caso.</p></div></li>
-        <li><div><h3>Creación desde cero</h3><p>Un HipnoAudio de 60 a 90 minutos, con tu nombre y tus objetivos.</p></div></li>
-        <li><div><h3>21 días de escucha</h3><p>Es lo que tarda el cerebro de forma natural en aceptar cambios. A veces se recomiendan algunos días más para anclarlo.</p></div></li>
+        <li><div><h3>{{ c.para_cualquier_cosa.test_50_preguntas.titulo | titulo }}</h3><p>{{ c.para_cualquier_cosa.test_50_preguntas.texto | md }}</p></div></li>
+        <li><div><h3>{{ c.para_cualquier_cosa.creacion_desde_cero.titulo | titulo }}</h3><p>{{ c.para_cualquier_cosa.creacion_desde_cero.texto | md }}</p></div></li>
+        <li><div><h3>{{ c.para_cualquier_cosa.n21_dias_escucha.titulo | titulo }}</h3><p>{{ c.para_cualquier_cosa.n21_dias_escucha.texto | md }}</p></div></li>
       </ol>
     </div>
   </section>
@@ -70,31 +62,25 @@
   <section class="section" id="muestra">
     <div class="wrap-narrow">
       <div class="section-head center">
-        <span class="eyebrow center" data-reveal>Muestra gratuita · 15 min</span>
-        <h2 class="h2" data-reveal style="--d:.1s">Siente desde dentro cómo responde tu cuerpo</h2>
-        <p class="lead" data-reveal style="--d:.2s">Una muestra genérica para que entiendas el concepto. Los MPM personalizados son mucho más completos.</p>
+        <span class="eyebrow center" data-reveal>{{ c.muestra.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.muestra.titulo | titulo }}</h2>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.muestra.entradilla | md }}</p>
       </div>
       <div class="card audio-card" data-reveal>
-        <img src="../assets/img/mpm-escucha.webp" width="1024" height="1024" alt="" loading="lazy">
+        <img {{ c.muestra.hipnoaudio_muestra.imagen | img }} alt="" loading="lazy">
         <div>
-          <h3 class="h3">HipnoAudio de muestra</h3>
-          <p>Cuando estés preparado, pulsa play y deja que ocurra.</p>
+          <h3 class="h3">{{ c.muestra.hipnoaudio_muestra.titulo | titulo }}</h3>
+          <p>{{ c.muestra.hipnoaudio_muestra.texto | md }}</p>
           <audio controls preload="none" src="../assets/audio/muestra-mpm.mp3"></audio>
         </div>
       </div>
       <div class="grid-2 mt-3" style="align-items:start">
         <div data-reveal>
-          <h3 class="h3 mb-2">Antes de empezar</h3>
-          <ul class="checklist">
-            <li><span>15 minutos de tranquilidad, sin interrupciones.</span></li>
-            <li><span>Un lugar cómodo: sentado o tumbado.</span></li>
-            <li><span>Usa <strong>auriculares</strong>, siempre.</span></li>
-            <li><span>Ropa cómoda y ninguna pantalla encendida.</span></li>
-            <li><span>Cierra los ojos en cuanto empiece… y déjate llevar.</span></li>
-          </ul>
+          <h3 class="h3 mb-2">{{ c.muestra.titulo_2 | titulo }}</h3>
+          <ul class="checklist">{% for p in c.muestra.puntos %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
         </div>
         <div class="card" data-reveal style="--d:.1s">
-          <h3 class="h3">¿Lo prefieres en tu email?</h3>
+          <h3 class="h3">{{ c.muestra.titulo_3 | titulo }}</h3>
           <form class="form mt-2" data-brevo data-success="¡Listo! Revisa tu bandeja de entrada (y la de spam): te hemos enviado tu HipnoAudio gratuito." method="POST" action="https://446471f7.sibforms.com/serve/MUIFAOd_NhoznXgF-xx5DGELAKGUONoJPEVWGENE395G0puokyVzrpwZjq6n-WaWL-4RxnU_4ea5V5ly7UjGIqLOpS9QhOji9S4aDNYG00kKVdDt_9Dsg5Hup4YLEHKDxC_iqCGo9LleyMm4Vtj_-fdAjofByK1G6HYnKZpYEc3ogBbNeVyqeOtNbZq2pWfPT9Cj_ngITqNhJESS">
             <div class="form-row">
               <div class="field"><label for="m-nombre">Nombre</label><input id="m-nombre" name="NOMBRE" autocomplete="given-name" required></div>
@@ -115,18 +101,15 @@
   <section class="section bg-vignette">
     <div class="wrap">
       <div class="grid-2">
-        <div class="frame frame-square frame-deco" data-reveal="left"><img src="../assets/img/luis-retrato.webp" width="1170" height="1169" alt="Luis Pardo" loading="lazy"></div>
+        <div class="frame frame-square frame-deco" data-reveal="left"><img {{ c.luis_pardo.imagen.src | img }} alt="{{ c.luis_pardo.imagen.alt | texto }}" loading="lazy"></div>
         <div class="stack-lg">
           <div class="stack">
-            <span class="eyebrow" data-reveal>¿Quién hará tu MPM?</span>
-            <h2 class="h2" data-reveal style="--d:.1s">Luis Pardo</h2>
+            <span class="eyebrow" data-reveal>{{ c.luis_pardo.antetitulo | texto }}</span>
+            <h2 class="h2" data-reveal style="--d:.1s">{{ c.luis_pardo.titulo | titulo }}</h2>
           </div>
-          <div class="prose" data-reveal style="--d:.2s">
-            <p>Mentalista desde hace más de 30 años, premiado a nivel nacional e internacional y especializado en hipnosis clínica. Ha dedicado su vida a estudiar cómo desbloquear la mente a través de la sugestión, la palabra y la emoción, y ha ayudado a miles de personas a superar miedos y romper hábitos.</p>
-            <p>Lo más potente que ha aprendido: <strong>una idea bien colocada puede cambiar una vida.</strong> Por eso elabora cada audio desde cero: con las palabras adecuadas, las frecuencias exactas y el tono justo.</p>
-          </div>
+          <div class="prose" data-reveal style="--d:.2s">{{ c.luis_pardo.texto | mdBloque }}</div>
           <div class="row" data-reveal style="--d:.3s">
-            <a class="btn btn-whatsapp btn-lg" href="https://wa.me/34616346365?text=Hola%20Luis,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20mi%20MPM%20personalizado" target="_blank" rel="noopener">Infórmame sin compromiso</a>
+            <a class="btn btn-whatsapp btn-lg" href="{{ c.luis_pardo.boton.mensaje | whatsapp(ajustes.whatsapp) }}" target="_blank" rel="noopener">{{ c.luis_pardo.boton.texto | texto }}</a>
           </div>
         </div>
       </div>
@@ -138,12 +121,12 @@
       <div class="feature" data-reveal>
         <div class="grid-2">
           <div class="stack">
-            <span class="eyebrow">Un paso más allá</span>
-            <h2 class="h2">Tu mente también influye en cómo envejeces</h2>
-            <p class="lead">Muchas personas notan que, además de lo que querían cambiar, ganan energía y se ven distintas en el espejo. Para trabajar esa parte existe el MPMA.</p>
-            <div class="row mt-2"><a class="btn btn-blood" href="../mpma/">Descubrir el MPMA</a></div>
+            <span class="eyebrow">{{ c.seccion_6.antetitulo | texto }}</span>
+            <h2 class="h2">{{ c.seccion_6.titulo | titulo }}</h2>
+            <p class="lead">{{ c.seccion_6.entradilla | md }}</p>
+            <div class="row mt-2"><a class="btn btn-blood" {{ c.seccion_6.boton.enlace | enlace }}>{{ c.seccion_6.boton.texto | texto }}</a></div>
           </div>
-          <div class="frame frame-wide"><img src="../assets/img/mpma-rostros.webp" width="1536" height="1024" alt="Ilustración de un rostro joven y uno envejecido" loading="lazy"></div>
+          <div class="frame frame-wide"><img {{ c.seccion_6.imagen.src | img }} alt="{{ c.seccion_6.imagen.alt | texto }}" loading="lazy"></div>
         </div>
       </div>
     </div>

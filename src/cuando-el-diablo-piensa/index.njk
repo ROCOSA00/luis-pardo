@@ -1,11 +1,11 @@
 {% extends "layouts/base.njk" %}
 {% block head %}
-<title>Cuando el Diablo Piensa · Espectáculo de mentalismo en Barcelona | Luis Pardo</title>
-<meta name="description" content="La experiencia de mentalismo más exclusiva e inmersiva: telepatía, predicciones, energías y espiritismo para solo 26 personas en Spirit Club Bcn. Con Luis Pardo y M. Minerva.">
-<link rel="canonical" href="https://luis-pardo.vercel.app/cuando-el-diablo-piensa/">
-<meta property="og:title" content="Cuando el Diablo Piensa · Luis Pardo & M. Minerva">
-<meta property="og:description" content="No podrás creer lo que veas… pero lo creerás, porque lo vas a vivir.">
-<meta property="og:image" content="https://luis-pardo.vercel.app/assets/img/cedp-cartel.webp">
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
+<meta property="og:title" content="{{ c.seo.titulo_redes | texto }}">
+<meta property="og:description" content="{{ c.seo.descripcion_redes | texto }}">
+<meta property="og:image" content="{{ sitio.url }}{{ c.seo.imagen_redes }}">
 {% endblock %}
 {% block headExtra %}
 <script type="application/ld+json">
@@ -24,24 +24,24 @@
 {% block main %}
 <main id="main">
   <section class="hero" data-lantern>
-    <div class="hero-bg"><img src="../assets/img/cedp-reloj.webp" width="1170" height="1395" alt="" fetchpriority="high" style="object-position:right center; opacity:.6"></div>
+    <div class="hero-bg"><img {{ c.cabecera.imagen | img }} alt="" fetchpriority="high" style="object-position:right center; opacity:.6"></div>
     <canvas class="embers" aria-hidden="true"></canvas>
     <div class="hero-lantern" aria-hidden="true"></div>
     <div class="wrap">
       <div class="hero-content">
         <nav class="breadcrumb" aria-label="Migas de pan" data-reveal><a href="../">Inicio</a><span aria-hidden="true">/</span><span>Experiencias</span></nav>
-        <span class="eyebrow" data-reveal>De Luis Pardo &amp; M. Minerva</span>
-        <h1 class="display" data-reveal style="--d:.1s">Cuando el <span class="text-blood">Diablo</span> Piensa</h1>
-        <p class="hero-tagline" data-reveal style="--d:.2s">Una experiencia de mentalismo donde <em>la mente y el alma se encuentran.</em></p>
+        <span class="eyebrow" data-reveal>{{ c.cabecera.antetitulo | texto }}</span>
+        <h1 class="display" data-reveal style="--d:.1s">{{ c.cabecera.titulo | titulo("text-blood") }}</h1>
+        <p class="hero-tagline" data-reveal style="--d:.2s">{{ c.cabecera.texto | md }}</p>
         <div class="hero-badges" data-reveal style="--d:.3s">
-          <span class="badge badge-red"><b>26</b> personas máximo</span>
-          <span class="badge"><b>≈3 h</b> de experiencia</span>
-          <span class="badge"><b>Spirit Club</b> Bcn</span>
-          <span class="badge"><b>+500</b> funciones · Sold out</span>
+          <span class="badge badge-red">{{ c.cabecera.etiqueta | md({negrita: "b"}) }}</span>
+          <span class="badge">{{ c.cabecera.etiqueta_2 | md({negrita: "b"}) }}</span>
+          <span class="badge">{{ c.cabecera.etiqueta_3 | md({negrita: "b"}) }}</span>
+          <span class="badge">{{ c.cabecera.etiqueta_4 | md({negrita: "b"}) }}</span>
         </div>
         <div class="row" data-reveal style="--d:.4s">
-          <a class="btn btn-blood btn-lg" href="https://www.dinaticket.com/es/provider/17243/event/4843342" target="_blank" rel="noopener">Comprar entradas</a>
-          <a class="btn btn-ghost btn-lg" href="#trailer">Ver el tráiler</a>
+          <a class="btn btn-blood btn-lg" {{ ajustes.entradas.cedp | enlace }}>{{ c.cabecera.boton | texto }}</a>
+          <a class="btn btn-ghost btn-lg" {{ c.cabecera.boton_2.enlace | enlace }}>{{ c.cabecera.boton_2.texto | texto }}</a>
         </div>
       </div>
     </div>
@@ -53,17 +53,13 @@
       <div class="grid-2">
         <div class="stack-lg">
           <div class="stack">
-            <span class="eyebrow" data-reveal>El pacto</span>
-            <h2 class="h2" data-reveal style="--d:.1s">Al cruzar la puerta no vienes a ver un espectáculo. Vienes a hacer un pacto contigo.</h2>
+            <span class="eyebrow" data-reveal>{{ c.cruzar_puerta_vienes.antetitulo | texto }}</span>
+            <h2 class="h2" data-reveal style="--d:.1s">{{ c.cruzar_puerta_vienes.titulo | titulo }}</h2>
           </div>
-          <div class="prose" data-reveal style="--d:.2s">
-            <p>Un pacto silencioso para mirar más allá de lo que crees que eres y descubrir hasta dónde llega tu mente cuando se libera de ciertas creencias.</p>
-            <p><strong>Aquí no hay trucos: hay conciencia. Aquí no hay público: hay testigos.</strong></p>
-            <p>Y aunque el título hable del Diablo, no se viene a pasar miedo. No hay sustos. Lo que hay es una experiencia que cambia tu forma de pensar sobre muchas cosas: incluso las personas más escépticas salen con la mente mucho más abierta a lo desconocido, lo psíquico y lo paranormal.</p>
-          </div>
+          <div class="prose" data-reveal style="--d:.2s">{{ c.cruzar_puerta_vienes.texto | mdBloque }}</div>
         </div>
         <div data-reveal="right">
-          <div class="frame frame-deco" data-tilt><img src="../assets/img/cedp-cartel.webp" width="1170" height="1752" alt="Cartel de Cuando el Diablo Piensa" loading="lazy"></div>
+          <div class="frame frame-deco" data-tilt><img {{ c.cruzar_puerta_vienes.imagen.src | img }} alt="{{ c.cruzar_puerta_vienes.imagen.alt | texto }}" loading="lazy"></div>
         </div>
       </div>
     </div>
@@ -73,23 +69,23 @@
   <section class="section bg-2" id="trailer">
     <div class="wrap">
       <div class="section-head center">
-        <span class="eyebrow center" data-reveal>Tráiler</span>
-        <h2 class="h2" data-reveal style="--d:.1s">Súbele el volumen</h2>
+        <span class="eyebrow center" data-reveal>{{ c.trailer.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.trailer.titulo | titulo }}</h2>
       </div>
       <div class="grid-2" style="align-items:start">
         <div data-reveal>
           <div class="video" data-video="../assets/media/cedp-trailer.mp4">
-            <img src="../assets/img/show-cedp.webp" width="1134" height="1371" alt="" loading="lazy">
-            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">Ver el tráiler</span></button>
+            <img {{ c.trailer.video.portada | img }} alt="" loading="lazy">
+            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.trailer.video.titulo | texto }}</span></button>
           </div>
-          <p class="video-caption">Aconsejable verlo con el volumen alto.</p>
+          <p class="video-caption">{{ c.trailer.texto | md }}</p>
         </div>
         <div data-reveal style="--d:.15s">
           <div class="video" data-video="../assets/media/ruleta-rusa-buenafuente.mp4">
-            <img src="../assets/img/tv-plato.webp" width="863" height="697" alt="" loading="lazy">
-            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">Luis Pardo juega a la ruleta rusa en Buenafuente</span></button>
+            <img {{ c.trailer.video_2.portada | img }} alt="" loading="lazy">
+            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.trailer.video_2.titulo | texto }}</span></button>
           </div>
-          <p class="video-caption">Experto en ponerte los pelos de punta con experiencias de riesgo.</p>
+          <p class="video-caption">{{ c.trailer.texto_2 | md }}</p>
         </div>
       </div>
     </div>
@@ -99,42 +95,34 @@
   <section class="section">
     <div class="wrap">
       <div class="section-head center">
-        <span class="eyebrow center" data-reveal>¿Qué vas a vivir?</span>
-        <h2 class="h2" data-reveal style="--d:.1s">Esto no es para cualquiera. Es para quien se atreve a mirar dentro.</h2>
+        <span class="eyebrow center" data-reveal>{{ c.esto_para_cualquiera.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.esto_para_cualquiera.titulo | titulo }}</h2>
       </div>
       <div class="grid-4">
         <div class="card" data-reveal>
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <h3 class="h3">Telepatía</h3>
-          <p>Sentirás conexiones telepáticas en tu propia mente.</p>
+          <h3 class="h3">{{ c.esto_para_cualquiera.telepatia.titulo | titulo }}</h3>
+          <p>{{ c.esto_para_cualquiera.telepatia.texto | md }}</p>
         </div>
         <div class="card" data-reveal style="--d:.1s">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-          <h3 class="h3">Predicciones</h3>
-          <p>Predicciones imposibles que te dejarán sin aliento.</p>
+          <h3 class="h3">{{ c.esto_para_cualquiera.predicciones.titulo | titulo }}</h3>
+          <p>{{ c.esto_para_cualquiera.predicciones.texto | md }}</p>
         </div>
         <div class="card" data-reveal style="--d:.2s">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2c3 4 5 6 5 10a5 5 0 0 1-10 0c0-4 2-6 5-10z"/><path d="M12 14v8"/></svg></div>
-          <h3 class="h3">Energías</h3>
-          <p>Serás testigo de energías que nos rodean: las sentirás quieras o no.</p>
+          <h3 class="h3">{{ c.esto_para_cualquiera.energias.titulo | titulo }}</h3>
+          <p>{{ c.esto_para_cualquiera.energias.texto | md }}</p>
         </div>
         <div class="card" data-reveal style="--d:.3s">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3a7 7 0 0 0-7 7v10l2.5-2 2.5 2 2-2 2 2 2.5-2 2.5 2V10a7 7 0 0 0-7-7z"/><circle cx="9.5" cy="10" r="1"/><circle cx="14.5" cy="10" r="1"/></svg></div>
-          <h3 class="h3">Espiritismo</h3>
-          <p>Experiencias emotivas que van más allá de la vida y la muerte.</p>
+          <h3 class="h3">{{ c.esto_para_cualquiera.espiritismo.titulo | titulo }}</h3>
+          <p>{{ c.esto_para_cualquiera.espiritismo.texto | md }}</p>
         </div>
       </div>
       <div class="grid-2 mt-4">
-        <ul class="checklist red" data-reveal>
-          <li><span>Formarás parte de un <strong>secreto exclusivo</strong> que muy pocas personas conocen.</span></li>
-          <li><span>Sentirás cosas que <strong>no sabrás explicar</strong>… ni podrás quitarte de la cabeza.</span></li>
-          <li><span>La mayoría de tus <strong>creencias se van a tambalear</strong>.</span></li>
-        </ul>
-        <ul class="checklist" data-reveal style="--d:.1s">
-          <li><span>En la única <strong>sala-museo dedicada al mentalismo</strong> de toda Europa.</span></li>
-          <li><span>Con nuestro exclusivo <strong>cóctel 7 Pecados</strong> durante la experiencia.</span></li>
-          <li><span>Si eres escéptico, <strong>este es tu espectáculo</strong>: no hace falta creer en algo para que exista.</span></li>
-        </ul>
+        <ul class="checklist red" data-reveal>{% for p in c.esto_para_cualquiera.puntos %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
+        <ul class="checklist" data-reveal style="--d:.1s">{% for p in c.esto_para_cualquiera.puntos_2 %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
       </div>
     </div>
   </section>
@@ -143,38 +131,30 @@
   <section class="section bg-vignette">
     <div class="wrap">
       <div class="section-head center">
-        <span class="eyebrow center" data-reveal>¿Quiénes te guían?</span>
-        <h2 class="h2" data-reveal style="--d:.1s">Dos mentes, un mismo pacto</h2>
+        <span class="eyebrow center" data-reveal>{{ c.dos_mentes_mismo.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.dos_mentes_mismo.titulo | titulo }}</h2>
       </div>
       <div class="grid-2" style="align-items:stretch">
         <article class="tarot" data-tilt data-reveal>
-          <div class="tarot-media" style="aspect-ratio:4/3"><img src="../assets/img/luis-cerebro.webp" width="1600" height="1084" alt="Luis Pardo sosteniendo un cerebro" loading="lazy"></div>
+          <div class="tarot-media" style="aspect-ratio:4/3"><img {{ c.dos_mentes_mismo.luis_pardo.imagen.src | img }} alt="{{ c.dos_mentes_mismo.luis_pardo.imagen.alt | texto }}" loading="lazy"></div>
           <div class="tarot-body">
-            <div class="tarot-meta"><span>Mentalista</span></div>
-            <h3>Luis Pardo</h3>
-            <p>Considerado uno de los 5 mejores mentalistas del mundo. 1er Premio Nacional 2004, 4º Premio Mundial 2017 y Récord Mundial de conducción a ciegas en moto 2011.</p>
-            <ul class="checklist">
-              <li><span>Capaz de adentrarse en tu mente con solo mirarte.</span></li>
-              <li><span>De conocer tu pasado, tu presente e incluso tu futuro.</span></li>
-              <li><span>Domina ciertas energías a su antojo.</span></li>
-            </ul>
+            <div class="tarot-meta">{% for d in c.dos_mentes_mismo.luis_pardo.datos %}<span>{{ d | texto }}</span>{% endfor %}</div>
+            <h3>{{ c.dos_mentes_mismo.luis_pardo.titulo | titulo }}</h3>
+            <p>{{ c.dos_mentes_mismo.luis_pardo.texto | md }}</p>
+            <ul class="checklist">{% for p in c.dos_mentes_mismo.luis_pardo.puntos %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
           </div>
         </article>
         <article class="tarot" data-tilt data-reveal style="--d:.1s">
-          <div class="tarot-media" style="aspect-ratio:4/3"><img src="../assets/img/minerva-ouija.webp" width="1242" height="1851" alt="M. Minerva con un tablero espiritista" loading="lazy" style="object-position:center 15%"></div>
+          <div class="tarot-media" style="aspect-ratio:4/3"><img {{ c.dos_mentes_mismo.minerva.imagen.src | img }} alt="{{ c.dos_mentes_mismo.minerva.imagen.alt | texto }}" loading="lazy" style="object-position:center 15%"></div>
           <div class="tarot-body">
-            <div class="tarot-meta"><span>Médium</span></div>
-            <h3>M. Minerva</h3>
-            <p>Apasionada de lo misterioso, lo oculto y lo paranormal. Amante de lo prohibido y de las emociones fuertes.</p>
-            <ul class="checklist">
-              <li><span>Te hará sentir emociones que van más allá de toda lógica.</span></li>
-              <li><span>Experiencias más allá de la vida y la muerte tal como las conoces.</span></li>
-              <li><span>Si existen los espíritus… Minerva sabe cómo hacerlos hablar.</span></li>
-            </ul>
+            <div class="tarot-meta">{% for d in c.dos_mentes_mismo.minerva.datos %}<span>{{ d | texto }}</span>{% endfor %}</div>
+            <h3>{{ c.dos_mentes_mismo.minerva.titulo | titulo }}</h3>
+            <p>{{ c.dos_mentes_mismo.minerva.texto | md }}</p>
+            <ul class="checklist">{% for p in c.dos_mentes_mismo.minerva.puntos %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
           </div>
         </article>
       </div>
-      <p class="quote-big center mt-4" data-reveal>Lo desconocido atrae. Pero cuando lo vives en primera persona, o te apasiona… o sales corriendo.</p>
+      <p class="quote-big center mt-4" data-reveal>{{ c.dos_mentes_mismo.texto | md }}</p>
     </div>
   </section>
 
@@ -182,25 +162,19 @@
   <section class="section">
     <div class="wrap">
       <div class="section-head center">
-        <span class="eyebrow center" data-reveal>Lo que dicen quienes han venido</span>
-        <h2 class="h2" data-reveal style="--d:.1s">9,9 sobre 10 en Atrápalo</h2>
-        <p class="lead" data-reveal style="--d:.2s">Más de 800 opiniones. El espectáculo mejor valorado de toda España en la plataforma.</p>
+        <span class="eyebrow center" data-reveal>{{ c.n9_9_sobre.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.n9_9_sobre.titulo | titulo }}</h2>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.n9_9_sobre.entradilla | md }}</p>
       </div>
       <div class="grid-2" style="align-items:start">
         <div data-reveal>
           <div class="video vertical" data-video="../assets/media/cedp-opiniones.mp4">
-            <img src="../assets/img/spirit-club-6.webp" width="1600" height="1090" alt="" loading="lazy">
-            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">Opiniones de quienes ya lo han vivido</span></button>
+            <img {{ c.n9_9_sobre.video.portada | img }} alt="" loading="lazy">
+            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.n9_9_sobre.video.titulo | texto }}</span></button>
           </div>
         </div>
         <div class="carousel" data-carousel data-autoplay="6000" data-reveal style="--d:.1s">
-          <div class="carousel-track" style="grid-auto-columns:100%">
-            <figure class="card vip-card"><blockquote>«Luis Pardo tiene el mejor espectáculo de mentalismo de todo el mundo, y además su estilo es único.»</blockquote><figcaption class="who">El Mago Pop</figcaption></figure>
-            <figure class="card vip-card"><blockquote>«Me gusta Luis Pardo porque ha creado una nueva categoría de la magia.»</blockquote><figcaption class="who">Risto Mejide</figcaption></figure>
-            <figure class="card vip-card"><blockquote>«Nunca he visto nada igual. Te pone los pelos de punta.»</blockquote><figcaption class="who">Pilar Rubio</figcaption></figure>
-            <figure class="card vip-card"><blockquote>«Tres horas que se hacen cortas. No se puede explicar: lo tienes que vivir.»</blockquote><figcaption class="who">Elisa · Público</figcaption></figure>
-            <figure class="card vip-card"><blockquote>«Una experiencia que no te deja indiferente. Me quedé fascinada.»</blockquote><figcaption class="who">Público · 2026</figcaption></figure>
-          </div>
+          <div class="carousel-track" style="grid-auto-columns:100%">{% for o in c.n9_9_sobre.opiniones %}<figure class="card vip-card"><blockquote>«{{ o.cita | md }}»</blockquote>{% if o.autor %}<figcaption class="who">{{ o.autor | texto }}</figcaption>{% endif %}</figure>{% endfor %}</div>
           <div class="carousel-nav">
             <div class="carousel-dots"></div>
             <button class="carousel-btn carousel-prev" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -217,48 +191,48 @@
       <div class="grid-2" style="align-items:start">
         <div class="stack-lg">
           <div class="stack">
-            <span class="eyebrow" data-reveal>Entradas</span>
-            <h2 class="h2" data-reveal style="--d:.1s">Una noche. Tu mente. Una revelación de todos tus sentidos.</h2>
-            <p class="lead" data-reveal style="--d:.2s">Las plazas se limitan a 26 personas por función y suelen agotarse rápido.</p>
+            <span class="eyebrow" data-reveal>{{ c.entradas.antetitulo | texto }}</span>
+            <h2 class="h2" data-reveal style="--d:.1s">{{ c.entradas.titulo | titulo }}</h2>
+            <p class="lead" data-reveal style="--d:.2s">{{ c.entradas.entradilla | md }}</p>
           </div>
-          <div class="notice" data-reveal style="--d:.25s"><strong>Oferta limitada por función.</strong> Solo un número muy reducido de entradas tiene un precio especial de hasta un 50% de descuento. Cuando se agotan, las demás pasan automáticamente a precio normal.</div>
+          <div class="notice" data-reveal style="--d:.25s">{{ c.entradas.aviso | md }}</div>
           <div class="row" data-reveal style="--d:.3s">
-            <a class="btn btn-blood btn-lg" href="https://www.dinaticket.com/es/provider/17243/event/4843342" target="_blank" rel="noopener">Comprar entradas</a>
+            <a class="btn btn-blood btn-lg" {{ ajustes.entradas.cedp | enlace }}>{{ c.entradas.boton | texto }}</a>
           </div>
           <div class="guarantee" data-reveal style="--d:.35s">
-            <div class="seal">SI NO TE<br>SORPRENDEMOS<br>TE DEVOLVEMOS<br>EL DINERO</div>
-            <p class="muted">Estamos tan seguros de que te vas a sorprender que, si no es así, te devolvemos el dinero de tus entradas.</p>
+            <div class="seal">{{ c.entradas.bloque.sello | md }}</div>
+            <p class="muted">{{ c.entradas.bloque.texto | md }}</p>
           </div>
         </div>
         <div class="faq" data-reveal style="--d:.15s">
           <details open>
-            <summary>¿Cuánto dura?</summary>
-            <div>Unas 2 horas y 45 minutos, más una pausa de 15 minutos. Quien no haya estado en la primera parte no podrá acceder a la segunda.</div>
+            <summary>{{ c.entradas.bloque_2.texto | texto }}</summary>
+            <div>{{ c.entradas.bloque_2.texto_2 | md }}</div>
           </details>
           <details>
-            <summary>¿A qué hora debo llegar?</summary>
-            <div>La sala abre 30 minutos antes y cierra a la hora de inicio. Una vez empezada la función no se puede entrar, porque interrumpiría la experiencia del resto.</div>
+            <summary>{{ c.entradas.bloque_3.texto | texto }}</summary>
+            <div>{{ c.entradas.bloque_3.texto_2 | md }}</div>
           </details>
           <details>
-            <summary>¿Da miedo?</summary>
-            <div>No. A pesar del título, el miedo y los sustos no forman parte de la experiencia. Lo que vas a vivir es emoción, asombro y muchas preguntas.</div>
+            <summary>{{ c.entradas.bloque_4.texto | texto }}</summary>
+            <div>{{ c.entradas.bloque_4.texto_2 | md }}</div>
           </details>
           <details>
-            <summary>No puedo asistir, ¿qué hago?</summary>
-            <div>No se admiten cambios ni devoluciones, pero puedes ceder tus entradas a otra persona para que asista en tu lugar. Consulta la <a class="gold" href="../politica-de-devoluciones/">política de devoluciones</a>.</div>
+            <summary>{{ c.entradas.bloque_5.texto | texto }}</summary>
+            <div>{{ c.entradas.bloque_5.texto_2 | md }}</div>
           </details>
           <details>
-            <summary>¿Dónde es?</summary>
-            <div>En Spirit Club Bcn, la coctelería-teatro dedicada al mentalismo en Barcelona. Recibirás la dirección exacta con tu entrada.</div>
+            <summary>{{ c.entradas.bloque_6.texto | texto }}</summary>
+            <div>{{ c.entradas.bloque_6.texto_2 | md }}</div>
           </details>
         </div>
       </div>
-      <p class="center dim mt-4" style="font-size:.85rem; letter-spacing:.2em; text-transform:uppercase">Una producción de Clan Destino Mental S.L.</p>
+      <p class="center dim mt-4" style="font-size:.85rem; letter-spacing:.2em; text-transform:uppercase">{{ c.entradas.texto | md }}</p>
     </div>
   </section>
 </main>
 
 <div class="sticky-cta">
-  <a class="btn btn-blood btn-sm" href="https://www.dinaticket.com/es/provider/17243/event/4843342" target="_blank" rel="noopener">Comprar entradas</a>
+  <a class="btn btn-blood btn-sm" {{ ajustes.entradas.cedp | enlace }}>{{ c.barra_reserva.boton | texto }}</a>
 </div>
 {% endblock %}

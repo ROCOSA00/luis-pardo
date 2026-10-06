@@ -1,0 +1,105 @@
+{
+  "seo": {
+    "titulo": "Comprar entradas · Experiencias de mentalismo en Barcelona | Luis Pardo",
+    "descripcion": "Elige tu experiencia: Cuando el Diablo Piensa, MisterioSants, Spirit-Péndulum o una sesión espiritista privada con Luis Pardo en Barcelona.",
+    "titulo_redes": "Entradas · Luis Pardo Mentalista",
+    "imagen_redes": "/assets/img/cedp-cartel.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/spirit-club-6.webp",
+    "antetitulo": "Entradas",
+    "titulo": "Elige qué quieres *vivir*",
+    "entradilla": "Experiencias únicas de mentalismo, hipnosis y espiritismo a dos palmos de distancia, con uno de los 5 mejores mentalistas del mundo. Reserva antes de que se agoten."
+  },
+  "seccion_2": {
+    "cuando_diablo_piensa": {
+      "datos": [
+        "Espectáculo",
+        "Máx. 26 personas",
+        "≈ 3 h"
+      ],
+      "titulo": "Cuando el Diablo Piensa",
+      "entradilla": "El espectáculo más exclusivo e inmersivo de Luis Pardo y M. Minerva: emoción y sensaciones de todo tipo que hacen tambalear incluso a los más escépticos.",
+      "puntos": [
+        "Hasta un **50% de descuento** en un número limitado de entradas por función.",
+        "Incluye el cóctel **7 Pecados**.",
+        "**Garantía:** si no te sorprendemos, te devolvemos el dinero."
+      ],
+      "boton": "Comprar entradas",
+      "enlace": {
+        "texto": "Más información",
+        "enlace": "/cuando-el-diablo-piensa/"
+      },
+      "imagen": {
+        "src": "/assets/img/cedp-cartel.webp",
+        "alt": "Cartel de Cuando el Diablo Piensa"
+      }
+    },
+    "misteriosants": {
+      "imagen": {
+        "src": "/assets/img/misteriosants.webp",
+        "alt": "Cartel de MisterioSants"
+      },
+      "datos": [
+        "Ruta",
+        "Show",
+        "Cóctel"
+      ],
+      "titulo": "MisterioSants",
+      "entradilla": "Tres experiencias en una sola noche por el barrio de Sants.",
+      "una_ruta_misteriosa": {
+        "titulo": "Una ruta misteriosa",
+        "texto": "Por lugares misteriosos y paranormales, guiada por M. Minerva."
+      },
+      "show_mentalismo": {
+        "titulo": "Un show de mentalismo",
+        "texto": "Con Luis Pardo, en un formato muy especial y de gran impacto."
+      },
+      "coctel_autor": {
+        "titulo": "Un cóctel de autor",
+        "texto": "Exclusivo, en nuestra coctelería [Spirit Cocktails Bcn](http://www.spiritcocktailsbcn.com/)."
+      },
+      "boton": "Comprar entradas"
+    },
+    "spirit_pendulum": {
+      "imagen": {
+        "src": "/assets/img/spirit-pendulum.webp",
+        "alt": "Spirit-Péndulum"
+      },
+      "datos": [
+        "Péndulo",
+        "Cóctel a elegir"
+      ],
+      "titulo": "Spirit-Péndulum",
+      "texto": "Sesiones espiritistas personalizadas con Luis Pardo, con lectura de péndulo y un cóctel a elegir en Spirit Club Bcn.",
+      "boton": "Reservar"
+    },
+    "sesion_espiritista_privada": {
+      "imagen": {
+        "src": "/assets/img/sesion-cartel.webp",
+        "alt": "Sesión espiritista con Luis Pardo"
+      },
+      "datos": [
+        "Privada",
+        "150 €"
+      ],
+      "titulo": "Sesión espiritista privada",
+      "texto": "Una sesión guiada y personalizada para conectar con quien ya no está. Si no se logra conexión, no pagas nada.",
+      "boton": {
+        "texto": "Solicitar día y hora",
+        "enlace": "/sesiones-espiritistas/"
+      }
+    },
+    "evento_empresa_una": {
+      "titulo": "¿Un evento de empresa o una celebración privada?",
+      "texto": "Luis Pardo adapta sus actuaciones a cenas de empresa, presentaciones y eventos de cualquier tipo.",
+      "boton": {
+        "texto": "Eventos para empresas",
+        "enlace": "/empresas/"
+      }
+    }
+  },
+  "seccion_3": {
+    "aviso": "**Antes de comprar:** la sala abre 30 minutos antes de cada función y cierra a la hora de inicio. Si llegas tarde no podrás acceder ni se aceptarán cambios. Consulta la [política de devoluciones](/politica-de-devoluciones/)."
+  }
+}

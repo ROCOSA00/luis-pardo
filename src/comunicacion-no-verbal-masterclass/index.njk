@@ -1,21 +1,21 @@
 {% extends "layouts/base.njk" %}
 {% block head %}
-<title>Masterclass gratuita: Comunicación No Verbal · Luis Pardo</title>
-<meta name="description" content="Masterclass gratuita de Comunicación No Verbal con Luis Pardo: aprende a detectar gestos, microexpresiones y señales que casi nadie ve.">
-<link rel="canonical" href="https://luis-pardo.vercel.app/comunicacion-no-verbal-masterclass/">
-<meta property="og:title" content="Masterclass: Comunicación No Verbal · Luis Pardo">
-<meta property="og:image" content="https://luis-pardo.vercel.app/assets/img/cnv.webp">
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
+<meta property="og:title" content="{{ c.seo.titulo_redes | texto }}">
+<meta property="og:image" content="{{ sitio.url }}{{ c.seo.imagen_redes }}">
 {% endblock %}
 {% block main %}
 <main id="main">
   <section class="page-hero">
-    <div class="hero-bg"><img src="../assets/img/cnv.webp" width="1536" height="1024" alt="" fetchpriority="high"></div>
+    <div class="hero-bg"><img {{ c.cabecera.imagen | img }} alt="" fetchpriority="high"></div>
     <div class="wrap">
       <div class="page-hero-inner">
         <nav class="breadcrumb" aria-label="Migas de pan" data-reveal><a href="../">Inicio</a><span aria-hidden="true">/</span><a href="../curso/">Tu mente</a><span aria-hidden="true">/</span><span>Masterclass</span></nav>
-        <span class="eyebrow" data-reveal>Masterclass gratuita</span>
-        <h1 class="display" data-reveal style="--d:.1s">Comunicación <span class="text-gradient">No Verbal</span></h1>
-        <p class="lead" data-reveal style="--d:.2s">Hay gestos que delatan lo que una persona está pensando, aunque no diga nada. En esta masterclass vas a empezar a detectar señales que la mayoría no ve.</p>
+        <span class="eyebrow" data-reveal>{{ c.cabecera.antetitulo | texto }}</span>
+        <h1 class="display" data-reveal style="--d:.1s">{{ c.cabecera.titulo | titulo }}</h1>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.cabecera.entradilla | md }}</p>
       </div>
     </div>
   </section>
@@ -24,63 +24,48 @@
     <div class="wrap stack-lg">
       <div class="grid-2" style="align-items:start">
         <div class="stack" data-reveal>
-          <span class="eyebrow">Vídeo 1</span>
+          <span class="eyebrow">{{ c.seccion_2.antetitulo | texto }}</span>
           <div class="video" data-video="../assets/media/masterclass-cnv-1.mp4">
-            <img src="../assets/img/cnv.webp" width="1536" height="1024" alt="" loading="lazy">
-            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">Empieza la masterclass</span></button>
+            <img {{ c.seccion_2.video.portada | img }} alt="" loading="lazy">
+            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.seccion_2.video.titulo | texto }}</span></button>
           </div>
-          <p class="muted">Esto ocurre en todas las conversaciones, pero casi nadie lo detecta: no han entrenado la observación de gestos, microexpresiones y emociones ocultas. Cuando empiezas a verlo, ya no puedes dejar de verlo.</p>
+          <p class="muted">{{ c.seccion_2.texto | md }}</p>
         </div>
         <div class="stack" data-reveal style="--d:.1s">
-          <span class="eyebrow">Vídeo 2 · Ejercicio</span>
+          <span class="eyebrow">{{ c.seccion_2.antetitulo_2 | texto }}</span>
           <div class="video" data-video="../assets/media/masterclass-cnv-2.mp4">
-            <img src="../assets/img/alquimia.webp" width="1024" height="1536" alt="" loading="lazy" style="object-position:center 30%">
-            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">Haz el ejercicio</span></button>
+            <img {{ c.seccion_2.video_2.portada | img }} alt="" loading="lazy" style="object-position:center 30%">
+            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.seccion_2.video_2.titulo | texto }}</span></button>
           </div>
-          <p class="muted">Con este ejercicio comprobarás que la manera de entrar en un lugar, de sentarse, de mirar o de reaccionar en menos de un segundo dice mucho más de lo que parece.</p>
+          <p class="muted">{{ c.seccion_2.texto_2 | md }}</p>
         </div>
       </div>
-      <p class="quote-big center" data-reveal>Esto no va de intuición. Va de entrenamiento.</p>
+      <p class="quote-big center" data-reveal>{{ c.seccion_2.texto_3 | md }}</p>
     </div>
   </section>
 
   <section class="section bg-vignette">
     <div class="wrap">
       <div class="grid-2">
-        <div class="frame frame-tall frame-deco" data-reveal="left" style="max-width:440px"><img src="../assets/img/alquimia.webp" width="1024" height="1536" alt="Cartel de La Alquimia de la Mente" loading="lazy"></div>
+        <div class="frame frame-tall frame-deco" data-reveal="left" style="max-width:440px"><img {{ c.alquimia_mente.imagen.src | img }} alt="{{ c.alquimia_mente.imagen.alt | texto }}" loading="lazy"></div>
         <div class="stack-lg">
           <div class="stack">
-            <span class="eyebrow" data-reveal>El siguiente paso</span>
-            <h2 class="h2" data-reveal style="--d:.1s">La Alquimia de la Mente</h2>
-            <p class="lead" data-reveal style="--d:.2s">Mi club privado de entrenamiento mental. Vídeos, ejercicios prácticos y entrenamiento real para entender tus emociones, interpretar las de los demás y decidir con más control.</p>
+            <span class="eyebrow" data-reveal>{{ c.alquimia_mente.antetitulo | texto }}</span>
+            <h2 class="h2" data-reveal style="--d:.1s">{{ c.alquimia_mente.titulo | titulo }}</h2>
+            <p class="lead" data-reveal style="--d:.2s">{{ c.alquimia_mente.entradilla | md }}</p>
           </div>
           <div data-reveal style="--d:.25s">
-            <h3 class="h3 mb-2">Y además aprenderás a:</h3>
-            <ul class="checklist">
-              <li><span>Detectar emociones reales en otras personas.</span></li>
-              <li><span>Anticiparte a reacciones.</span></li>
-              <li><span>No dejarte arrastrar por impulsos.</span></li>
-              <li><span>Interpretar cambios en una conversación.</span></li>
-              <li><span>Saber cuándo alguien duda, evita o miente.</span></li>
-              <li><span>Entender lo que ocurre aunque no lo digan.</span></li>
-            </ul>
+            <h3 class="h3 mb-2">{{ c.alquimia_mente.titulo_2 | titulo }}</h3>
+            <ul class="checklist">{% for p in c.alquimia_mente.puntos %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
           </div>
           <div data-reveal style="--d:.3s">
-            <h3 class="h3 mb-2">Áreas que entrenarás:</h3>
-            <ul class="pill-list">
-              <li>Inteligencia emocional</li>
-              <li>Persuasión</li>
-              <li>Hipnosis real</li>
-              <li>Agilidad mental y memoria</li>
-              <li>Lectura mental e intuición</li>
-              <li>El mundo de las energías</li>
-              <li>Uso del péndulo</li>
-            </ul>
+            <h3 class="h3 mb-2">{{ c.alquimia_mente.titulo_3 | titulo }}</h3>
+            <ul class="pill-list">{% for p in c.alquimia_mente.puntos_2 %}<li>{{ p | md }}</li>{% endfor %}</ul>
           </div>
           <div class="card" data-reveal style="--d:.35s">
-            <div class="price-tag"><span class="now">37 €</span><span class="was">67,95 €</span><span class="per">precio reducido durante unos días</span></div>
-            <p class="mt-1">Sin permanencia, sin compromiso. Plazas limitadas para poder estar presente en las clases en directo y acompañar a cada persona. Incluye audios MPM para relajarte, liberar estrés y concentrarte.</p>
-            <div class="row mt-2"><a class="btn btn-blood btn-lg" href="https://pay.hotmart.com/U104869473V" target="_blank" rel="noopener">Acceder con el precio reducido</a></div>
+            <div class="price-tag"><span class="now">{{ c.alquimia_mente.bloque.texto | texto }}</span><span class="was">{{ c.alquimia_mente.bloque.texto_2 | texto }}</span><span class="per">{{ c.alquimia_mente.bloque.texto_3 | texto }}</span></div>
+            <p class="mt-1">{{ c.alquimia_mente.bloque.texto_4 | md }}</p>
+            <div class="row mt-2"><a class="btn btn-blood btn-lg" {{ c.alquimia_mente.bloque.boton.enlace | enlace }}>{{ c.alquimia_mente.bloque.boton.texto | texto }}</a></div>
           </div>
         </div>
       </div>
@@ -89,11 +74,11 @@
 
   <section class="section cta-final">
     <div class="wrap-narrow stack-lg" style="justify-items:center">
-      <h2 class="h2" data-reveal>Esta masterclass ha sido solo la puerta de entrada</h2>
-      <p class="lead" data-reveal style="--d:.1s">Imagina lo que puedes conseguir si entrenas tu mente de verdad.</p>
+      <h2 class="h2" data-reveal>{{ c.esta_masterclass_sido.titulo | titulo }}</h2>
+      <p class="lead" data-reveal style="--d:.1s">{{ c.esta_masterclass_sido.entradilla | md }}</p>
       <div class="row center" data-reveal style="--d:.2s">
-        <a class="btn btn-blood btn-lg" href="https://pay.hotmart.com/U104869473V" target="_blank" rel="noopener">Entrar en el club</a>
-        <a class="btn btn-ghost btn-lg" href="../inteligencia-emocional-masterclass/">Masterclass de Inteligencia Emocional</a>
+        <a class="btn btn-blood btn-lg" {{ c.esta_masterclass_sido.boton.enlace | enlace }}>{{ c.esta_masterclass_sido.boton.texto | texto }}</a>
+        <a class="btn btn-ghost btn-lg" {{ c.esta_masterclass_sido.boton_2.enlace | enlace }}>{{ c.esta_masterclass_sido.boton_2.texto | texto }}</a>
       </div>
     </div>
   </section>

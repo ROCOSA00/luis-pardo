@@ -1,125 +1,43 @@
 {% extends "layouts/base.njk" %}
 {% block head %}
-<title>Espectáculos anteriores · Más de 2.000 funciones | Luis Pardo</title>
-<meta name="description" content="Hypnos, Paranoid, En Tu Mente, Miedo, Posesión Hipnótica, DeMente, Secretos, Hypnoerotic, Virtual-Mente Conectados… Todos los espectáculos de Luis Pardo.">
-<link rel="canonical" href="https://luis-pardo.vercel.app/espectaculos-anteriores/">
-<meta property="og:title" content="Espectáculos anteriores · Luis Pardo">
-<meta property="og:image" content="https://luis-pardo.vercel.app/assets/img/show-hypnos.webp">
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
+<meta property="og:title" content="{{ c.seo.titulo_redes | texto }}">
+<meta property="og:image" content="{{ sitio.url }}{{ c.seo.imagen_redes }}">
 {% endblock %}
 {% block main %}
 <main id="main">
   <section class="page-hero">
-    <div class="hero-bg"><img src="../assets/img/show-posesion.webp" width="1157" height="1632" alt="" fetchpriority="high"></div>
+    <div class="hero-bg"><img {{ c.cabecera.imagen | img }} alt="" fetchpriority="high"></div>
     <div class="wrap">
       <div class="page-hero-inner">
         <nav class="breadcrumb" aria-label="Migas de pan" data-reveal><a href="../">Inicio</a><span aria-hidden="true">/</span><a href="../el-mentalista/">Luis Pardo</a><span aria-hidden="true">/</span><span>Espectáculos</span></nav>
-        <span class="eyebrow" data-reveal>Trayectoria</span>
-        <h1 class="display" data-reveal style="--d:.1s">Espectáculos <span class="text-gradient">anteriores</span></h1>
-        <p class="lead" data-reveal style="--d:.2s">Todos han sido éxito de taquilla, y la mayoría fueron los más vistos de Catalunya en teatros de medio aforo durante varios años consecutivos.</p>
+        <span class="eyebrow" data-reveal>{{ c.cabecera.antetitulo | texto }}</span>
+        <h1 class="display" data-reveal style="--d:.1s">{{ c.cabecera.titulo | titulo }}</h1>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.cabecera.entradilla | md }}</p>
       </div>
     </div>
   </section>
 
   <section class="section-tight">
     <div class="wrap">
-      <div class="stats stats-3" data-reveal>
-        <div class="stat"><span class="stat-num" data-count="2000" data-prefix="+">+2.000</span><span class="stat-label">Funciones</span></div>
-        <div class="stat"><span class="stat-num" data-count="500000" data-prefix="+">+500.000</span><span class="stat-label">Espectadores</span></div>
-        <div class="stat"><span class="stat-num" data-count="11">11</span><span class="stat-label">Espectáculos</span></div>
-      </div>
+      <div class="stats stats-3" data-reveal>{% for s in c.seccion_2.cifras %}<div class="stat"><span class="stat-num" {{ s.cifra | cifra }}>{{ s.cifra | texto }}</span><span class="stat-label">{{ s.texto | texto }}</span></div>{% endfor %}</div>
     </div>
   </section>
 
   <section class="section-tight">
     <div class="wrap">
-      <p class="center dim mb-2" data-reveal>Pasa el cursor (o pulsa ⟲) sobre cada cartel para descubrir su historia.</p>
-      <div class="grid-auto">
-        <article class="flip" data-reveal>
-          <div class="flip-inner">
-            <div class="flip-face flip-front"><img src="../assets/img/show-cedp.webp" width="1134" height="1371" alt="Cartel de Cuando el Diablo Piensa (primera versión)" loading="lazy"><span class="flip-title">Cuando el Diablo Piensa</span></div>
-            <div class="flip-face flip-back"><span class="tag">El origen</span><h3>Cuando el Diablo Piensa</h3><p>Todo gira en torno a un pacto con el Diablo. Fue el primer espectáculo producido por Luis Pardo y marcó un antes y un después en su carrera. ¿De dónde vienen sus habilidades para entrar en nuestras mentes?</p><p>Si crees en Dios, es porque el Diablo existe. O quizá no…</p></div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Girar cartel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-        </article>
-        <article class="flip" data-reveal style="--d:.05s">
-          <div class="flip-inner">
-            <div class="flip-face flip-front"><img src="../assets/img/show-hypnos.webp" width="1125" height="1408" alt="Cartel de Hypnos" loading="lazy"><span class="flip-title">Hypnos</span></div>
-            <div class="flip-face flip-back"><span class="tag">Hipnosis</span><h3>Hypnos</h3><p>El primer espectáculo de Luis Pardo dedicado exclusivamente a la hipnosis. Además de entretener, muestra lo poderosa que es como herramienta: sobre el escenario hubo personas que dejaron sus fobias, potenciaron su capacidad mental o dejaron de fumar.</p></div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Girar cartel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-        </article>
-        <article class="flip" data-reveal style="--d:.1s">
-          <div class="flip-inner">
-            <div class="flip-face flip-front"><img src="../assets/img/show-paranoid.webp" width="1124" height="1606" alt="Cartel de Paranoid" loading="lazy"><span class="flip-title">Paranoid</span></div>
-            <div class="flip-face flip-back"><span class="tag">El más teatral</span><h3>Paranoid</h3><p>La obra más arriesgada y teatral de Luis Pardo y la primera con Mistress Minerva. Mezcla mentalismo, faquirismo y BDSM, con la colaboración especial de David Moreno (Horror Box) como conductor de la historia en los audiovisuales.</p></div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Girar cartel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-        </article>
-        <article class="flip" data-reveal style="--d:.15s">
-          <div class="flip-inner">
-            <div class="flip-face flip-front"><img src="../assets/img/show-en-tu-mente.webp" width="1125" height="1606" alt="Cartel de En Tu Mente" loading="lazy"><span class="flip-title">En Tu Mente</span></div>
-            <div class="flip-face flip-back"><span class="tag">Minimalista</span><h3>En Tu Mente</h3><p>Sin decorado, sin atrezo, sin aparatos: solo él y su público. Comunicación no verbal, programación neurolingüística, sugestión y mensajes subliminales como únicas armas, para descubrir una parte asombrosa del cerebro.</p></div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Girar cartel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-        </article>
-        <article class="flip" data-reveal>
-          <div class="flip-inner">
-            <div class="flip-face flip-front"><img src="../assets/img/show-miedo.webp" width="1111" height="1566" alt="Cartel de Miedo" loading="lazy"><span class="flip-title">Miedo</span></div>
-            <div class="flip-face flip-back"><span class="tag">Función única</span><h3>Miedo</h3><p>Tan brutal que solo se hizo una vez, una noche de Halloween, con 14 participantes. Empezó con Luis suspendido del techo por ganchos en la espalda y terminó con su escape de una camisa de fuerza colgado por los pies, con la banda Inmune tocando en directo.</p></div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Girar cartel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-        </article>
-        <article class="flip" data-reveal style="--d:.05s">
-          <div class="flip-inner">
-            <div class="flip-face flip-front"><img src="../assets/img/show-posesion.webp" width="1157" height="1632" alt="Cartel de Posesión Hipnótica" loading="lazy"><span class="flip-title">Posesión Hipnótica</span></div>
-            <div class="flip-face flip-back"><span class="tag">Paranormal</span><h3>Posesión Hipnótica</h3><p>Dedicado a los fenómenos paranormales, con Enriqueta Martí, «la Vampira de Barcelona», como hilo conductor. Durante la temporada ocurrieron cosas a las que ni Pardo ni Minerva han encontrado explicación lógica.</p></div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Girar cartel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-        </article>
-        <article class="flip" data-reveal style="--d:.1s">
-          <div class="flip-inner">
-            <div class="flip-face flip-front"><img src="../assets/img/show-hypnos-2.webp" width="1176" height="1701" alt="Cartel de Hypnos Vol. 2" loading="lazy"><span class="flip-title">Hypnos Vol. 2</span></div>
-            <div class="flip-face flip-back"><span class="tag">Hipnosis</span><h3>Hypnos Vol. 2</h3><p>Tras el éxito de Hypnos, un paso más allá. Entre las nuevas experiencias destacó una hipnosis colectiva en la que todo el público hizo un viaje astral guiado por Luis Pardo. Déjate llevar y sueña.</p></div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Girar cartel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-        </article>
-        <article class="flip" data-reveal style="--d:.15s">
-          <div class="flip-inner">
-            <div class="flip-face flip-front"><img src="../assets/img/show-demente.webp" width="1133" height="1620" alt="Cartel de DeMente" loading="lazy"><span class="flip-title">DeMente</span></div>
-            <div class="flip-face flip-back"><span class="tag">Locura o genialidad</span><h3>DeMente</h3><p>Luis Pardo y Mistress Minerva exploran la delgada línea entre la locura y la genialidad: a lo largo de la historia, a muchos genios —Dalí, Van Gogh, Poe, Newton, Beethoven— se les tachó de locos.</p></div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Girar cartel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-        </article>
-        <article class="flip" data-reveal>
-          <div class="flip-inner">
-            <div class="flip-face flip-front"><img src="../assets/img/show-secretos.webp" width="1157" height="1564" alt="Cartel de Secretos" loading="lazy"><span class="flip-title">Secretos</span></div>
-            <div class="flip-face flip-back"><span class="tag">Psique</span><h3>Secretos</h3><p>Uno de los shows que más sorprende: cada experiencia va directa a la psique del espectador. Pardo y Minerva muestran algunos de sus mejores secretos, recorren la vida de Luis… y hablan de los tuyos. Porque Luis Pardo los sabe todos.</p></div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Girar cartel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-        </article>
-        <article class="flip" data-reveal style="--d:.05s">
-          <div class="flip-inner">
-            <div class="flip-face flip-front"><img src="../assets/img/show-hypnoerotic.webp" width="1123" height="1623" alt="Cartel de Hypnoerotic" loading="lazy"><span class="flip-title">Hypnoerotic</span></div>
-            <div class="flip-face flip-back"><span class="tag">+18</span><h3>Hypnoerotic</h3><p>El único espectáculo íntegro de hipnosis erótica del mundo. Un recorrido por los deseos del público que rompe tabúes y normaliza cualquier práctica consensuada y cualquier orientación: todos somos iguales. Con el tema «Mis fantasías», compuesto por Joel Reyes.</p></div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Girar cartel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-        </article>
-        <article class="flip" data-reveal style="--d:.1s">
-          <div class="flip-inner">
-            <div class="flip-face flip-front"><img src="../assets/img/show-virtual.webp" width="1186" height="1589" alt="Cartel de Virtual-Mente Conectados" loading="lazy"><span class="flip-title">Virtual-Mente Conectados</span></div>
-            <div class="flip-face flip-back"><span class="tag">Pionero</span><h3>Virtual-Mente Conectados</h3><p>El primer espectáculo virtual e interactivo de mentalismo del mundo: a través de la pantalla, la magia sucede en las manos del espectador. Durante la pandemia se convirtió en referencia para magos y mentalistas que crearon sus shows online.</p></div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Girar cartel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-        </article>
-      </div>
+      <p class="center dim mb-2" data-reveal>{{ c.seccion_3.texto | md }}</p>
+      <div class="grid-auto">{% for e in c.seccion_3.espectaculos %}<article class="flip" data-reveal{{ retardo(loop.index0, 5, 4) }}><div class="flip-inner"><div class="flip-face flip-front"><img {{ e.imagen.src | img }} alt="{{ e.imagen.alt | texto }}" loading="lazy"><span class="flip-title">{{ e.titulo | texto }}</span></div><div class="flip-face flip-back"><span class="tag">{{ e.etiqueta | texto }}</span><h3>{{ e.titulo | texto }}</h3>{{ e.texto | mdBloque({ enlace: "gold" }) }}</div></div><button class="flip-btn" type="button" aria-label="Girar cartel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button></article>{% endfor %}</div>
     </div>
   </section>
 
   <section class="section cta-final">
     <div class="wrap-narrow stack-lg" style="justify-items:center">
-      <span class="eyebrow center" data-reveal>Ahora en cartel</span>
-      <h2 class="h2" data-reveal style="--d:.1s">La historia continúa con Cuando el Diablo Piensa</h2>
-      <div class="row center" data-reveal style="--d:.2s"><a class="btn btn-blood btn-lg" href="../cuando-el-diablo-piensa/">Descubrir el espectáculo</a></div>
+      <span class="eyebrow center" data-reveal>{{ c.historia_continua_con.antetitulo | texto }}</span>
+      <h2 class="h2" data-reveal style="--d:.1s">{{ c.historia_continua_con.titulo | titulo }}</h2>
+      <div class="row center" data-reveal style="--d:.2s"><a class="btn btn-blood btn-lg" {{ c.historia_continua_con.boton.enlace | enlace }}>{{ c.historia_continua_con.boton.texto | texto }}</a></div>
     </div>
   </section>
 </main>

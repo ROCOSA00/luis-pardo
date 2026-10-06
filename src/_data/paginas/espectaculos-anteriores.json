@@ -1,0 +1,142 @@
+{
+  "seo": {
+    "titulo": "Espectáculos anteriores · Más de 2.000 funciones | Luis Pardo",
+    "descripcion": "Hypnos, Paranoid, En Tu Mente, Miedo, Posesión Hipnótica, DeMente, Secretos, Hypnoerotic, Virtual-Mente Conectados… Todos los espectáculos de Luis Pardo.",
+    "titulo_redes": "Espectáculos anteriores · Luis Pardo",
+    "imagen_redes": "/assets/img/show-hypnos.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/show-posesion.webp",
+    "antetitulo": "Trayectoria",
+    "titulo": "Espectáculos *anteriores*",
+    "entradilla": "Todos han sido éxito de taquilla, y la mayoría fueron los más vistos de Catalunya en teatros de medio aforo durante varios años consecutivos."
+  },
+  "seccion_2": {
+    "cifras": [
+      {
+        "cifra": "+2.000",
+        "texto": "Funciones"
+      },
+      {
+        "cifra": "+500.000",
+        "texto": "Espectadores"
+      },
+      {
+        "cifra": "11",
+        "texto": "Espectáculos"
+      }
+    ]
+  },
+  "seccion_3": {
+    "texto": "Pasa el cursor (o pulsa ⟲) sobre cada cartel para descubrir su historia.",
+    "espectaculos": [
+      {
+        "titulo": "Cuando el Diablo Piensa",
+        "etiqueta": "El origen",
+        "imagen": {
+          "src": "/assets/img/show-cedp.webp",
+          "alt": "Cartel de Cuando el Diablo Piensa (primera versión)"
+        },
+        "texto": "Todo gira en torno a un pacto con el Diablo. Fue el primer espectáculo producido por Luis Pardo y marcó un antes y un después en su carrera. ¿De dónde vienen sus habilidades para entrar en nuestras mentes?\n\nSi crees en Dios, es porque el Diablo existe. O quizá no…"
+      },
+      {
+        "titulo": "Hypnos",
+        "etiqueta": "Hipnosis",
+        "imagen": {
+          "src": "/assets/img/show-hypnos.webp",
+          "alt": "Cartel de Hypnos"
+        },
+        "texto": "El primer espectáculo de Luis Pardo dedicado exclusivamente a la hipnosis. Además de entretener, muestra lo poderosa que es como herramienta: sobre el escenario hubo personas que dejaron sus fobias, potenciaron su capacidad mental o dejaron de fumar."
+      },
+      {
+        "titulo": "Paranoid",
+        "etiqueta": "El más teatral",
+        "imagen": {
+          "src": "/assets/img/show-paranoid.webp",
+          "alt": "Cartel de Paranoid"
+        },
+        "texto": "La obra más arriesgada y teatral de Luis Pardo y la primera con Mistress Minerva. Mezcla mentalismo, faquirismo y BDSM, con la colaboración especial de David Moreno (Horror Box) como conductor de la historia en los audiovisuales."
+      },
+      {
+        "titulo": "En Tu Mente",
+        "etiqueta": "Minimalista",
+        "imagen": {
+          "src": "/assets/img/show-en-tu-mente.webp",
+          "alt": "Cartel de En Tu Mente"
+        },
+        "texto": "Sin decorado, sin atrezo, sin aparatos: solo él y su público. Comunicación no verbal, programación neurolingüística, sugestión y mensajes subliminales como únicas armas, para descubrir una parte asombrosa del cerebro."
+      },
+      {
+        "titulo": "Miedo",
+        "etiqueta": "Función única",
+        "imagen": {
+          "src": "/assets/img/show-miedo.webp",
+          "alt": "Cartel de Miedo"
+        },
+        "texto": "Tan brutal que solo se hizo una vez, una noche de Halloween, con 14 participantes. Empezó con Luis suspendido del techo por ganchos en la espalda y terminó con su escape de una camisa de fuerza colgado por los pies, con la banda Inmune tocando en directo."
+      },
+      {
+        "titulo": "Posesión Hipnótica",
+        "etiqueta": "Paranormal",
+        "imagen": {
+          "src": "/assets/img/show-posesion.webp",
+          "alt": "Cartel de Posesión Hipnótica"
+        },
+        "texto": "Dedicado a los fenómenos paranormales, con Enriqueta Martí, «la Vampira de Barcelona», como hilo conductor. Durante la temporada ocurrieron cosas a las que ni Pardo ni Minerva han encontrado explicación lógica."
+      },
+      {
+        "titulo": "Hypnos Vol. 2",
+        "etiqueta": "Hipnosis",
+        "imagen": {
+          "src": "/assets/img/show-hypnos-2.webp",
+          "alt": "Cartel de Hypnos Vol. 2"
+        },
+        "texto": "Tras el éxito de Hypnos, un paso más allá. Entre las nuevas experiencias destacó una hipnosis colectiva en la que todo el público hizo un viaje astral guiado por Luis Pardo. Déjate llevar y sueña."
+      },
+      {
+        "titulo": "DeMente",
+        "etiqueta": "Locura o genialidad",
+        "imagen": {
+          "src": "/assets/img/show-demente.webp",
+          "alt": "Cartel de DeMente"
+        },
+        "texto": "Luis Pardo y Mistress Minerva exploran la delgada línea entre la locura y la genialidad: a lo largo de la historia, a muchos genios —Dalí, Van Gogh, Poe, Newton, Beethoven— se les tachó de locos."
+      },
+      {
+        "titulo": "Secretos",
+        "etiqueta": "Psique",
+        "imagen": {
+          "src": "/assets/img/show-secretos.webp",
+          "alt": "Cartel de Secretos"
+        },
+        "texto": "Uno de los shows que más sorprende: cada experiencia va directa a la psique del espectador. Pardo y Minerva muestran algunos de sus mejores secretos, recorren la vida de Luis… y hablan de los tuyos. Porque Luis Pardo los sabe todos."
+      },
+      {
+        "titulo": "Hypnoerotic",
+        "etiqueta": "+18",
+        "imagen": {
+          "src": "/assets/img/show-hypnoerotic.webp",
+          "alt": "Cartel de Hypnoerotic"
+        },
+        "texto": "El único espectáculo íntegro de hipnosis erótica del mundo. Un recorrido por los deseos del público que rompe tabúes y normaliza cualquier práctica consensuada y cualquier orientación: todos somos iguales. Con el tema «Mis fantasías», compuesto por Joel Reyes."
+      },
+      {
+        "titulo": "Virtual-Mente Conectados",
+        "etiqueta": "Pionero",
+        "imagen": {
+          "src": "/assets/img/show-virtual.webp",
+          "alt": "Cartel de Virtual-Mente Conectados"
+        },
+        "texto": "El primer espectáculo virtual e interactivo de mentalismo del mundo: a través de la pantalla, la magia sucede en las manos del espectador. Durante la pandemia se convirtió en referencia para magos y mentalistas que crearon sus shows online."
+      }
+    ]
+  },
+  "historia_continua_con": {
+    "antetitulo": "Ahora en cartel",
+    "titulo": "La historia continúa con Cuando el Diablo Piensa",
+    "boton": {
+      "texto": "Descubrir el espectáculo",
+      "enlace": "/cuando-el-diablo-piensa/"
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {% extends "layouts/base.njk" %}
 {% block head %}
-<title>Política de privacidad · Luis Pardo</title>
-<meta name="description" content="Política de privacidad de luispardo.com, titularidad de Clan Destino Mental S.L.">
-<link rel="canonical" href="https://luis-pardo.vercel.app/politica-de-privacidad/">
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
 {% endblock %}
 {% block main %}
 <main id="main">
@@ -10,34 +10,12 @@
     <div class="wrap">
       <div class="page-hero-inner">
         <nav class="breadcrumb" aria-label="Migas de pan"><a href="../">Inicio</a><span aria-hidden="true">/</span><span>Legal</span></nav>
-        <h1 class="display">Política de privacidad</h1>
+        <h1 class="display">{{ c.cabecera.titulo | titulo }}</h1>
       </div>
     </div>
   </section>
   <section class="section-tight">
-    <div class="wrap-narrow prose">
-      <h2>Quiénes somos</h2>
-      <p>El responsable de este sitio web es <strong>Clan Destino Mental S.L.</strong> Nuestras webs son <a href="https://www.luispardo.com">www.luispardo.com</a> y www.clandestinomental.com. Puedes contactarnos en <a href="mailto:luispardo@luispardo.com">luispardo@luispardo.com</a>.</p>
-
-      <h2>Qué datos recogemos y para qué</h2>
-      <p>Cuando rellenas alguno de nuestros formularios (solicitud de sesión, audios gratuitos, El Clan Secreto, PsiqueMagia…) recogemos los datos que nos facilitas —como nombre, email o teléfono— con la única finalidad de atender tu solicitud y, si lo aceptas, enviarte nuestras newsletters.</p>
-      <p>Solo recibirás newsletters para informarte de nuevos espectáculos o de promociones exclusivas, descuentos, sorteos o contenidos que puedan interesarte.</p>
-
-      <h2>Dónde se tratan tus datos</h2>
-      <p>Los formularios se gestionan mediante la plataforma de email marketing Brevo. Los pagos y reservas se realizan en plataformas externas (Dinaticket, Hotmart y otras), cada una con su propia política de privacidad. Si nos escribes por WhatsApp, se aplica también la política de privacidad de ese servicio.</p>
-
-      <h2>Contenido incrustado de otros sitios</h2>
-      <p>Algunas páginas incluyen contenido de otras webs (por ejemplo, vídeos de YouTube). Ese contenido solo se carga cuando pulsas para reproducirlo y, a partir de ese momento, se comporta igual que si visitaras la otra web: puede recopilar datos, usar cookies o hacer seguimiento de tu interacción.</p>
-
-      <h2>Cookies</h2>
-      <p>Esta web no utiliza cookies propias de seguimiento. Puede guardar en tu navegador pequeñas preferencias técnicas (por ejemplo, si ya has visto la animación de entrada) que no contienen datos personales.</p>
-
-      <h2>Cuánto tiempo conservamos tus datos</h2>
-      <p>Conservamos tus datos mientras sean necesarios para la finalidad para la que los recogimos o hasta que solicites su supresión.</p>
-
-      <h2>Tus derechos</h2>
-      <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad, así como darte de baja de la newsletter en cualquier momento, escribiendo a <a href="mailto:luispardo@luispardo.com">luispardo@luispardo.com</a>. También puedes presentar una reclamación ante la Agencia Española de Protección de Datos.</p>
-    </div>
+    <div class="wrap-narrow prose">{{ c.quienes_somos.texto | mdBloque }}</div>
   </section>
 </main>
 {% endblock %}

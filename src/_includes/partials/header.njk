@@ -106,11 +106,11 @@
   </details>
   <div class="mobile-actions">
     <a class="btn btn-blood btn-lg" href="{{root}}comprar_entradas/">Comprar entradas</a>
-    <a class="btn btn-whatsapp" href="https://wa.me/34616346365" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    <a class="btn btn-whatsapp" href="{{ '' | whatsapp(ajustes.whatsapp) }}" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
   </div>
   <div class="mobile-social social">
-    <a href="https://www.instagram.com/pardo_mentalista/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-    <a href="https://www.youtube.com/user/LuisPardo13/videos" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></a>
-    <a href="mailto:luispardo@luispardo.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+    <a href="{{ ajustes.instagram }}" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+    <a href="{{ ajustes.youtube }}" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></a>
+    <a href="mailto:{{ ajustes.email }}" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
   </div>
 </div>

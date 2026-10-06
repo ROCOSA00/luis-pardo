@@ -1,44 +1,41 @@
 {% extends "layouts/base.njk" %}
 {% block head %}
-<title>Regala años de vida · El ritual 666</title>
-<meta name="description" content="¿Cuántos años de vida extra quieres regalar? El contador de 666 segundos ya está en marcha.">
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
 <meta name="robots" content="noindex">
 {% endblock %}
 {% block main %}
 <main id="main">
   <section class="hero" data-lantern style="min-height:auto">
-    <div class="hero-bg"><img src="../assets/img/regala-anos.webp" width="1536" height="1024" alt="" fetchpriority="high" style="opacity:.35"></div>
+    <div class="hero-bg"><img {{ c.cabecera.imagen | img }} alt="" fetchpriority="high" style="opacity:.35"></div>
     <canvas class="embers" aria-hidden="true"></canvas>
     <div class="hero-lantern" aria-hidden="true"></div>
     <div class="wrap-narrow">
       <div class="hero-content center" style="max-width:none; justify-items:center">
-        <span class="eyebrow center" data-reveal>El tiempo ya está corriendo</span>
-        <h1 class="display" data-reveal style="--d:.1s">¿Cuántos años de vida extra quieres <span class="text-blood">regalar</span>?</h1>
+        <span class="eyebrow center" data-reveal>{{ c.cabecera.antetitulo | texto }}</span>
+        <h1 class="display" data-reveal style="--d:.1s">{{ c.cabecera.titulo | titulo("text-blood") }}</h1>
         <div class="countdown" data-countdown="666" data-reveal style="--d:.2s" aria-live="off">
           <div class="unit"><span class="val cd-min">11</span><span class="lbl">Min</span></div>
           <div class="unit"><span class="val cd-sec">06</span><span class="lbl">Seg</span></div>
         </div>
-        <p class="lead" data-reveal style="--d:.3s">Desde que entraste aquí, el contador de los 666 segundos está en marcha. Cuando llegue a cero, los años que has ingerido dejarán de tener efecto en ti.</p>
-        <p class="notice red" data-countdown-over hidden>El tiempo se ha agotado. Si aún quieres hacer tu regalo, escríbenos y veremos qué se puede hacer…</p>
+        <p class="lead" data-reveal style="--d:.3s">{{ c.cabecera.entradilla | md }}</p>
+        <p class="notice red" data-countdown-over hidden>{{ c.cabecera.aviso | md }}</p>
       </div>
     </div>
   </section>
 
   <section class="section-tight">
     <div class="wrap-narrow stack-lg">
-      <div class="prose" data-reveal>
-        <p>Elige cuántos años de vida extra regalas a la persona que deseas: <strong>10, 9, 8, 7, 6 o 5</strong>. Nosotros nos encargamos de que le llegue un sobre como el que tú recibiste, con sus años de vida extra. Un regalo que jamás olvidará.</p>
-        <p>Recuerda copiar el código <strong>«Pi(número)» o «Ch(número)»</strong> para indicarlo en tu mensaje: sin ese código el sobre no podrá sellarse y jamás llegará a su destino. Solo cuando completes esta acción, los años que has ingerido cobrarán valor y se sumarán a tu tiempo de vida.</p>
-      </div>
+      <div class="prose" data-reveal>{{ c.seccion_2.texto | mdBloque }}</div>
       <div class="grid-3" data-reveal>
-        <a class="btn btn-blood" href="https://wa.me/34616346365?text=Quiero%20regalar%2010%20a%C3%B1os%20de%20vida%20extra.%20Mi%20c%C3%B3digo%20es%3A%20" target="_blank" rel="noopener">Regala 10 años</a>
-        <a class="btn btn-blood" href="https://wa.me/34616346365?text=Quiero%20regalar%209%20a%C3%B1os%20de%20vida%20extra.%20Mi%20c%C3%B3digo%20es%3A%20" target="_blank" rel="noopener">Regala 9 años</a>
-        <a class="btn btn-blood" href="https://wa.me/34616346365?text=Quiero%20regalar%208%20a%C3%B1os%20de%20vida%20extra.%20Mi%20c%C3%B3digo%20es%3A%20" target="_blank" rel="noopener">Regala 8 años</a>
-        <a class="btn btn-ghost" href="https://wa.me/34616346365?text=Quiero%20regalar%207%20a%C3%B1os%20de%20vida%20extra.%20Mi%20c%C3%B3digo%20es%3A%20" target="_blank" rel="noopener">Regala 7 años</a>
-        <a class="btn btn-ghost" href="https://wa.me/34616346365?text=Quiero%20regalar%206%20a%C3%B1os%20de%20vida%20extra.%20Mi%20c%C3%B3digo%20es%3A%20" target="_blank" rel="noopener">Regala 6 años</a>
-        <a class="btn btn-ghost" href="https://wa.me/34616346365?text=Quiero%20regalar%205%20a%C3%B1os%20de%20vida%20extra.%20Mi%20c%C3%B3digo%20es%3A%20" target="_blank" rel="noopener">Regala 5 años</a>
+        <a class="btn btn-blood" href="{{ c.seccion_2.boton.mensaje | whatsapp(ajustes.whatsapp) }}" target="_blank" rel="noopener">{{ c.seccion_2.boton.texto | texto }}</a>
+        <a class="btn btn-blood" href="{{ c.seccion_2.boton_2.mensaje | whatsapp(ajustes.whatsapp) }}" target="_blank" rel="noopener">{{ c.seccion_2.boton_2.texto | texto }}</a>
+        <a class="btn btn-blood" href="{{ c.seccion_2.boton_3.mensaje | whatsapp(ajustes.whatsapp) }}" target="_blank" rel="noopener">{{ c.seccion_2.boton_3.texto | texto }}</a>
+        <a class="btn btn-ghost" href="{{ c.seccion_2.boton_4.mensaje | whatsapp(ajustes.whatsapp) }}" target="_blank" rel="noopener">{{ c.seccion_2.boton_4.texto | texto }}</a>
+        <a class="btn btn-ghost" href="{{ c.seccion_2.boton_5.mensaje | whatsapp(ajustes.whatsapp) }}" target="_blank" rel="noopener">{{ c.seccion_2.boton_5.texto | texto }}</a>
+        <a class="btn btn-ghost" href="{{ c.seccion_2.boton_6.mensaje | whatsapp(ajustes.whatsapp) }}" target="_blank" rel="noopener">{{ c.seccion_2.boton_6.texto | texto }}</a>
       </div>
-      <p class="form-note center" data-reveal>Al pulsar se abrirá WhatsApp con tu mensaje preparado: añade tu código y envíalo.</p>
+      <p class="form-note center" data-reveal>{{ c.seccion_2.texto_2 | md }}</p>
     </div>
   </section>
 </main>

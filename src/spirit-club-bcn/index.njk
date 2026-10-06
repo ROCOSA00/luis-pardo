@@ -1,24 +1,24 @@
 {% extends "layouts/base.njk" %}
 {% block head %}
-<title>Spirit Club Bcn · La coctelería-teatro del mentalismo en Barcelona | Luis Pardo</title>
-<meta name="description" content="La única coctelería-teatro dedicada al mentalismo y al espiritismo de Europa: un antiguo anticuario de Barcelona convertido en laboratorio de emociones para 26 personas.">
-<link rel="canonical" href="https://luis-pardo.vercel.app/spirit-club-bcn/">
-<meta property="og:title" content="Spirit Club Bcn · Un lugar donde la magia existe">
-<meta property="og:image" content="https://luis-pardo.vercel.app/assets/img/spirit-club-cartel.webp">
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
+<meta property="og:title" content="{{ c.seo.titulo_redes | texto }}">
+<meta property="og:image" content="{{ sitio.url }}{{ c.seo.imagen_redes }}">
 {% endblock %}
 {% block main %}
 <main id="main">
   <section class="page-hero">
-    <div class="hero-bg"><img src="../assets/img/spirit-club-4.webp" width="1251" height="952" alt="" fetchpriority="high"></div>
+    <div class="hero-bg"><img {{ c.cabecera.imagen | img }} alt="" fetchpriority="high"></div>
     <div class="wrap">
       <div class="page-hero-inner">
         <nav class="breadcrumb" aria-label="Migas de pan" data-reveal><a href="../">Inicio</a><span aria-hidden="true">/</span><span>Experiencias</span></nav>
-        <span class="eyebrow" data-reveal>Spirit Club Bcn</span>
-        <h1 class="display" data-reveal style="--d:.1s">Un lugar donde la <span class="text-gradient">magia existe</span></h1>
-        <p class="lead" data-reveal style="--d:.2s">La única coctelería-teatro dedicada exclusivamente al mentalismo y al espiritismo de toda Europa.</p>
+        <span class="eyebrow" data-reveal>{{ c.cabecera.antetitulo | texto }}</span>
+        <h1 class="display" data-reveal style="--d:.1s">{{ c.cabecera.titulo | titulo }}</h1>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.cabecera.entradilla | md }}</p>
         <div class="row" data-reveal style="--d:.3s">
-          <a class="btn btn-blood" href="../comprar_entradas/">Ver experiencias</a>
-          <a class="btn btn-ghost" href="http://www.spiritclubbcn.com" target="_blank" rel="noopener">spiritclubbcn.com</a>
+          <a class="btn btn-blood" {{ c.cabecera.boton.enlace | enlace }}>{{ c.cabecera.boton.texto | texto }}</a>
+          <a class="btn btn-ghost" {{ c.cabecera.boton_2.enlace | enlace }}>{{ c.cabecera.boton_2.texto | texto }}</a>
         </div>
       </div>
     </div>
@@ -29,19 +29,15 @@
       <div class="grid-2">
         <div class="stack-lg">
           <div class="stack">
-            <span class="eyebrow" data-reveal>El origen</span>
-            <h2 class="h2" data-reveal style="--d:.1s">Para crear verdadera magia hacía falta el lugar perfecto</h2>
+            <span class="eyebrow" data-reveal>{{ c.para_crear_verdadera.antetitulo | texto }}</span>
+            <h2 class="h2" data-reveal style="--d:.1s">{{ c.para_crear_verdadera.titulo | titulo }}</h2>
           </div>
-          <div class="prose" data-reveal style="--d:.2s">
-            <p>La obsesión de Luis Pardo es sacar el <strong>100% del potencial mental</strong> de cada espectador. Para eso estudia psicología, el funcionamiento del cerebro y nuestra percepción del tiempo y la realidad.</p>
-            <p>Ese camino le llevó a apostar por la cercanía frente a los grandes teatros: trabajar con los <strong>cinco sentidos</strong> de cada asistente para que viva en primera persona lo inexplicable. Y eso no se puede hacer en cualquier sitio.</p>
-            <p>Encontró un <strong>antiguo anticuario impregnado de energías</strong> y lo transformó en la primera coctelería-teatro dedicada al mentalismo de Europa.</p>
-          </div>
+          <div class="prose" data-reveal style="--d:.2s">{{ c.para_crear_verdadera.texto | mdBloque }}</div>
         </div>
         <div data-reveal="right">
-          <div class="video" data-youtube="x3Oqvads1hM" data-title="Spirit Club Bcn">
-            <img src="https://i.ytimg.com/vi/x3Oqvads1hM/hqdefault.jpg" width="480" height="360" alt="" loading="lazy">
-            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">Visita Spirit Club Bcn</span></button>
+          <div class="video" data-youtube="{{ c.para_crear_verdadera.video.youtube | youtubeId }}" data-title="{{ c.para_crear_verdadera.video.titulo | texto }}">
+            <img src="https://i.ytimg.com/vi/{{ c.para_crear_verdadera.video.youtube | youtubeId }}/hqdefault.jpg" width="480" height="360" alt="" loading="lazy">
+            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.para_crear_verdadera.video.boton | texto }}</span></button>
           </div>
         </div>
       </div>
@@ -50,47 +46,33 @@
 
   <section class="section-tight">
     <div class="wrap">
-      <div class="stats" data-reveal>
-        <div class="stat"><span class="stat-num" data-count="33000" data-prefix="+">+33.000</span><span class="stat-label">Personas han pasado</span></div>
-        <div class="stat"><span class="stat-num" data-count="26">26</span><span class="stat-label">Plazas por sesión</span></div>
-        <div class="stat"><span class="stat-num" data-count="2">2</span><span class="stat-label">Estancias, dos niveles</span></div>
-        <div class="stat"><span class="stat-num" data-count="5">5</span><span class="stat-label">Sentidos en juego</span></div>
-      </div>
+      <div class="stats" data-reveal>{% for s in c.seccion_3.cifras %}<div class="stat"><span class="stat-num" {{ s.cifra | cifra }}>{{ s.cifra | texto }}</span><span class="stat-label">{{ s.texto | texto }}</span></div>{% endfor %}</div>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
       <div class="section-head center">
-        <span class="eyebrow center" data-reveal>El espacio</span>
-        <h2 class="h2" data-reveal style="--d:.1s">Un anticuario perdido en el tiempo. Un laboratorio de emociones.</h2>
-        <p class="lead" data-reveal style="--d:.2s">Objetos nada casuales, recuerdos y regalos de medio mundo: todo forma un gran cerebro pensante hecho de pasado, presente y un futuro que, a veces, puede predecirse.</p>
+        <span class="eyebrow center" data-reveal>{{ c.anticuario_perdido_tiempo.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.anticuario_perdido_tiempo.titulo | titulo }}</h2>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.anticuario_perdido_tiempo.entradilla | md }}</p>
       </div>
-      <div class="masonry" data-lightbox data-reveal>
-        <a href="../assets/img/spirit-club-1.webp"><img src="../assets/img/spirit-club-1.webp" width="1247" height="1536" alt="Rincón de Spirit Club Bcn con objetos antiguos" loading="lazy"></a>
-        <a href="../assets/img/spirit-club-2.webp"><img src="../assets/img/spirit-club-2.webp" width="1250" height="881" alt="Vitrina con calavera y objetos misteriosos" loading="lazy"></a>
-        <a href="../assets/img/spirit-club-3.webp"><img src="../assets/img/spirit-club-3.webp" width="646" height="646" alt="Manos sobre un tablero espiritista" loading="lazy"></a>
-        <a href="../assets/img/spirit-club-4.webp"><img src="../assets/img/spirit-club-4.webp" width="1251" height="952" alt="Sala principal con mesa roja" loading="lazy"></a>
-        <a href="../assets/img/spirit-club-5.webp"><img src="../assets/img/spirit-club-5.webp" width="1211" height="1611" alt="Vista cenital de una sesión" loading="lazy"></a>
-        <a href="../assets/img/spirit-club-6.webp"><img src="../assets/img/spirit-club-6.webp" width="1600" height="1090" alt="Luis Pardo durante una experiencia" loading="lazy"></a>
-        <a href="../assets/img/spirit-club-7.webp"><img src="../assets/img/spirit-club-7.webp" width="1242" height="877" alt="Público participando alrededor de la mesa" loading="lazy"></a>
-        <a href="../assets/img/spirit-club-cartel.webp"><img src="../assets/img/spirit-club-cartel.webp" width="1170" height="1649" alt="Cartel de Spirit Club Bcn" loading="lazy"></a>
-      </div>
+      <div class="masonry" data-lightbox data-reveal>{% for f in c.anticuario_perdido_tiempo.fotos %}<a href="{{ f.imagen | ruta }}"><img {{ f.imagen | img }} alt="{{ f.descripcion | texto }}" loading="lazy"></a>{% endfor %}</div>
       <div class="grid-3 mt-3">
         <div class="card" data-reveal>
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg></div>
-          <h3 class="h3">Dos estancias</h3>
-          <p>A distintos niveles, para usos y sensaciones muy diferentes. Incluso el olfato se usa para amplificar emociones.</p>
+          <h3 class="h3">{{ c.anticuario_perdido_tiempo.dos_estancias.titulo | titulo }}</h3>
+          <p>{{ c.anticuario_perdido_tiempo.dos_estancias.texto | md }}</p>
         </div>
         <div class="card" data-reveal style="--d:.1s">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.5-4.5 3.5-4.5S21 17.5 21 20"/></svg></div>
-          <h3 class="h3">El público no es público</h3>
-          <p>Cada asistente es imprescindible para la realización de cada acto. Todos participan, todos son protagonistas.</p>
+          <h3 class="h3">{{ c.anticuario_perdido_tiempo.publico_publico.titulo | titulo }}</h3>
+          <p>{{ c.anticuario_perdido_tiempo.publico_publico.texto | md }}</p>
         </div>
         <div class="card" data-reveal style="--d:.2s">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l2 6h6l-5 4 2 7-5-4-5 4 2-7-5-4h6z"/></svg></div>
-          <h3 class="h3">Fenómenos psíquicos</h3>
-          <p>Telepatía, precognición, telekinesis y espiritismo: el gran potencial de la mente humana, en vivo.</p>
+          <h3 class="h3">{{ c.anticuario_perdido_tiempo.fenomenos_psiquicos.titulo | titulo }}</h3>
+          <p>{{ c.anticuario_perdido_tiempo.fenomenos_psiquicos.texto | md }}</p>
         </div>
       </div>
     </div>
@@ -110,7 +92,7 @@
             <span class="eyebrow">Desde el 22 de noviembre de 2022</span>
             <h3 class="h3 mt-1">Spirit Cocktails Bcn</h3>
             <p>La primera coctelería dedicada al espiritismo del mundo, de Luis Pardo y M. Minerva: magia y mentalismo a dos palmos, charlas sobre misterio, rutas paranormales que terminan con un cóctel exclusivo y música en directo.</p>
-            <p class="mt-1"><strong class="gold">C/ Súria 6, Barcelona</strong> · <a href="tel:+34930101152">930 101 152</a></p>
+            <p class="mt-1"><strong class="gold">{{ ajustes.direccion }}</strong> · <a href="{{ ajustes.telefono | tel }}">{{ ajustes.telefono }}</a></p>
             <div class="row mt-2"><a class="btn btn-ghost btn-sm" href="http://www.spiritcocktailsbcn.com/" target="_blank" rel="noopener">spiritcocktailsbcn.com</a></div>
           </div>
         </div>
@@ -124,10 +106,10 @@
 
   <section class="section cta-final">
     <div class="wrap-narrow stack-lg" style="justify-items:center">
-      <span class="eyebrow center" data-reveal>Únete al clan</span>
-      <h2 class="h2" data-reveal style="--d:.1s">Más de 33.000 personas ya son socias del club</h2>
-      <p class="lead" data-reveal style="--d:.2s">Algunas dicen que ha sido la mejor experiencia de su vida. Ven a formar parte de este clan.</p>
-      <div class="row center" data-reveal style="--d:.3s"><a class="btn btn-blood btn-lg" href="../comprar_entradas/">Reservar experiencia</a></div>
+      <span class="eyebrow center" data-reveal>{{ c.mas_33_000.antetitulo | texto }}</span>
+      <h2 class="h2" data-reveal style="--d:.1s">{{ c.mas_33_000.titulo | titulo }}</h2>
+      <p class="lead" data-reveal style="--d:.2s">{{ c.mas_33_000.entradilla | md }}</p>
+      <div class="row center" data-reveal style="--d:.3s"><a class="btn btn-blood btn-lg" {{ c.mas_33_000.boton.enlace | enlace }}>{{ c.mas_33_000.boton.texto | texto }}</a></div>
     </div>
   </section>
 </main>

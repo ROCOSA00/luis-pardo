@@ -1,0 +1,122 @@
+{
+  "seo": {
+    "titulo": "«Dos contra el mundo» · Banda sonora original | Luis Pardo",
+    "descripcion": "Escucha las 21 canciones de «Dos contra el mundo», la banda sonora original del espectáculo «Lo imposible está en tu mente», y mira el videoclip de «Sin tocarte».",
+    "titulo_redes": "Dos contra el mundo · BSO",
+    "imagen_redes": "/assets/img/bso-portada.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/bso-portada.webp",
+    "antetitulo": "Banda sonora original · «Lo imposible está en tu mente»",
+    "titulo": "Dos contra *el mundo*",
+    "texto": "Si creías que el espectáculo había terminado… *qué poco nos conoces.*"
+  },
+  "seccion_2": {
+    "entradilla": "Si has llegado hasta aquí, has sobrevivido al espectáculo. Y ahora vienen las secuelas.",
+    "texto": "Hay quien sale de un teatro con recuerdos. Tú sales con una banda sonora para seguir alimentándolos. La mayoría de espectadores terminan cuando se encienden las luces… nosotros acabamos de apagar las tuyas.",
+    "texto_2": "**Lo sentimos:** cada vez que escuches estas canciones, el espectáculo volverá a empezar en tu cabeza.",
+    "antetitulo": "Material extra · Videoclip",
+    "video": {
+      "portada": "/assets/img/luis-minerva.webp",
+      "titulo": "Videoclip «Sin tocarte»"
+    },
+    "imagen": {
+      "src": "/assets/img/bso-portada.webp",
+      "alt": "Portada de la BSO Dos contra el mundo"
+    },
+    "canciones": [
+      {
+        "titulo": "ALUNE: El amor vence a la muerte",
+        "audio": "/assets/audio/bso/01-alune-el-amor-vence-a-la-muerte.mp3"
+      },
+      {
+        "titulo": "Sin tocarte",
+        "audio": "/assets/audio/bso/02-sin-tocarte.mp3"
+      },
+      {
+        "titulo": "El ataúd de Houdini",
+        "audio": "/assets/audio/bso/03-el-ataud-de-houdini.mp3"
+      },
+      {
+        "titulo": "Magia",
+        "audio": "/assets/audio/bso/04-magia.mp3"
+      },
+      {
+        "titulo": "Canción macabra",
+        "audio": "/assets/audio/bso/05-cancion-macabra.mp3"
+      },
+      {
+        "titulo": "El gato negro",
+        "audio": "/assets/audio/bso/06-el-gato-negro.mp3"
+      },
+      {
+        "titulo": "Los 7 nombres del Diablo",
+        "audio": "/assets/audio/bso/07-los-7-nombres-del-diablo.mp3"
+      },
+      {
+        "titulo": "Tus pensamientos",
+        "audio": "/assets/audio/bso/08-tus-pensamientos.mp3"
+      },
+      {
+        "titulo": "Mis viajes astrales",
+        "audio": "/assets/audio/bso/09-mis-viajes-astrales.mp3"
+      },
+      {
+        "titulo": "Deseos",
+        "audio": "/assets/audio/bso/10-deseos.mp3"
+      },
+      {
+        "titulo": "MPMA",
+        "audio": "/assets/audio/bso/11-mpma.mp3"
+      },
+      {
+        "titulo": "La ouija",
+        "audio": "/assets/audio/bso/12-la-ouija.mp3"
+      },
+      {
+        "titulo": "El hechizo",
+        "audio": "/assets/audio/bso/13-el-hechizo.mp3"
+      },
+      {
+        "titulo": "Escapar de la lujuria",
+        "audio": "/assets/audio/bso/14-escapar-de-la-lujuria.mp3"
+      },
+      {
+        "titulo": "Lunas de sangre",
+        "audio": "/assets/audio/bso/15-lunas-de-sangre.mp3"
+      },
+      {
+        "titulo": "La Inquisición",
+        "audio": "/assets/audio/bso/16-la-inquisicion.mp3"
+      },
+      {
+        "titulo": "Un solo disparo",
+        "audio": "/assets/audio/bso/17-un-solo-disparo.mp3"
+      },
+      {
+        "titulo": "Anneliese Michel",
+        "audio": "/assets/audio/bso/18-anneliese-michel.mp3"
+      },
+      {
+        "titulo": "iA",
+        "audio": ""
+      },
+      {
+        "titulo": "El epitafio",
+        "audio": "/assets/audio/bso/20-el-epitafio.mp3"
+      },
+      {
+        "titulo": "Prisión mental",
+        "audio": "/assets/audio/bso/21-prision-mental.mp3"
+      }
+    ]
+  },
+  "pon_banda_sonora": {
+    "antetitulo": "¿Aún no lo has vivido?",
+    "titulo": "Pon banda sonora a tu próxima noche",
+    "boton": {
+      "texto": "Descubrir Cuando el Diablo Piensa",
+      "enlace": "/cuando-el-diablo-piensa/"
+    }
+  }
+}

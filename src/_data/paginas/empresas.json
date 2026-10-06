@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "titulo": "Mentalista para eventos de empresa · Luis Pardo",
+    "descripcion": "Más de 25 años amenizando eventos de empresa: cenas, presentaciones de producto y convenciones. BMW, Mercedes-Benz, Vodafone, Harley-Davidson y muchas más han confiado en Luis Pardo.",
+    "titulo_redes": "Eventos para empresas · Luis Pardo Mentalista",
+    "imagen_redes": "/assets/img/empresas.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/empresas.webp",
+    "antetitulo": "Eventos para empresas",
+    "titulo": "Tu tiempo es importante. *Inviértelo bien.*",
+    "entradilla": "Desde hace más de 25 años, muchas empresas confían en Luis Pardo para que sus eventos se recuerden.",
+    "boton": "Pedir información",
+    "boton_2": {
+      "texto": "WhatsApp",
+      "mensaje": "Hola Luis, quiero información para un evento de empresa"
+    }
+  },
+  "maestro_mas_dificil": {
+    "antetitulo": "Captar la atención",
+    "titulo": "Un maestro en lo más difícil de cualquier evento",
+    "texto": "Lo más importante en un evento profesional es **captar la atención de los asistentes** y que disfruten al máximo: así se llevan un buen recuerdo, y eso es lo que la empresa necesita.\n\nCenas de empresa, presentaciones de producto, convenciones o lo que se te ocurra: hay total flexibilidad para adaptar la actuación a tu evento y que tus invitados lo pasen en grande.",
+    "cuentanos_evento": {
+      "titulo": "Cuéntanos tu evento",
+      "texto": "Fecha, lugar, número de asistentes y objetivo."
+    },
+    "disenamos_experiencia": {
+      "titulo": "Diseñamos la experiencia",
+      "texto": "Mentalismo, hipnosis o un formato a medida para tu marca."
+    },
+    "tus_invitados_olvidaran": {
+      "titulo": "Tus invitados no lo olvidarán",
+      "texto": "Participación, asombro y conversación garantizada."
+    }
+  },
+  "seccion_3": {
+    "antetitulo": "Han confiado en Luis Pardo",
+    "nombres": [
+      "BMW",
+      "Mercedes-Benz",
+      "Jägermeister",
+      "Montblanc",
+      "Philips",
+      "Harley-Davidson",
+      "Motos Bordoy",
+      "Hyundai",
+      "Vodafone"
+    ]
+  },
+  "hagamos_que_evento": {
+    "antetitulo": "Información y contratación",
+    "titulo": "Hagamos que tu evento sea especial",
+    "entradilla": "[luispardo@luispardo.com](mailto:luispardo@luispardo.com)",
+    "boton": "Escribir un email",
+    "boton_2": {
+      "texto": "WhatsApp",
+      "mensaje": "Hola Luis, quiero información para un evento de empresa"
+    }
+  }
+}

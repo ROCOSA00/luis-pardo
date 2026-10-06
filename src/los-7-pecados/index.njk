@@ -1,41 +1,41 @@
 {% extends "layouts/base.njk" %}
 {% block head %}
-<title>Los 7 Pecados · El ritual | Cuando el Diablo Piensa</title>
-<meta name="description" content="Instrucciones del ritual de Los 7 Pecados, el cóctel de Cuando el Diablo Piensa.">
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
 <meta name="robots" content="noindex">
 {% endblock %}
 {% block main %}
 <main id="main">
   <section class="hero" data-lantern style="min-height:auto">
-    <div class="hero-bg"><img src="../assets/img/siete-pecados.webp" width="1170" height="1741" alt="" fetchpriority="high" style="opacity:.35; object-position:center"></div>
+    <div class="hero-bg"><img {{ c.cabecera.imagen | img }} alt="" fetchpriority="high" style="opacity:.35; object-position:center"></div>
     <canvas class="embers" aria-hidden="true"></canvas>
     <div class="hero-lantern" aria-hidden="true"></div>
     <div class="wrap-narrow">
       <div class="hero-content" style="max-width:none">
-        <span class="eyebrow" data-reveal>Cuando el Diablo Piensa · de Luis Pardo &amp; M. Minerva</span>
-        <h1 class="display" data-reveal style="--d:.1s">Ha llegado tu hora de pactar la fantasía de tu <span class="text-blood">pecado favorito</span></h1>
-        <p class="lead" data-reveal style="--d:.2s">Sigue las instrucciones al pie de la letra para que el ritual funcione al 100%.</p>
+        <span class="eyebrow" data-reveal>{{ c.cabecera.antetitulo | texto }}</span>
+        <h1 class="display" data-reveal style="--d:.1s">{{ c.cabecera.titulo | titulo("text-blood") }}</h1>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.cabecera.entradilla | md }}</p>
       </div>
     </div>
   </section>
 
   <section class="section-tight">
     <div class="wrap-narrow stack-lg">
-      <div class="notice red" data-reveal><strong>Importante:</strong> nadie más que tú debe conocer tu pecado ni tu fantasía sobre él.</div>
+      <div class="notice red" data-reveal>{{ c.seccion_2.aviso | md }}</div>
       <ol class="steps" data-reveal>
-        <li><div><h3>Completamente a solas</h3><p>Asegúrate de estar solo o sola en la habitación, con muy poca luz.</p></div></li>
-        <li><div><h3>Prepara los elementos</h3><p>Las 7 tarjetas de los pecados que encontraste en el sobre, la vela que te adjuntamos y un mechero o cerillas (esto lo pones tú).</p></div></li>
-        <li><div><h3>Manos libres</h3><p>Apoya el teléfono donde puedas verlo bien sin cogerlo: necesitarás las manos para manipular las tarjetas.</p></div></li>
-        <li><div><h3>Volumen al máximo</h3><p>Cuando lo tengas todo listo, reproduce el vídeo y sigue cada paso.</p></div></li>
+        <li><div><h3>{{ c.seccion_2.completamente_solas.titulo | titulo }}</h3><p>{{ c.seccion_2.completamente_solas.texto | md }}</p></div></li>
+        <li><div><h3>{{ c.seccion_2.prepara_los_elementos.titulo | titulo }}</h3><p>{{ c.seccion_2.prepara_los_elementos.texto | md }}</p></div></li>
+        <li><div><h3>{{ c.seccion_2.manos_libres.titulo | titulo }}</h3><p>{{ c.seccion_2.manos_libres.texto | md }}</p></div></li>
+        <li><div><h3>{{ c.seccion_2.volumen_maximo.titulo | titulo }}</h3><p>{{ c.seccion_2.volumen_maximo.texto | md }}</p></div></li>
       </ol>
       <div data-reveal>
         <div class="video vertical" data-video="../assets/media/ritual-7-pecados.mp4">
-          <img src="../assets/img/siete-pecados.webp" width="1170" height="1741" alt="" loading="lazy">
-          <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">Comenzar el ritual</span></button>
+          <img {{ c.seccion_2.video.portada | img }} alt="" loading="lazy">
+          <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.seccion_2.video.titulo | texto }}</span></button>
         </div>
       </div>
-      <p class="quote-big center" data-reveal style="font-size:clamp(1.3rem,2.6vw,1.9rem)">Si te saltas alguna indicación, tu fantasía jamás se cumplirá… y el Sr. D vendrá a por tu alma en cualquier momento.</p>
-      <div class="row center" data-reveal><a class="btn btn-ghost" href="../cuando-el-diablo-piensa/">Cuando el Diablo Piensa</a></div>
+      <p class="quote-big center" data-reveal style="font-size:clamp(1.3rem,2.6vw,1.9rem)">{{ c.seccion_2.texto | md }}</p>
+      <div class="row center" data-reveal><a class="btn btn-ghost" {{ c.seccion_2.boton.enlace | enlace }}>{{ c.seccion_2.boton.texto | texto }}</a></div>
     </div>
   </section>
 </main>

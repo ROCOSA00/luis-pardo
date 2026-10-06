@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "titulo": "Regala años de vida · El ritual 666",
+    "descripcion": "¿Cuántos años de vida extra quieres regalar? El contador de 666 segundos ya está en marcha."
+  },
+  "cabecera": {
+    "imagen": "/assets/img/regala-anos.webp",
+    "antetitulo": "El tiempo ya está corriendo",
+    "titulo": "¿Cuántos años de vida extra quieres *regalar*?",
+    "entradilla": "Desde que entraste aquí, el contador de los 666 segundos está en marcha. Cuando llegue a cero, los años que has ingerido dejarán de tener efecto en ti.",
+    "aviso": "El tiempo se ha agotado. Si aún quieres hacer tu regalo, escríbenos y veremos qué se puede hacer…"
+  },
+  "seccion_2": {
+    "texto": "Elige cuántos años de vida extra regalas a la persona que deseas: **10, 9, 8, 7, 6 o 5**. Nosotros nos encargamos de que le llegue un sobre como el que tú recibiste, con sus años de vida extra. Un regalo que jamás olvidará.\n\nRecuerda copiar el código **«Pi(número)» o «Ch(número)»** para indicarlo en tu mensaje: sin ese código el sobre no podrá sellarse y jamás llegará a su destino. Solo cuando completes esta acción, los años que has ingerido cobrarán valor y se sumarán a tu tiempo de vida.",
+    "boton": {
+      "texto": "Regala 10 años",
+      "mensaje": "Quiero regalar 10 años de vida extra. Mi código es: "
+    },
+    "boton_2": {
+      "texto": "Regala 9 años",
+      "mensaje": "Quiero regalar 9 años de vida extra. Mi código es: "
+    },
+    "boton_3": {
+      "texto": "Regala 8 años",
+      "mensaje": "Quiero regalar 8 años de vida extra. Mi código es: "
+    },
+    "boton_4": {
+      "texto": "Regala 7 años",
+      "mensaje": "Quiero regalar 7 años de vida extra. Mi código es: "
+    },
+    "boton_5": {
+      "texto": "Regala 6 años",
+      "mensaje": "Quiero regalar 6 años de vida extra. Mi código es: "
+    },
+    "boton_6": {
+      "texto": "Regala 5 años",
+      "mensaje": "Quiero regalar 5 años de vida extra. Mi código es: "
+    },
+    "texto_2": "Al pulsar se abrirá WhatsApp con tu mensaje preparado: añade tu código y envíalo."
+  }
+}

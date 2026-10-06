@@ -1,0 +1,253 @@
+{
+  "seo": {
+    "titulo": "Galería · Luis Pardo Mentalista",
+    "descripcion": "Una imagen vale más que mil palabras: fotografías de los espectáculos, la televisión y el universo de Luis Pardo y M. Minerva.",
+    "titulo_redes": "Galería · Luis Pardo",
+    "imagen_redes": "/assets/img/galeria/galeria-01.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/galeria/galeria-05.webp",
+    "antetitulo": "Galería",
+    "titulo": "Una imagen vale más que *mil palabras*",
+    "entradilla": "Escenarios, platós, rituales y momentos imposibles. Pulsa sobre cualquier imagen para verla a pantalla completa."
+  },
+  "seccion_2": {
+    "fotos": [
+      {
+        "imagen": "/assets/img/galeria/galeria-01.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-02.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-03.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-04.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-05.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-06.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-07.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-08.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-09.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-10.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-11.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-12.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-13.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-14.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-15.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-16.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-17.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-18.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-19.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-20.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-21.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-22.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-23.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-24.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-25.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-26.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-27.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-28.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-29.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-30.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-31.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-32.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-33.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-34.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-35.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-36.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-37.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-38.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-39.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-40.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-41.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-42.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-43.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-44.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-45.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-46.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-47.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-48.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-49.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-50.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-51.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-52.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-53.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-54.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-55.webp",
+        "descripcion": ""
+      },
+      {
+        "imagen": "/assets/img/galeria/galeria-56.webp",
+        "descripcion": ""
+      }
+    ]
+  },
+  "las_fotos_cuentan": {
+    "titulo": "Las fotos no lo cuentan todo. Hay que vivirlo.",
+    "boton": {
+      "texto": "Ver entradas",
+      "enlace": "/comprar_entradas/"
+    },
+    "boton_2": {
+      "texto": "Síguenos en Instagram",
+      "enlace": "https://www.instagram.com/pardo_mentalista/"
+    }
+  }
+}

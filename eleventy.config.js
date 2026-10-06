@@ -1,6 +1,7 @@
 // Configuración de Eleventy: genera la web estática en _site/ a partir de src/.
 import fs from "node:fs";
 import path from "node:path";
+import contenido from "./lib/contenido.js";
 
 const OUTPUT = "_site";
 
@@ -25,6 +26,8 @@ function linkTree(from, to) {
 }
 
 export default function (eleventyConfig) {
+  eleventyConfig.addPlugin(contenido);
+
   if (process.env.ELEVENTY_RUN_MODE === "build") {
     eleventyConfig.on("eleventy.after", () => {
       fs.rmSync(path.join(OUTPUT, "assets"), { recursive: true, force: true });
@@ -34,8 +37,6 @@ export default function (eleventyConfig) {
     // En `npm run dev` el servidor sirve assets/ directamente, sin copiar.
     eleventyConfig.addPassthroughCopy({ assets: "assets" });
   }
-  eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
-  eleventyConfig.addPassthroughCopy({ "src/sitemap.xml": "sitemap.xml" });
 
   return {
     dir: { input: "src", includes: "_includes", data: "_data", output: OUTPUT },

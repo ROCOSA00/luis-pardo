@@ -1,21 +1,21 @@
 {% extends "layouts/base.njk" %}
 {% block head %}
-<title>«Dos contra el mundo» · Banda sonora original | Luis Pardo</title>
-<meta name="description" content="Escucha las 21 canciones de «Dos contra el mundo», la banda sonora original del espectáculo «Lo imposible está en tu mente», y mira el videoclip de «Sin tocarte».">
-<link rel="canonical" href="https://luis-pardo.vercel.app/dos-contra-el-mundo/">
-<meta property="og:title" content="Dos contra el mundo · BSO">
-<meta property="og:image" content="https://luis-pardo.vercel.app/assets/img/bso-portada.webp">
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
+<meta property="og:title" content="{{ c.seo.titulo_redes | texto }}">
+<meta property="og:image" content="{{ sitio.url }}{{ c.seo.imagen_redes }}">
 {% endblock %}
 {% block main %}
 <main id="main">
   <section class="page-hero">
-    <div class="hero-bg"><img src="../assets/img/bso-portada.webp" width="1254" height="1254" alt="" fetchpriority="high" style="filter:blur(2px)"></div>
+    <div class="hero-bg"><img {{ c.cabecera.imagen | img }} alt="" fetchpriority="high" style="filter:blur(2px)"></div>
     <div class="wrap">
       <div class="page-hero-inner">
         <nav class="breadcrumb" aria-label="Migas de pan" data-reveal><a href="../">Inicio</a><span aria-hidden="true">/</span><span>Universo</span></nav>
-        <span class="eyebrow" data-reveal>Banda sonora original · «Lo imposible está en tu mente»</span>
-        <h1 class="display" data-reveal style="--d:.1s">Dos contra <span class="text-gradient">el mundo</span></h1>
-        <p class="hero-tagline" data-reveal style="--d:.2s">Si creías que el espectáculo había terminado… <em>qué poco nos conoces.</em></p>
+        <span class="eyebrow" data-reveal>{{ c.cabecera.antetitulo | texto }}</span>
+        <h1 class="display" data-reveal style="--d:.1s">{{ c.cabecera.titulo | titulo }}</h1>
+        <p class="hero-tagline" data-reveal style="--d:.2s">{{ c.cabecera.texto | md }}</p>
       </div>
     </div>
   </section>
@@ -25,22 +25,22 @@
       <div class="grid-2" style="align-items:start">
         <div class="stack-lg">
           <div class="prose" data-reveal>
-            <p class="lead">Si has llegado hasta aquí, has sobrevivido al espectáculo. Y ahora vienen las secuelas.</p>
-            <p>Hay quien sale de un teatro con recuerdos. Tú sales con una banda sonora para seguir alimentándolos. La mayoría de espectadores terminan cuando se encienden las luces… nosotros acabamos de apagar las tuyas.</p>
-            <p><strong>Lo sentimos:</strong> cada vez que escuches estas canciones, el espectáculo volverá a empezar en tu cabeza.</p>
+            <p class="lead">{{ c.seccion_2.entradilla | md }}</p>
+            <p>{{ c.seccion_2.texto | md }}</p>
+            <p>{{ c.seccion_2.texto_2 | md }}</p>
           </div>
           <div data-reveal style="--d:.1s">
-            <span class="eyebrow">Material extra · Videoclip</span>
+            <span class="eyebrow">{{ c.seccion_2.antetitulo | texto }}</span>
             <div class="video mt-1" data-video="../assets/media/videoclip-sin-tocarte.mp4">
-              <img src="../assets/img/luis-minerva.webp" width="1242" height="1229" alt="" loading="lazy">
-              <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">Videoclip «Sin tocarte»</span></button>
+              <img {{ c.seccion_2.video.portada | img }} alt="" loading="lazy">
+              <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.seccion_2.video.titulo | texto }}</span></button>
             </div>
           </div>
         </div>
 
         <div class="player" data-player data-reveal style="--d:.1s">
           <div class="player-top">
-            <div class="player-cover"><img src="../assets/img/bso-portada.webp" width="1254" height="1254" alt="Portada de la BSO Dos contra el mundo" loading="lazy"></div>
+            <div class="player-cover"><img {{ c.seccion_2.imagen.src | img }} alt="{{ c.seccion_2.imagen.alt | texto }}" loading="lazy"></div>
             <div>
               <div class="player-now">Ahora suena</div>
               <div class="player-title">Pulsa play para empezar</div>
@@ -56,29 +56,7 @@
               <button class="btn btn-ghost btn-sm mt-2" type="button" data-play-all>Escuchar el disco entero</button>
             </div>
           </div>
-          <ol class="player-list">
-            <li data-src="../assets/audio/bso/01-alune-el-amor-vence-a-la-muerte.mp3" data-title="01. ALUNE: El amor vence a la muerte"><button type="button"><span class="n">01</span><span class="t">ALUNE: El amor vence a la muerte</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/02-sin-tocarte.mp3" data-title="02. Sin tocarte"><button type="button"><span class="n">02</span><span class="t">Sin tocarte</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/03-el-ataud-de-houdini.mp3" data-title="03. El ataúd de Houdini"><button type="button"><span class="n">03</span><span class="t">El ataúd de Houdini</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/04-magia.mp3" data-title="04. Magia"><button type="button"><span class="n">04</span><span class="t">Magia</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/05-cancion-macabra.mp3" data-title="05. Canción macabra"><button type="button"><span class="n">05</span><span class="t">Canción macabra</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/06-el-gato-negro.mp3" data-title="06. El gato negro"><button type="button"><span class="n">06</span><span class="t">El gato negro</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/07-los-7-nombres-del-diablo.mp3" data-title="07. Los 7 nombres del Diablo"><button type="button"><span class="n">07</span><span class="t">Los 7 nombres del Diablo</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/08-tus-pensamientos.mp3" data-title="08. Tus pensamientos"><button type="button"><span class="n">08</span><span class="t">Tus pensamientos</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/09-mis-viajes-astrales.mp3" data-title="09. Mis viajes astrales"><button type="button"><span class="n">09</span><span class="t">Mis viajes astrales</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/10-deseos.mp3" data-title="10. Deseos"><button type="button"><span class="n">10</span><span class="t">Deseos</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/11-mpma.mp3" data-title="11. MPMA"><button type="button"><span class="n">11</span><span class="t">MPMA</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/12-la-ouija.mp3" data-title="12. La ouija"><button type="button"><span class="n">12</span><span class="t">La ouija</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/13-el-hechizo.mp3" data-title="13. El hechizo"><button type="button"><span class="n">13</span><span class="t">El hechizo</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/14-escapar-de-la-lujuria.mp3" data-title="14. Escapar de la lujuria"><button type="button"><span class="n">14</span><span class="t">Escapar de la lujuria</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/15-lunas-de-sangre.mp3" data-title="15. Lunas de sangre"><button type="button"><span class="n">15</span><span class="t">Lunas de sangre</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/16-la-inquisicion.mp3" data-title="16. La Inquisición"><button type="button"><span class="n">16</span><span class="t">La Inquisición</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/17-un-solo-disparo.mp3" data-title="17. Un solo disparo"><button type="button"><span class="n">17</span><span class="t">Un solo disparo</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/18-anneliese-michel.mp3" data-title="18. Anneliese Michel"><button type="button"><span class="n">18</span><span class="t">Anneliese Michel</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li class="is-missing" data-title="19. iA" title="Audio no disponible"><button type="button" disabled><span class="n">19</span><span class="t">iA</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/20-el-epitafio.mp3" data-title="20. El epitafio"><button type="button"><span class="n">20</span><span class="t">El epitafio</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-            <li data-src="../assets/audio/bso/21-prision-mental.mp3" data-title="21. Prisión mental"><button type="button"><span class="n">21</span><span class="t">Prisión mental</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>
-          </ol>
+          <ol class="player-list">{% for t in c.seccion_2.canciones %}{% set n = loop.index | dosCifras %}{% if t.audio %}<li data-src="{{ t.audio | ruta }}" data-title="{{ n }}. {{ t.titulo | texto }}"><button type="button">{% else %}<li class="is-missing" data-title="{{ n }}. {{ t.titulo | texto }}" title="Audio no disponible"><button type="button" disabled>{% endif %}<span class="n">{{ n }}</span><span class="t">{{ t.titulo | texto }}</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>{% endfor %}</ol>
         </div>
       </div>
     </div>
@@ -86,9 +64,9 @@
 
   <section class="section cta-final">
     <div class="wrap-narrow stack-lg" style="justify-items:center">
-      <span class="eyebrow center" data-reveal>¿Aún no lo has vivido?</span>
-      <h2 class="h2" data-reveal style="--d:.1s">Pon banda sonora a tu próxima noche</h2>
-      <div class="row center" data-reveal style="--d:.2s"><a class="btn btn-blood btn-lg" href="../cuando-el-diablo-piensa/">Descubrir Cuando el Diablo Piensa</a></div>
+      <span class="eyebrow center" data-reveal>{{ c.pon_banda_sonora.antetitulo | texto }}</span>
+      <h2 class="h2" data-reveal style="--d:.1s">{{ c.pon_banda_sonora.titulo | titulo }}</h2>
+      <div class="row center" data-reveal style="--d:.2s"><a class="btn btn-blood btn-lg" {{ c.pon_banda_sonora.boton.enlace | enlace }}>{{ c.pon_banda_sonora.boton.texto | texto }}</a></div>
     </div>
   </section>
 </main>

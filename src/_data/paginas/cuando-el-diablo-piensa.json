@@ -1,0 +1,180 @@
+{
+  "seo": {
+    "titulo": "Cuando el Diablo Piensa · Espectáculo de mentalismo en Barcelona | Luis Pardo",
+    "descripcion": "La experiencia de mentalismo más exclusiva e inmersiva: telepatía, predicciones, energías y espiritismo para solo 26 personas en Spirit Club Bcn. Con Luis Pardo y M. Minerva.",
+    "titulo_redes": "Cuando el Diablo Piensa · Luis Pardo & M. Minerva",
+    "descripcion_redes": "No podrás creer lo que veas… pero lo creerás, porque lo vas a vivir.",
+    "imagen_redes": "/assets/img/cedp-cartel.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/cedp-reloj.webp",
+    "antetitulo": "De Luis Pardo & M. Minerva",
+    "titulo": "Cuando el *Diablo* Piensa",
+    "texto": "Una experiencia de mentalismo donde *la mente y el alma se encuentran.*",
+    "etiqueta": "**26** personas máximo",
+    "etiqueta_2": "**≈3 h** de experiencia",
+    "etiqueta_3": "**Spirit Club** Bcn",
+    "etiqueta_4": "**+500** funciones · Sold out",
+    "boton": "Comprar entradas",
+    "boton_2": {
+      "texto": "Ver el tráiler",
+      "enlace": "#trailer"
+    }
+  },
+  "cruzar_puerta_vienes": {
+    "antetitulo": "El pacto",
+    "titulo": "Al cruzar la puerta no vienes a ver un espectáculo. Vienes a hacer un pacto contigo.",
+    "texto": "Un pacto silencioso para mirar más allá de lo que crees que eres y descubrir hasta dónde llega tu mente cuando se libera de ciertas creencias.\n\n**Aquí no hay trucos: hay conciencia. Aquí no hay público: hay testigos.**\n\nY aunque el título hable del Diablo, no se viene a pasar miedo. No hay sustos. Lo que hay es una experiencia que cambia tu forma de pensar sobre muchas cosas: incluso las personas más escépticas salen con la mente mucho más abierta a lo desconocido, lo psíquico y lo paranormal.",
+    "imagen": {
+      "src": "/assets/img/cedp-cartel.webp",
+      "alt": "Cartel de Cuando el Diablo Piensa"
+    }
+  },
+  "trailer": {
+    "antetitulo": "Tráiler",
+    "titulo": "Súbele el volumen",
+    "video": {
+      "portada": "/assets/img/show-cedp.webp",
+      "titulo": "Ver el tráiler"
+    },
+    "texto": "Aconsejable verlo con el volumen alto.",
+    "video_2": {
+      "portada": "/assets/img/tv-plato.webp",
+      "titulo": "Luis Pardo juega a la ruleta rusa en Buenafuente"
+    },
+    "texto_2": "Experto en ponerte los pelos de punta con experiencias de riesgo."
+  },
+  "esto_para_cualquiera": {
+    "antetitulo": "¿Qué vas a vivir?",
+    "titulo": "Esto no es para cualquiera. Es para quien se atreve a mirar dentro.",
+    "telepatia": {
+      "titulo": "Telepatía",
+      "texto": "Sentirás conexiones telepáticas en tu propia mente."
+    },
+    "predicciones": {
+      "titulo": "Predicciones",
+      "texto": "Predicciones imposibles que te dejarán sin aliento."
+    },
+    "energias": {
+      "titulo": "Energías",
+      "texto": "Serás testigo de energías que nos rodean: las sentirás quieras o no."
+    },
+    "espiritismo": {
+      "titulo": "Espiritismo",
+      "texto": "Experiencias emotivas que van más allá de la vida y la muerte."
+    },
+    "puntos": [
+      "Formarás parte de un **secreto exclusivo** que muy pocas personas conocen.",
+      "Sentirás cosas que **no sabrás explicar**… ni podrás quitarte de la cabeza.",
+      "La mayoría de tus **creencias se van a tambalear**."
+    ],
+    "puntos_2": [
+      "En la única **sala-museo dedicada al mentalismo** de toda Europa.",
+      "Con nuestro exclusivo **cóctel 7 Pecados** durante la experiencia.",
+      "Si eres escéptico, **este es tu espectáculo**: no hace falta creer en algo para que exista."
+    ]
+  },
+  "dos_mentes_mismo": {
+    "antetitulo": "¿Quiénes te guían?",
+    "titulo": "Dos mentes, un mismo pacto",
+    "luis_pardo": {
+      "imagen": {
+        "src": "/assets/img/luis-cerebro.webp",
+        "alt": "Luis Pardo sosteniendo un cerebro"
+      },
+      "datos": [
+        "Mentalista"
+      ],
+      "titulo": "Luis Pardo",
+      "texto": "Considerado uno de los 5 mejores mentalistas del mundo. 1er Premio Nacional 2004, 4º Premio Mundial 2017 y Récord Mundial de conducción a ciegas en moto 2011.",
+      "puntos": [
+        "Capaz de adentrarse en tu mente con solo mirarte.",
+        "De conocer tu pasado, tu presente e incluso tu futuro.",
+        "Domina ciertas energías a su antojo."
+      ]
+    },
+    "minerva": {
+      "imagen": {
+        "src": "/assets/img/minerva-ouija.webp",
+        "alt": "M. Minerva con un tablero espiritista"
+      },
+      "datos": [
+        "Médium"
+      ],
+      "titulo": "M. Minerva",
+      "texto": "Apasionada de lo misterioso, lo oculto y lo paranormal. Amante de lo prohibido y de las emociones fuertes.",
+      "puntos": [
+        "Te hará sentir emociones que van más allá de toda lógica.",
+        "Experiencias más allá de la vida y la muerte tal como las conoces.",
+        "Si existen los espíritus… Minerva sabe cómo hacerlos hablar."
+      ]
+    },
+    "texto": "Lo desconocido atrae. Pero cuando lo vives en primera persona, o te apasiona… o sales corriendo."
+  },
+  "n9_9_sobre": {
+    "antetitulo": "Lo que dicen quienes han venido",
+    "titulo": "9,9 sobre 10 en Atrápalo",
+    "entradilla": "Más de 800 opiniones. El espectáculo mejor valorado de toda España en la plataforma.",
+    "video": {
+      "portada": "/assets/img/spirit-club-6.webp",
+      "titulo": "Opiniones de quienes ya lo han vivido"
+    },
+    "opiniones": [
+      {
+        "cita": "Luis Pardo tiene el mejor espectáculo de mentalismo de todo el mundo, y además su estilo es único.",
+        "autor": "El Mago Pop"
+      },
+      {
+        "cita": "Me gusta Luis Pardo porque ha creado una nueva categoría de la magia.",
+        "autor": "Risto Mejide"
+      },
+      {
+        "cita": "Nunca he visto nada igual. Te pone los pelos de punta.",
+        "autor": "Pilar Rubio"
+      },
+      {
+        "cita": "Tres horas que se hacen cortas. No se puede explicar: lo tienes que vivir.",
+        "autor": "Elisa · Público"
+      },
+      {
+        "cita": "Una experiencia que no te deja indiferente. Me quedé fascinada.",
+        "autor": "Público · 2026"
+      }
+    ]
+  },
+  "entradas": {
+    "antetitulo": "Entradas",
+    "titulo": "Una noche. Tu mente. Una revelación de todos tus sentidos.",
+    "entradilla": "Las plazas se limitan a 26 personas por función y suelen agotarse rápido.",
+    "aviso": "**Oferta limitada por función.** Solo un número muy reducido de entradas tiene un precio especial de hasta un 50% de descuento. Cuando se agotan, las demás pasan automáticamente a precio normal.",
+    "boton": "Comprar entradas",
+    "bloque": {
+      "sello": "SI NO TE\\\nSORPRENDEMOS\\\nTE DEVOLVEMOS\\\nEL DINERO",
+      "texto": "Estamos tan seguros de que te vas a sorprender que, si no es así, te devolvemos el dinero de tus entradas."
+    },
+    "bloque_2": {
+      "texto": "¿Cuánto dura?",
+      "texto_2": "Unas 2 horas y 45 minutos, más una pausa de 15 minutos. Quien no haya estado en la primera parte no podrá acceder a la segunda."
+    },
+    "bloque_3": {
+      "texto": "¿A qué hora debo llegar?",
+      "texto_2": "La sala abre 30 minutos antes y cierra a la hora de inicio. Una vez empezada la función no se puede entrar, porque interrumpiría la experiencia del resto."
+    },
+    "bloque_4": {
+      "texto": "¿Da miedo?",
+      "texto_2": "No. A pesar del título, el miedo y los sustos no forman parte de la experiencia. Lo que vas a vivir es emoción, asombro y muchas preguntas."
+    },
+    "bloque_5": {
+      "texto": "No puedo asistir, ¿qué hago?",
+      "texto_2": "No se admiten cambios ni devoluciones, pero puedes ceder tus entradas a otra persona para que asista en tu lugar. Consulta la [política de devoluciones](/politica-de-devoluciones/)."
+    },
+    "bloque_6": {
+      "texto": "¿Dónde es?",
+      "texto_2": "En Spirit Club Bcn, la coctelería-teatro dedicada al mentalismo en Barcelona. Recibirás la dirección exacta con tu entrada."
+    },
+    "texto": "Una producción de Clan Destino Mental S.L."
+  },
+  "barra_reserva": {
+    "boton": "Comprar entradas"
+  }
+}

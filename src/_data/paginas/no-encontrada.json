@@ -1,0 +1,18 @@
+{
+  "seo": {
+    "titulo": "Esta página ha desaparecido · Luis Pardo"
+  },
+  "cabecera": {
+    "antetitulo": "Error 404",
+    "titulo": "Esta página se ha *desvanecido*",
+    "entradilla": "Como tu carta en el experimento. Quizá nunca existió… o quizá alguien la ha hecho desaparecer.",
+    "boton": {
+      "texto": "Volver al inicio",
+      "enlace": "/"
+    },
+    "boton_2": {
+      "texto": "Ver entradas",
+      "enlace": "/comprar_entradas/"
+    }
+  }
+}

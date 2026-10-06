@@ -1,0 +1,45 @@
+{
+  "seo": {
+    "titulo": "Voy a entrar en tu mente · Luis Pardo Mentalista",
+    "descripcion": "¿Estás preparado para que Luis Pardo entre en tu mente? Un experimento de mentalismo para ti, ahora mismo, a través de la pantalla.",
+    "titulo_redes": "Voy a entrar en tu mente · Luis Pardo",
+    "imagen_redes": "/assets/img/lee-la-mente.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/lee-la-mente.webp",
+    "antetitulo": "Experimento",
+    "titulo": "¿Estás preparado para que entre en *tu mente*?",
+    "entradilla": "Pulsa play y empezamos."
+  },
+  "seccion_2": {
+    "video": {
+      "portada": "/assets/img/lee-la-mente.webp",
+      "titulo": "Empezamos"
+    },
+    "dejame_leerte_mente": {
+      "antetitulo": "Segundo experimento",
+      "titulo": "Déjame leerte la mente otra vez"
+    }
+  },
+  "mentalismo_con_los": {
+    "antetitulo": "¿Quieres flipar un poco más?",
+    "titulo": "Mentalismo con los transeúntes de Barcelona",
+    "video": {
+      "portada": "/assets/img/luis-cerebro.webp",
+      "titulo": "Ver el vídeo"
+    }
+  },
+  "leer_mente": {
+    "antetitulo": "Gratis",
+    "titulo": "¿Quieres que te lea la mente con un HipnoAudio?",
+    "entradilla": "Déjanos tus datos y prepárate: te lo enviamos por email.",
+    "boton": {
+      "texto": "Cuando el Diablo Piensa",
+      "enlace": "/cuando-el-diablo-piensa/"
+    },
+    "boton_2": {
+      "texto": "La Alquimia de la Mente",
+      "enlace": "/curso/"
+    }
+  }
+}

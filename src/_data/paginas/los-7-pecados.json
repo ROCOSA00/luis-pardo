@@ -1,0 +1,40 @@
+{
+  "seo": {
+    "titulo": "Los 7 Pecados · El ritual | Cuando el Diablo Piensa",
+    "descripcion": "Instrucciones del ritual de Los 7 Pecados, el cóctel de Cuando el Diablo Piensa."
+  },
+  "cabecera": {
+    "imagen": "/assets/img/siete-pecados.webp",
+    "antetitulo": "Cuando el Diablo Piensa · de Luis Pardo & M. Minerva",
+    "titulo": "Ha llegado tu hora de pactar la fantasía de tu *pecado favorito*",
+    "entradilla": "Sigue las instrucciones al pie de la letra para que el ritual funcione al 100%."
+  },
+  "seccion_2": {
+    "aviso": "**Importante:** nadie más que tú debe conocer tu pecado ni tu fantasía sobre él.",
+    "completamente_solas": {
+      "titulo": "Completamente a solas",
+      "texto": "Asegúrate de estar solo o sola en la habitación, con muy poca luz."
+    },
+    "prepara_los_elementos": {
+      "titulo": "Prepara los elementos",
+      "texto": "Las 7 tarjetas de los pecados que encontraste en el sobre, la vela que te adjuntamos y un mechero o cerillas (esto lo pones tú)."
+    },
+    "manos_libres": {
+      "titulo": "Manos libres",
+      "texto": "Apoya el teléfono donde puedas verlo bien sin cogerlo: necesitarás las manos para manipular las tarjetas."
+    },
+    "volumen_maximo": {
+      "titulo": "Volumen al máximo",
+      "texto": "Cuando lo tengas todo listo, reproduce el vídeo y sigue cada paso."
+    },
+    "video": {
+      "portada": "/assets/img/siete-pecados.webp",
+      "titulo": "Comenzar el ritual"
+    },
+    "texto": "Si te saltas alguna indicación, tu fantasía jamás se cumplirá… y el Sr. D vendrá a por tu alma en cualquier momento.",
+    "boton": {
+      "texto": "Cuando el Diablo Piensa",
+      "enlace": "/cuando-el-diablo-piensa/"
+    }
+  }
+}

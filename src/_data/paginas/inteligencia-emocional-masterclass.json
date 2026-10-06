@@ -1,0 +1,78 @@
+{
+  "seo": {
+    "titulo": "Masterclass gratuita: Inteligencia Emocional · Luis Pardo",
+    "descripcion": "Masterclass gratuita de Inteligencia Emocional con Luis Pardo: descubre cómo funciona tu mente emocional y cómo empezar a controlarla.",
+    "titulo_redes": "Masterclass: Inteligencia Emocional · Luis Pardo",
+    "imagen_redes": "/assets/img/inteligencia-emocional.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/inteligencia-emocional.webp",
+    "antetitulo": "Masterclass gratuita",
+    "titulo": "Inteligencia *Emocional*",
+    "entradilla": "La mayoría de las personas no entiende lo que siente, ni por qué reacciona como reacciona. Aquí vas a descubrir cómo funciona la mente emocional y cómo empezar a controlarla."
+  },
+  "seccion_2": {
+    "antetitulo": "Vídeo 1",
+    "video": {
+      "portada": "/assets/img/inteligencia-emocional.webp",
+      "titulo": "Empieza la masterclass"
+    },
+    "texto": "Lo que vas a ver no es teoría: cuando entiendes tus emociones, entiendes por qué haces lo que haces. Y cuando entiendes eso, empiezas a tener el control.",
+    "antetitulo_2": "Vídeo 2 · Ejercicio",
+    "video_2": {
+      "portada": "/assets/img/alquimia.webp",
+      "titulo": "Haz el ejercicio"
+    },
+    "texto_2": "Con este ejercicio verás que tu mente no funciona al azar: hay patrones y reacciones que puedes empezar a cambiar. Y esto es solo el principio.",
+    "texto_3": "Esto no va de intuición. Va de entrenamiento."
+  },
+  "alquimia_mente": {
+    "imagen": {
+      "src": "/assets/img/alquimia.webp",
+      "alt": "Cartel de La Alquimia de la Mente"
+    },
+    "antetitulo": "El siguiente paso",
+    "titulo": "La Alquimia de la Mente",
+    "entradilla": "Mi club privado de entrenamiento mental. Vídeos, ejercicios prácticos y entrenamiento real para entender tus emociones, interpretar las de los demás y decidir con más control.",
+    "titulo_2": "Y además aprenderás a:",
+    "puntos": [
+      "Detectar emociones en otras personas.",
+      "Anticiparte a reacciones.",
+      "No dejarte arrastrar por impulsos.",
+      "Dirigir mejor tus decisiones.",
+      "Entender lo que ocurre en una conversación sin que te lo digan."
+    ],
+    "titulo_3": "Áreas que entrenarás:",
+    "puntos_2": [
+      "Comunicación no verbal",
+      "Persuasión",
+      "Hipnosis real",
+      "Agilidad mental y memoria",
+      "Lectura mental e intuición",
+      "El mundo de las energías",
+      "Uso del péndulo"
+    ],
+    "bloque": {
+      "texto": "37 €",
+      "texto_2": "67,95 €",
+      "texto_3": "precio reducido durante unos días",
+      "texto_4": "Sin permanencia, sin compromiso. Plazas limitadas para poder estar presente en las clases en directo y acompañar a cada persona. Incluye audios MPM para relajarte, liberar estrés y concentrarte.",
+      "boton": {
+        "texto": "Acceder con el precio reducido",
+        "enlace": "https://pay.hotmart.com/U104869473V"
+      }
+    }
+  },
+  "esta_masterclass_sido": {
+    "titulo": "Esta masterclass ha sido solo la puerta de entrada",
+    "entradilla": "Imagina lo que puedes conseguir si entrenas tu mente de verdad.",
+    "boton": {
+      "texto": "Entrar en el club",
+      "enlace": "https://pay.hotmart.com/U104869473V"
+    },
+    "boton_2": {
+      "texto": "Masterclass de Comunicación No Verbal",
+      "enlace": "/comunicacion-no-verbal-masterclass/"
+    }
+  }
+}
