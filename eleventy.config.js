@@ -38,6 +38,9 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ assets: "assets" });
   }
 
+  // Editor del panel (Sveltia CMS), con la versión fijada en package.json.
+  eleventyConfig.addPassthroughCopy({ "node_modules/@sveltia/cms/dist/sveltia-cms.js": "admin/sveltia-cms.js" });
+
   return {
     dir: { input: "src", includes: "_includes", data: "_data", output: OUTPUT },
     templateFormats: ["njk", "md", "html"],
