@@ -1,0 +1,28 @@
+---
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+{% extends "layouts/base.njk" %}
+{% block head %}
+<title>Esta página ha desaparecido · Luis Pardo</title>
+<meta name="robots" content="noindex">
+{% endblock %}
+{% block main %}
+<main id="main">
+  <section class="hero" data-lantern>
+    <canvas class="embers" aria-hidden="true"></canvas>
+    <div class="hero-lantern" aria-hidden="true"></div>
+    <div class="wrap-narrow center">
+      <div class="hero-content" style="max-width:none; justify-items:center">
+        <span class="eyebrow center">Error 404</span>
+        <h1 class="display">Esta página se ha <span class="text-blood">desvanecido</span></h1>
+        <p class="lead">Como tu carta en el experimento. Quizá nunca existió… o quizá alguien la ha hecho desaparecer.</p>
+        <div class="row center">
+          <a class="btn btn-blood btn-lg" href="/">Volver al inicio</a>
+          <a class="btn btn-ghost btn-lg" href="/comprar_entradas/">Ver entradas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

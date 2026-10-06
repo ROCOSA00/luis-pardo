@@ -1,0 +1,39 @@
+{% extends "layouts/base.njk" %}
+{% block head %}
+<title>Sobre 666 · Alguien que te aprecia te ha enviado esto</title>
+<meta name="description" content="Alguien que te aprecia te ha mandado el sobre 666.">
+<meta name="robots" content="noindex">
+{% endblock %}
+{% block main %}
+<main id="main">
+  <section class="hero" data-lantern style="min-height:auto">
+    <div class="hero-bg"><img src="../assets/img/sobre-666.webp" width="1024" height="1536" alt="" fetchpriority="high" style="opacity:.4"></div>
+    <canvas class="embers" aria-hidden="true"></canvas>
+    <div class="hero-lantern" aria-hidden="true"></div>
+    <div class="wrap-narrow">
+      <div class="hero-content" style="max-width:none">
+        <span class="eyebrow" data-reveal>Sobre 666</span>
+        <h1 class="display" data-reveal style="--d:.1s">Alguien que te aprecia te ha enviado <span class="text-blood">este sobre</span></h1>
+        <p class="lead" data-reveal style="--d:.2s">Y desea que veas el siguiente vídeo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap-narrow stack-lg">
+      <ol class="steps" data-reveal>
+        <li><div><h3>Abre el sobre</h3><p>Antes de ver el vídeo, saca todos los elementos que hay dentro: los vas a necesitar.</p></div></li>
+        <li><div><h3>Sube el volumen</h3><p>Para escuchar bien todas las instrucciones.</p></div></li>
+        <li><div><h3>Pulsa play</h3><p>Y sigue el ritual hasta el final.</p></div></li>
+      </ol>
+      <div data-reveal>
+        <div class="video vertical" data-video="../assets/media/ritual-sobre-666.mp4">
+          <img src="../assets/img/sobre-666.webp" width="1024" height="1536" alt="" loading="lazy">
+          <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">Ver el vídeo</span></button>
+        </div>
+      </div>
+      <div class="row center" data-reveal><a class="btn btn-blood btn-lg" href="../regala-anos-de-vida/">Terminar el ritual</a></div>
+    </div>
+  </section>
+</main>
+{% endblock %}

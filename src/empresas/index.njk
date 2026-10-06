@@ -1,0 +1,73 @@
+{% extends "layouts/base.njk" %}
+{% block head %}
+<title>Mentalista para eventos de empresa · Luis Pardo</title>
+<meta name="description" content="Más de 25 años amenizando eventos de empresa: cenas, presentaciones de producto y convenciones. BMW, Mercedes-Benz, Vodafone, Harley-Davidson y muchas más han confiado en Luis Pardo.">
+<link rel="canonical" href="https://luis-pardo.vercel.app/empresas/">
+<meta property="og:title" content="Eventos para empresas · Luis Pardo Mentalista">
+<meta property="og:image" content="https://luis-pardo.vercel.app/assets/img/empresas.webp">
+{% endblock %}
+{% block main %}
+<main id="main">
+  <section class="page-hero">
+    <div class="hero-bg"><img src="../assets/img/empresas.webp" width="1600" height="1025" alt="" fetchpriority="high"></div>
+    <div class="wrap">
+      <div class="page-hero-inner">
+        <nav class="breadcrumb" aria-label="Migas de pan" data-reveal><a href="../">Inicio</a><span aria-hidden="true">/</span><span>Experiencias</span></nav>
+        <span class="eyebrow" data-reveal>Eventos para empresas</span>
+        <h1 class="display" data-reveal style="--d:.1s">Tu tiempo es importante. <span class="text-gradient">Inviértelo bien.</span></h1>
+        <p class="lead" data-reveal style="--d:.2s">Desde hace más de 25 años, muchas empresas confían en Luis Pardo para que sus eventos se recuerden.</p>
+        <div class="row" data-reveal style="--d:.3s">
+          <a class="btn btn-blood btn-lg" href="mailto:luispardo@luispardo.com?subject=Evento%20de%20empresa">Pedir información</a>
+          <a class="btn btn-whatsapp btn-lg" href="https://wa.me/34616346365?text=Hola%20Luis%2C%20quiero%20informaci%C3%B3n%20para%20un%20evento%20de%20empresa" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid-2">
+        <div class="stack-lg">
+          <div class="stack">
+            <span class="eyebrow" data-reveal>Captar la atención</span>
+            <h2 class="h2" data-reveal style="--d:.1s">Un maestro en lo más difícil de cualquier evento</h2>
+          </div>
+          <div class="prose" data-reveal style="--d:.2s">
+            <p>Lo más importante en un evento profesional es <strong>captar la atención de los asistentes</strong> y que disfruten al máximo: así se llevan un buen recuerdo, y eso es lo que la empresa necesita.</p>
+            <p>Cenas de empresa, presentaciones de producto, convenciones o lo que se te ocurra: hay total flexibilidad para adaptar la actuación a tu evento y que tus invitados lo pasen en grande.</p>
+          </div>
+        </div>
+        <ol class="steps" data-reveal="right">
+          <li><div><h3>Cuéntanos tu evento</h3><p>Fecha, lugar, número de asistentes y objetivo.</p></div></li>
+          <li><div><h3>Diseñamos la experiencia</h3><p>Mentalismo, hipnosis o un formato a medida para tu marca.</p></div></li>
+          <li><div><h3>Tus invitados no lo olvidarán</h3><p>Participación, asombro y conversación garantizada.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="section-head center wrap">
+      <span class="eyebrow center" data-reveal>Han confiado en Luis Pardo</span>
+    </div>
+    <div class="marquee" aria-label="Empresas clientes">
+      <div class="marquee-track">
+        <span>BMW</span><span>Mercedes-Benz</span><span>Jägermeister</span><span>Montblanc</span><span>Philips</span><span>Harley-Davidson</span><span>Motos Bordoy</span><span>Hyundai</span><span>Vodafone</span>
+        <span aria-hidden="true">BMW</span><span aria-hidden="true">Mercedes-Benz</span><span aria-hidden="true">Jägermeister</span><span aria-hidden="true">Montblanc</span><span aria-hidden="true">Philips</span><span aria-hidden="true">Harley-Davidson</span><span aria-hidden="true">Motos Bordoy</span><span aria-hidden="true">Hyundai</span><span aria-hidden="true">Vodafone</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-final">
+    <div class="wrap-narrow stack-lg" style="justify-items:center">
+      <span class="eyebrow center" data-reveal>Información y contratación</span>
+      <h2 class="h2" data-reveal style="--d:.1s">Hagamos que tu evento sea especial</h2>
+      <p class="lead" data-reveal style="--d:.2s"><a class="gold" href="mailto:luispardo@luispardo.com">luispardo@luispardo.com</a></p>
+      <div class="row center" data-reveal style="--d:.3s">
+        <a class="btn btn-blood btn-lg" href="mailto:luispardo@luispardo.com?subject=Evento%20de%20empresa">Escribir un email</a>
+        <a class="btn btn-whatsapp btn-lg" href="https://wa.me/34616346365?text=Hola%20Luis%2C%20quiero%20informaci%C3%B3n%20para%20un%20evento%20de%20empresa" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
