@@ -129,15 +129,41 @@ eleventyExcludeFromCollections: true
     try { localStorage.removeItem(USUARIO); } catch {}
   };
 
-  // Pide el permiso de edición al servidor (solo si la sesión está abierta).
+  // Pide el permiso de edición (y el email de acceso) al servidor, solo si la
+  // sesión está abierta.
   async function pedirToken() {
     const r = await fetch("/api/sesion/", { credentials: "same-origin", cache: "no-store" });
     if (r.status === 503) throw new Error("El panel todavía no está configurado. Avisa a quien te hizo la web.");
     if (!r.ok) return null;
-    return (await r.json()).token;
+    return r.json();
   }
 
-  async function abrirEditor(token) {
+  // El editor muestra la cuenta de GitHub dueña del token (nombre, foto y
+  // enlace a su perfil). En su lugar se muestra el email de acceso, el emblema
+  // de la web y, al pulsar sobre la cuenta, la guía del panel.
+  function ocultarCuentaGitHub(email) {
+    const fetchOriginal = window.fetch.bind(window);
+    window.fetch = async (recurso, opciones) => {
+      const respuesta = await fetchOriginal(recurso, opciones);
+      const url = typeof recurso === "string" ? recurso : recurso?.url || String(recurso);
+      if (!/^https:\/\/api\.github\.com\/user\/?(\?|$)/.test(url) || !respuesta.ok) return respuesta;
+      try {
+        const perfil = await respuesta.clone().json();
+        const cuenta = email || "Luis Pardo";
+        Object.assign(perfil, {
+          login: cuenta,
+          name: cuenta,
+          avatar_url: new URL("/assets/img/favicon.svg", location.href).href,
+          html_url: new URL("/admin/guia/", location.href).href,
+        });
+        return new Response(JSON.stringify(perfil), { status: 200, headers: { "Content-Type": "application/json" } });
+      } catch {
+        return respuesta;
+      }
+    };
+  }
+
+  async function abrirEditor({ token, email }) {
     mostrarEstado("Abriendo el panel…");
     // Comprobar que el permiso sigue funcionando antes de abrir el editor.
     const prueba = await fetch(`https://api.github.com/repos/${REPOSITORIO}`, {
@@ -153,6 +179,7 @@ eleventyExcludeFromCollections: true
     }
     // El editor (Sveltia CMS) entra solo con este permiso y en español.
     guardar(USUARIO, { backendName: "github", token });
+    ocultarCuentaGitHub(email);
     const prefs = leer(PREFERENCIAS) || {};
     if (!prefs.locale || prefs.locale === "auto") guardar(PREFERENCIAS, { ...prefs, locale: "es-CO" });
 
@@ -185,9 +212,9 @@ eleventyExcludeFromCollections: true
         const { error } = await r.json().catch(() => ({}));
         return mostrarAcceso(error || "No se ha podido entrar. Inténtalo de nuevo.");
       }
-      const token = await pedirToken();
-      if (!token) return mostrarAcceso("Tu navegador no ha guardado la sesión. Activa las cookies e inténtalo de nuevo.");
-      await abrirEditor(token);
+      const sesion = await pedirToken();
+      if (!sesion?.token) return mostrarAcceso("Tu navegador no ha guardado la sesión. Activa las cookies e inténtalo de nuevo.");
+      await abrirEditor(sesion);
     } catch (err) {
       mostrarAcceso(err.message || "No hay conexión. Revisa internet y vuelve a intentarlo.");
     }
@@ -201,8 +228,8 @@ eleventyExcludeFromCollections: true
       return mostrarAcceso("Has cerrado la sesión. ¡Hasta pronto!", "info");
     }
     try {
-      const token = await pedirToken();
-      if (token) return abrirEditor(token);
+      const sesion = await pedirToken();
+      if (sesion?.token) return abrirEditor(sesion);
       olvidar();
       mostrarAcceso();
     } catch (err) {
