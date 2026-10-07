@@ -1,0 +1,112 @@
+{
+  "seo": {
+    "titulo": "Spirit Club Bcn · La coctelería-teatro del mentalismo en Barcelona | Luis Pardo",
+    "descripcion": "La única coctelería-teatro dedicada al mentalismo y al espiritismo de Europa: un antiguo anticuario de Barcelona convertido en laboratorio de emociones para 26 personas.",
+    "titulo_redes": "Spirit Club Bcn · Un lugar donde la magia existe",
+    "imagen_redes": "/assets/img/spirit-club-cartel.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/spirit-club-4.webp",
+    "antetitulo": "Spirit Club Bcn",
+    "titulo": "Un lugar donde la *magia existe*",
+    "entradilla": "La única coctelería-teatro dedicada exclusivamente al mentalismo y al espiritismo de toda Europa.",
+    "boton": {
+      "texto": "Ver experiencias",
+      "enlace": "/comprar_entradas/"
+    },
+    "boton_2": {
+      "texto": "spiritclubbcn.com",
+      "enlace": "http://www.spiritclubbcn.com"
+    }
+  },
+  "para_crear_verdadera": {
+    "antetitulo": "El origen",
+    "titulo": "Para crear verdadera magia hacía falta el lugar perfecto",
+    "texto": "La obsesión de Luis Pardo es sacar el **100% del potencial mental** de cada espectador. Para eso estudia psicología, el funcionamiento del cerebro y nuestra percepción del tiempo y la realidad.\n\nEse camino le llevó a apostar por la cercanía frente a los grandes teatros: trabajar con los **cinco sentidos** de cada asistente para que viva en primera persona lo inexplicable. Y eso no se puede hacer en cualquier sitio.\n\nEncontró un **antiguo anticuario impregnado de energías** y lo transformó en la primera coctelería-teatro dedicada al mentalismo de Europa.",
+    "video": {
+      "youtube": "https://www.youtube.com/watch?v=x3Oqvads1hM",
+      "titulo": "Spirit Club Bcn",
+      "boton": "Visita Spirit Club Bcn"
+    }
+  },
+  "seccion_3": {
+    "cifras": [
+      {
+        "cifra": "+33.000",
+        "texto": "Personas han pasado"
+      },
+      {
+        "cifra": "26",
+        "texto": "Plazas por sesión"
+      },
+      {
+        "cifra": "2",
+        "texto": "Estancias, dos niveles"
+      },
+      {
+        "cifra": "5",
+        "texto": "Sentidos en juego"
+      }
+    ]
+  },
+  "anticuario_perdido_tiempo": {
+    "antetitulo": "El espacio",
+    "titulo": "Un anticuario perdido en el tiempo. Un laboratorio de emociones.",
+    "entradilla": "Objetos nada casuales, recuerdos y regalos de medio mundo: todo forma un gran cerebro pensante hecho de pasado, presente y un futuro que, a veces, puede predecirse.",
+    "fotos": [
+      {
+        "imagen": "/assets/img/spirit-club-1.webp",
+        "descripcion": "Rincón de Spirit Club Bcn con objetos antiguos"
+      },
+      {
+        "imagen": "/assets/img/spirit-club-2.webp",
+        "descripcion": "Vitrina con calavera y objetos misteriosos"
+      },
+      {
+        "imagen": "/assets/img/spirit-club-3.webp",
+        "descripcion": "Manos sobre un tablero espiritista"
+      },
+      {
+        "imagen": "/assets/img/spirit-club-4.webp",
+        "descripcion": "Sala principal con mesa roja"
+      },
+      {
+        "imagen": "/assets/img/spirit-club-5.webp",
+        "descripcion": "Vista cenital de una sesión"
+      },
+      {
+        "imagen": "/assets/img/spirit-club-6.webp",
+        "descripcion": "Luis Pardo durante una experiencia"
+      },
+      {
+        "imagen": "/assets/img/spirit-club-7.webp",
+        "descripcion": "Público participando alrededor de la mesa"
+      },
+      {
+        "imagen": "/assets/img/spirit-club-cartel.webp",
+        "descripcion": "Cartel de Spirit Club Bcn"
+      }
+    ],
+    "dos_estancias": {
+      "titulo": "Dos estancias",
+      "texto": "A distintos niveles, para usos y sensaciones muy diferentes. Incluso el olfato se usa para amplificar emociones."
+    },
+    "publico_publico": {
+      "titulo": "El público no es público",
+      "texto": "Cada asistente es imprescindible para la realización de cada acto. Todos participan, todos son protagonistas."
+    },
+    "fenomenos_psiquicos": {
+      "titulo": "Fenómenos psíquicos",
+      "texto": "Telepatía, precognición, telekinesis y espiritismo: el gran potencial de la mente humana, en vivo."
+    }
+  },
+  "mas_33_000": {
+    "antetitulo": "Únete al clan",
+    "titulo": "Más de 33.000 personas ya son socias del club",
+    "entradilla": "Algunas dicen que ha sido la mejor experiencia de su vida. Ven a formar parte de este clan.",
+    "boton": {
+      "texto": "Reservar experiencia",
+      "enlace": "/comprar_entradas/"
+    }
+  }
+}

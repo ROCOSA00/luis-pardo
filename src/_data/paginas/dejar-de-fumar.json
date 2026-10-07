@@ -1,0 +1,44 @@
+{
+  "seo": {
+    "titulo": "Cómo dejar de fumar en 21 días sin ansiedad · Luis Pardo",
+    "descripcion": "Por qué la mayoría de personas recae al dejar de fumar y cómo ayudar a tu mente a soltar el tabaco en 21 días. Vídeo y dossier gratuito de Luis Pardo.",
+    "titulo_redes": "Dejar de fumar en 21 días · Luis Pardo",
+    "imagen_redes": "/assets/img/dejar-de-fumar.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/dejar-de-fumar.webp",
+    "antetitulo": "21 días · sin ansiedad",
+    "titulo": "Deja de fumar cuando tu mente *deje de necesitarlo*",
+    "entradilla": "Dejar el tabaco no depende solo de la fuerza de voluntad. Descubre por qué la mayoría recae y cómo hacer que deje de ser una lucha."
+  },
+  "por_que_casi": {
+    "video": {
+      "portada": "/assets/img/dejar-de-fumar-cartel.webp",
+      "titulo": "Ver el vídeo"
+    },
+    "antetitulo": "Paso 1 · Mira el vídeo",
+    "titulo": "Por qué casi nadie lo consigue a la primera",
+    "entradilla": "En el vídeo te explico qué ocurre en tu mente cuando intentas dejarlo y por qué tantas personas recaen.",
+    "antetitulo_2": "Paso 2 · Descarga el dossier",
+    "texto": "Descubre, paso a paso, cómo funciona el proceso de los 21 días y por qué el verdadero cambio llega cuando tu mente deja de necesitar el tabaco.",
+    "boton": {
+      "texto": "Descargar dossier gratis (PDF)",
+      "enlace": "/assets/docs/dejar-de-fumar-en-21-dias.pdf"
+    },
+    "antetitulo_3": "Paso 3 · Da el paso",
+    "texto_2": "Cuando lo hayas leído, Luis te ayuda personalmente a que dejar de fumar sea una nueva forma de vivir y recuperes la libertad que el tabaco te roba.",
+    "boton_2": {
+      "texto": "Quiero dejar de fumar",
+      "mensaje": "Hola Luis. Quiero dejar de fumar para siempre. Ya no quiero que el tabaco siga controlando mi vida. ¿Puedes explicarme cómo puedes ayudarme?"
+    }
+  },
+  "mpm_personalizado_para": {
+    "antetitulo": "También con hipnosis",
+    "titulo": "Tu MPM personalizado para dejar de fumar",
+    "entradilla": "Un HipnoAudio creado solo para ti, para escuchar durante 21 días.",
+    "boton": {
+      "texto": "Ver MPM personalizados",
+      "enlace": "/hipnoaudios-personalizados/"
+    }
+  }
+}

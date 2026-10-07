@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% block head %}{% endblock %}
+{% include "partials/head.njk" %}
+{% block headExtra %}{% endblock %}
+</head>
+<body{% block bodyAttrs %}{% endblock %}>
+{% block beforeHeader %}{% endblock %}
+{% include "partials/header.njk" %}
+{% block main %}{% endblock %}
+{% include "partials/footer.njk" %}
+{% block afterFooter %}{% endblock %}
+</body>
+</html>

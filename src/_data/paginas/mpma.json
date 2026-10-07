@@ -1,0 +1,106 @@
+{
+  "seo": {
+    "titulo": "MPMA · Método de Programación Mental Antienvejecimiento | Luis Pardo",
+    "descripcion": "El MPMA es un trabajo mental profundo y personalizado basado en hipnosis clínica aplicada, regulación del estrés y reprogramación emocional. Escucha un audio de muestra gratuito.",
+    "titulo_redes": "MPMA · Luis Pardo",
+    "imagen_redes": "/assets/img/mpma-portada.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/mpma-ciclo.webp",
+    "antetitulo": "Método de Programación Mental Antienvejecimiento",
+    "titulo": "Esto no va de edad. *Va de desgaste interno.*",
+    "entradilla": "Duermes bien, comes más o menos sano… y aun así notas que algo se apaga. Menos energía, menos claridad, menos velocidad interna. Eso tiene nombre: desgaste acumulado.",
+    "boton": {
+      "texto": "Escuchar la muestra gratis",
+      "enlace": "#muestra"
+    },
+    "boton_2": {
+      "texto": "Quiero mi MPMA",
+      "mensaje": "Hola Luis, quiero más información sobre mi MPMA personalizado"
+    }
+  },
+  "trabajo_mental_profundo": {
+    "video": {
+      "portada": "/assets/img/mpma-rostros.webp",
+      "titulo": "Este vídeo puede cambiar cómo entiendes el envejecimiento"
+    },
+    "antetitulo": "¿Qué es el MPMA?",
+    "titulo": "Un trabajo mental profundo y 100% personalizado",
+    "texto": "Pensado para frenar el desgaste interno que con los años va apagando capacidades reales. Se basa en **hipnosis clínica aplicada, neurociencia del sueño, regulación del estrés y reprogramación emocional**, integradas en un ritual mental diario.",
+    "texto_2": "Cada MPMA se crea a partir de un test, adaptado a tu momento vital, tu nivel de desgaste y tus objetivos. No se trata de sentirse mejor un día: se trata de reentrenar la mente para sostener claridad, energía y presencia a largo plazo.",
+    "aviso": "**Importante:** el MPMA no es una terapia clínica, ni un tratamiento médico, ni una solución estética. No sustituye el consejo de ningún profesional sanitario."
+  },
+  "dialogo_interno_cambia": {
+    "antetitulo": "La base",
+    "titulo": "Tu diálogo interno cambia tu biología",
+    "entradilla": "La neurociencia y la psiconeuroinmunología llevan años estudiando cómo el estado interno que mantienes cada día influye en tu cuerpo.",
+    "puntos": [
+      "Baja el **cortisol**, la hormona del estrés.",
+      "Mejora la **regulación del sistema nervioso**.",
+      "Se favorecen los **procesos de reparación**.",
+      "El **desgaste** se ralentiza."
+    ],
+    "texto": "Cuando el sistema nervioso sale del modo «alarma», el cuerpo deja de recibir órdenes inconscientes de desgaste constante. Eso es lo que trabaja el MPMA.",
+    "imagen": {
+      "src": "/assets/img/mpma-corazon.webp",
+      "alt": "Ilustración antigua de un corazón"
+    },
+    "imagen_2": {
+      "src": "/assets/img/mpma-figura.webp",
+      "alt": "Ilustración del cuerpo humano con el símbolo del MPMA"
+    }
+  },
+  "promete_milagros_trabaja": {
+    "antetitulo": "Resultados",
+    "titulo": "No promete milagros. Trabaja el desgaste.",
+    "entradilla": "Lo que cuentan las personas que trabajan con su MPMA:",
+    "mas_energia": {
+      "titulo": "Más energía",
+      "texto": "Recuperan vitalidad corporal y la sensación de estar despiertas por dentro."
+    },
+    "mas_claridad": {
+      "titulo": "Más claridad",
+      "texto": "Mente más rápida, más presente y con menos ruido."
+    },
+    "mejor_aspecto": {
+      "titulo": "Mejor aspecto",
+      "texto": "Notan mejor tono, expresión y presencia; se ven menos apagadas en el espejo."
+    },
+    "mpma_para": {
+      "titulo": "El MPMA es para ti si…",
+      "puntos": [
+        "Te ves más apagado en el espejo: piel, gesto, mirada.",
+        "Tu mente ya no responde como antes.",
+        "Sientes que algo se ha apagado por dentro y quieres volver a sentirte vivo.",
+        "Quieres recuperar claridad, energía y presencia sin pasar por quirófano."
+      ]
+    },
+    "para": {
+      "titulo": "No es para ti si…",
+      "puntos": [
+        "Buscas una solución estética milagrosa.",
+        "Esperas resultados sin escuchar tu audio a diario.",
+        "Necesitas un tratamiento médico: consulta a un profesional sanitario."
+      ]
+    }
+  },
+  "muestra": {
+    "antetitulo": "Audio de muestra gratuito",
+    "titulo": "Comprueba el poder de cómo le hablas a tu cuerpo",
+    "entradilla": "Una pincelada genérica de unos 15 minutos. Tu MPMA personalizado dura de 60 a 90 minutos y se trabaja exclusivamente para ti.",
+    "mpma_muestra": {
+      "imagen": "/assets/img/mpma-portada.webp",
+      "titulo": "MPMA · muestra",
+      "texto": "Auriculares, un lugar cómodo, ojos cerrados. Pulsa play y siente lo que ocurre."
+    },
+    "titulo_2": "Recíbelo por email",
+    "boton": {
+      "texto": "¿Cómo sería mi MPMA personalizado?",
+      "mensaje": "Hola Luis, quiero más información sobre mi MPMA personalizado"
+    },
+    "enlace": {
+      "texto": "¿Quieres trabajar otro tema concreto? Mira los MPM",
+      "enlace": "/hipnoaudios-personalizados/"
+    }
+  }
+}

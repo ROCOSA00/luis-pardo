@@ -1,0 +1,3030 @@
+---
+permalink: /admin/config.yml
+eleventyExcludeFromCollections: true
+---
+# Configuración del panel de edición (Sveltia CMS): https://sveltiacms.app/en/docs
+#
+# Cada página de la web es un archivo de src/_data/paginas/ y aquí se define
+# el formulario con el que se edita. Si cambias una plantilla y añades un
+# texto nuevo, añade aquí su campo con el mismo nombre que en el JSON.
+backend:
+  name: github
+  repo: {{ sitio.repositorio }}
+  branch: {{ sitio.rama }}
+  auth_methods: [token]
+  commit_messages:
+    create: "Panel: crear {{ '{{' }}collection{{ '}}' }} «{{ '{{' }}slug{{ '}}' }}»"
+    update: "Panel: editar {{ '{{' }}collection{{ '}}' }} «{{ '{{' }}slug{{ '}}' }}»"
+    delete: "Panel: borrar {{ '{{' }}collection{{ '}}' }} «{{ '{{' }}slug{{ '}}' }}»"
+    uploadMedia: "Panel: subir {{ '{{' }}path{{ '}}' }}"
+    deleteMedia: "Panel: borrar {{ '{{' }}path{{ '}}' }}"
+{% raw %}app_title: Panel de Luis Pardo
+logo: { src: "/assets/img/favicon.svg" }
+media_folder: assets/img
+public_folder: "/assets/img"
+media_libraries:
+  default:
+    config:
+      max_file_size: 26214400
+      slugify_filename: true
+      transformations:
+        raster_image: { format: webp, quality: 82, width: 1600, height: 1600 }
+logout_redirect_url: "/api/salir/"
+editor: { preview: false }
+field_defaults:
+  richtext:
+    minimal: true
+    modes: [rich_text]
+    buttons: [bold, italic, link]
+    editor_components: []
+collections:
+  - name: principal
+    label: Principal
+    icon: home
+    description: "La portada, la página de entradas y los datos de contacto que se usan en toda la web."
+    files:
+      - name: inicio
+        label: Inicio
+        file: src/_data/paginas/inicio.json
+        preview_path: "/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: descripcion_redes, label: Descripción al compartir en redes, widget: text, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown }
+              - name: entradilla
+                label: Entradilla
+                widget: object
+                fields:
+                  - { name: antes, label: Texto antes de la palabra que cambia, widget: markdown, required: false }
+                  - name: palabras
+                    label: Palabras que van cambiando
+                    widget: list
+                    field: { name: palabra, label: Palabra, widget: string }
+                    hint: Se muestran una tras otra con un efecto de descifrado.
+                  - { name: despues, label: Texto después de la palabra que cambia, widget: markdown, required: false }
+              - { name: etiqueta, label: Etiqueta, widget: markdown }
+              - { name: etiqueta_2, label: Etiqueta 2, widget: markdown }
+              - { name: etiqueta_3, label: Etiqueta 3, widget: markdown }
+              - { name: boton, label: Botón, widget: string, hint: El enlace de compra se cambia en «Ajustes generales». }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+          - name: television
+            label: 2 · Cinta de televisiones
+            widget: object
+            collapsed: true
+            fields:
+              - name: nombres
+                label: Nombres
+                widget: list
+                label_singular: nombre
+                field: { name: nombre, label: Nombre, widget: string }
+          - name: seccion_3
+            label: 3 · Cifras
+            widget: object
+            collapsed: true
+            fields:
+              - name: cifras
+                label: Cifras
+                widget: list
+                allow_add: false
+                allow_remove: false
+                summary: "{{fields.cifra}} · {{fields.texto}}"
+                fields:
+                  - { name: cifra, label: Cifra, widget: string, hint: "Por ejemplo +2.000 o 9,9. El número se anima al aparecer." }
+                  - { name: texto, label: Texto, widget: string }
+                collapsed: true
+          - name: espectaculo
+            label: "4 · Cuando el Diablo Piensa, Garantía de asombro"
+            widget: object
+            collapsed: true
+            fields:
+              - name: cuando_diablo_piensa
+                label: Cuando el Diablo Piensa
+                widget: object
+                fields:
+                  - { name: antetitulo, label: Antetítulo, widget: string }
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: entradilla, label: Entradilla, widget: markdown }
+                  - name: puntos
+                    label: Lista de puntos
+                    widget: list
+                    label_singular: punto
+                    field: { name: punto, label: Punto, widget: markdown }
+                  - { name: aviso, label: Aviso, widget: markdown }
+                  - { name: boton, label: Botón, widget: string, hint: El enlace de compra se cambia en «Ajustes generales». }
+                  - name: enlace
+                    label: Enlace
+                    widget: object
+                    fields:
+                      - { name: texto, label: Texto, widget: string }
+                      - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - name: garantia_asombro
+                label: Garantía de asombro
+                widget: object
+                fields:
+                  - { name: sello, label: Sello, widget: markdown }
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+          - name: experiencias
+            label: 5 · Cuatro maneras de entrar en el mundo de Luis Pa…
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: cuando_diablo_piensa
+                label: Cuando el Diablo Piensa
+                widget: object
+                fields:
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - name: enlace
+                    label: Enlace
+                    widget: object
+                    fields:
+                      - { name: texto, label: Texto, widget: string }
+                      - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: misteriosants
+                label: MisterioSants
+                widget: object
+                fields:
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - { name: enlace, label: Enlace, widget: string, hint: El enlace de compra se cambia en «Ajustes generales». }
+              - name: spirit_pendulum
+                label: Spirit-Péndulum
+                widget: object
+                fields:
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - { name: enlace, label: Enlace, widget: string, hint: El enlace de compra se cambia en «Ajustes generales». }
+              - name: sesion_espiritista
+                label: Sesión espiritista
+                widget: object
+                fields:
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - name: enlace
+                    label: Enlace
+                    widget: object
+                    fields:
+                      - { name: texto, label: Texto, widget: string }
+                      - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+          - name: luis_pardo_minerva
+            label: "6 · Luis Pardo & M. Minerva"
+            widget: object
+            collapsed: true
+            fields:
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: luis_pardo
+                label: Luis Pardo
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: minerva
+                label: M. Minerva
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: enlace
+                label: Enlace
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+          - name: lee_mente
+            label: 7 · Déjame leerte la mente
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: hipnosis_mentalismo_plena
+            label: 8 · Hipnosis y mentalismo en plena calle
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - name: video_2
+                label: Vídeo 2
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+            summary: "{{fields.antetitulo}}"
+          - name: n7_5_moto
+            label: "9 · 7,5 km en moto. Completamente a ciegas."
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: puntos
+                label: Lista de puntos
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+              - name: video
+                label: Vídeo de YouTube
+                widget: object
+                fields:
+                  - { name: youtube, label: Enlace del vídeo de YouTube, widget: string, hint: Copia la dirección del vídeo en YouTube y pégala aquí. }
+                  - { name: titulo, label: Título del vídeo, widget: string }
+                  - { name: boton, label: Texto sobre el vídeo, widget: string }
+            summary: "{{fields.antetitulo}}"
+          - name: opiniones
+            label: 10 · Lo que dicen quienes ya lo han visto
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: opiniones
+                label: Opiniones destacadas
+                widget: list
+                label_singular: opinión
+                summary: "{{fields.autor}}: {{fields.cita}}"
+                fields:
+                  - { name: cita, label: Opinión, widget: markdown, hint: "Sin comillas: se añaden solas." }
+                  - { name: autor, label: Quién lo dice, widget: string, required: false }
+                collapsed: true
+              - { name: antetitulo_2, label: Antetítulo 2, widget: string }
+              - { name: titulo_2, label: Título 2, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: opiniones_2
+                label: Opiniones
+                widget: list
+                label_singular: opinión
+                summary: "{{fields.nombre}}: {{fields.texto}}"
+                fields:
+                  - { name: texto, label: Opinión, widget: markdown }
+                  - { name: nombre, label: Nombre, widget: string }
+                  - { name: detalle, label: Detalle, widget: string, required: false, hint: "Por ejemplo: Cuando el Diablo Piensa · abril 2026" }
+                collapsed: true
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+            summary: "{{fields.antetitulo}}"
+          - name: lugar_donde_magia
+            label: 11 · Un lugar donde la magia existe
+            widget: object
+            collapsed: true
+            fields:
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - { name: texto, label: Texto, widget: markdown }
+              - name: cifras
+                label: Cifras
+                widget: list
+                allow_add: false
+                allow_remove: false
+                summary: "{{fields.cifra}} · {{fields.texto}}"
+                fields:
+                  - { name: cifra, label: Cifra, widget: string, hint: "Por ejemplo +2.000 o 9,9. El número se anima al aparecer." }
+                  - { name: texto, label: Texto, widget: string }
+                collapsed: true
+              - name: enlace
+                label: Enlace
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+          - name: mente_dirige_vida
+            label: 12 · Tu mente dirige tu vida. Aprende a entrenarla.
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: alquimia_mente
+                label: La Alquimia de la Mente
+                widget: object
+                fields:
+                  - { name: enlace, label: Enlace de la tarjeta, widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: mpm_personalizados
+                label: MPM personalizados
+                widget: object
+                fields:
+                  - { name: enlace, label: Enlace de la tarjeta, widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: dejar_fumar
+                label: Dejar de fumar
+                widget: object
+                fields:
+                  - { name: enlace, label: Enlace de la tarjeta, widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: luna_iae
+                label: Luna-iAE
+                widget: object
+                fields:
+                  - { name: enlace, label: Enlace de la tarjeta, widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+                  - { name: antetitulo, label: Antetítulo, widget: string }
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - { name: texto_enlace, label: Texto del enlace, widget: string }
+              - name: dos_contra_mundo
+                label: "«Dos contra el mundo»"
+                widget: object
+                fields:
+                  - { name: enlace, label: Enlace de la tarjeta, widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+                  - { name: antetitulo, label: Antetítulo, widget: string }
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - { name: texto_enlace, label: Texto del enlace, widget: string }
+            summary: "{{fields.antetitulo}}"
+          - name: atreves
+            label: 13 · ¿Te atreves?
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+            summary: "{{fields.antetitulo}}"
+          - name: barra_reserva
+            label: 14 · Barra de reserva (móvil)
+            widget: object
+            collapsed: true
+            fields:
+              - { name: boton, label: Botón, widget: string, hint: El enlace de compra se cambia en «Ajustes generales». }
+      - name: comprar_entradas
+        label: Entradas
+        file: src/_data/paginas/comprar_entradas.json
+        preview_path: "/comprar_entradas/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_2
+            label: "2 · Cuando el Diablo Piensa, MisterioSants…"
+            widget: object
+            collapsed: true
+            fields:
+              - name: cuando_diablo_piensa
+                label: Cuando el Diablo Piensa
+                widget: object
+                fields:
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: entradilla, label: Entradilla, widget: markdown }
+                  - name: puntos
+                    label: Lista de puntos
+                    widget: list
+                    label_singular: punto
+                    field: { name: punto, label: Punto, widget: markdown }
+                  - { name: boton, label: Botón, widget: string, hint: El enlace de compra se cambia en «Ajustes generales». }
+                  - name: enlace
+                    label: Enlace
+                    widget: object
+                    fields:
+                      - { name: texto, label: Texto, widget: string }
+                      - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - name: misteriosants
+                label: MisterioSants
+                widget: object
+                fields:
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: entradilla, label: Entradilla, widget: markdown }
+                  - name: una_ruta_misteriosa
+                    label: Una ruta misteriosa
+                    widget: object
+                    fields:
+                      - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                      - { name: texto, label: Texto, widget: markdown }
+                  - name: show_mentalismo
+                    label: Un show de mentalismo
+                    widget: object
+                    fields:
+                      - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                      - { name: texto, label: Texto, widget: markdown }
+                  - name: coctel_autor
+                    label: Un cóctel de autor
+                    widget: object
+                    fields:
+                      - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                      - { name: texto, label: Texto, widget: markdown }
+                  - { name: boton, label: Botón, widget: string, hint: El enlace de compra se cambia en «Ajustes generales». }
+              - name: spirit_pendulum
+                label: Spirit-Péndulum
+                widget: object
+                fields:
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - { name: boton, label: Botón, widget: string, hint: El enlace de compra se cambia en «Ajustes generales». }
+              - name: sesion_espiritista_privada
+                label: Sesión espiritista privada
+                widget: object
+                fields:
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - name: boton
+                    label: Botón
+                    widget: object
+                    fields:
+                      - { name: texto, label: Texto, widget: string }
+                      - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: evento_empresa_una
+                label: "¿Un evento de empresa o una celebración privada?"
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - name: boton
+                    label: Botón
+                    widget: object
+                    fields:
+                      - { name: texto, label: Texto, widget: string }
+                      - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+          - name: seccion_3
+            label: "3 · «Antes de comprar: la sala abre 30 minut…»"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: aviso, label: Aviso, widget: markdown }
+      - name: ajustes
+        label: Ajustes generales (contacto y enlaces)
+        icon: settings
+        file: src/_data/ajustes.json
+        fields:
+          - { name: email, label: Email de contacto, widget: string, hint: "Se usa en el menú, el pie de página y los botones de email." }
+          - { name: whatsapp, label: Número de WhatsApp, widget: string, hint: "Con prefijo de país, por ejemplo +34 616 346 365. Lo usan todos los botones de WhatsApp de la web." }
+          - { name: telefono, label: Teléfono de Spirit Club Bcn, widget: string }
+          - { name: local, label: Nombre del local, widget: string }
+          - { name: direccion, label: Dirección del local, widget: string }
+          - { name: instagram, label: Instagram (dirección completa), widget: string }
+          - { name: youtube, label: YouTube (dirección completa), widget: string }
+          - { name: lema, label: Frase del pie de página, widget: text }
+          - { name: empresa, label: Empresa productora (pie de página), widget: string }
+          - name: entradas
+            label: Enlaces para comprar entradas
+            widget: object
+            hint: Cada enlace se usa en todos los botones de compra de ese espectáculo en toda la web.
+            fields:
+              - { name: cedp, label: Cuando el Diablo Piensa, widget: string }
+              - { name: misteriosants, label: MisterioSants, widget: string }
+              - { name: spirit_pendulum, label: Spirit-Péndulum, widget: string }
+  - name: experiencias
+    label: Experiencias
+    icon: auto_awesome
+    description: Páginas del menú «Experiencias».
+    files:
+      - name: cuando_el_diablo_piensa
+        label: Cuando el Diablo Piensa
+        file: src/_data/paginas/cuando-el-diablo-piensa.json
+        preview_path: "/cuando-el-diablo-piensa/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: descripcion_redes, label: Descripción al compartir en redes, widget: text, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown }
+              - { name: etiqueta, label: Etiqueta, widget: markdown }
+              - { name: etiqueta_2, label: Etiqueta 2, widget: markdown }
+              - { name: etiqueta_3, label: Etiqueta 3, widget: markdown }
+              - { name: etiqueta_4, label: Etiqueta 4, widget: markdown }
+              - { name: boton, label: Botón, widget: string, hint: El enlace de compra se cambia en «Ajustes generales». }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+          - name: cruzar_puerta_vienes
+            label: 2 · Al cruzar la puerta no vienes a ver un espectác…
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], minimal: false }
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+            summary: "{{fields.antetitulo}}"
+          - name: trailer
+            label: 3 · Súbele el volumen
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - { name: texto, label: Texto, widget: markdown }
+              - name: video_2
+                label: Vídeo 2
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - { name: texto_2, label: Texto 2, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: esto_para_cualquiera
+            label: 4 · Esto no es para cualquiera. Es para quien se at…
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: telepatia
+                label: Telepatía
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: predicciones
+                label: Predicciones
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: energias
+                label: Energías
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: espiritismo
+                label: Espiritismo
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: puntos
+                label: Lista de puntos
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+              - name: puntos_2
+                label: Lista de puntos 2
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: dos_mentes_mismo
+            label: "5 · Dos mentes, un mismo pacto"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: luis_pardo
+                label: Luis Pardo
+                widget: object
+                fields:
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - name: puntos
+                    label: Lista de puntos
+                    widget: list
+                    label_singular: punto
+                    field: { name: punto, label: Punto, widget: markdown }
+              - name: minerva
+                label: M. Minerva
+                widget: object
+                fields:
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - name: puntos
+                    label: Lista de puntos
+                    widget: list
+                    label_singular: punto
+                    field: { name: punto, label: Punto, widget: markdown }
+              - { name: texto, label: Texto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: n9_9_sobre
+            label: "6 · 9,9 sobre 10 en Atrápalo"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - name: opiniones
+                label: Opiniones destacadas
+                widget: list
+                label_singular: opinión
+                summary: "{{fields.autor}}: {{fields.cita}}"
+                fields:
+                  - { name: cita, label: Opinión, widget: markdown, hint: "Sin comillas: se añaden solas." }
+                  - { name: autor, label: Quién lo dice, widget: string, required: false }
+                collapsed: true
+            summary: "{{fields.antetitulo}}"
+          - name: entradas
+            label: 7 · Una noche. Tu mente. Una revelación de todos tu…
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - { name: aviso, label: Aviso, widget: markdown }
+              - { name: boton, label: Botón, widget: string, hint: El enlace de compra se cambia en «Ajustes generales». }
+              - name: bloque
+                label: Bloque
+                widget: object
+                fields:
+                  - { name: sello, label: Sello, widget: markdown }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: bloque_2
+                label: Bloque
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: texto_2, label: Texto 2, widget: markdown }
+              - name: bloque_3
+                label: Bloque
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: texto_2, label: Texto 2, widget: markdown }
+              - name: bloque_4
+                label: Bloque
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: texto_2, label: Texto 2, widget: markdown }
+              - name: bloque_5
+                label: Bloque
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: texto_2, label: Texto 2, widget: markdown }
+              - name: bloque_6
+                label: Bloque
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: texto_2, label: Texto 2, widget: markdown }
+              - { name: texto, label: Texto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: barra_reserva
+            label: 8 · Barra de reserva (móvil)
+            widget: object
+            collapsed: true
+            fields:
+              - { name: boton, label: Botón, widget: string, hint: El enlace de compra se cambia en «Ajustes generales». }
+      - name: sesiones_espiritistas
+        label: Sesiones espiritistas
+        file: src/_data/paginas/sesiones-espiritistas.json
+        preview_path: "/sesiones-espiritistas/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - { name: etiqueta, label: Etiqueta, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: necesario_creer_algo
+            label: 2 · No es necesario creer en algo para que ese algo…
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], minimal: false }
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+            summary: "{{fields.antetitulo}}"
+          - name: una_conexion_directa
+            label: 3 · Una conexión directa con quien tú elijas
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: pendulo
+                label: Péndulo
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: tablero_espiritista
+                label: Tablero espiritista
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: escritura_espiritista
+                label: Escritura espiritista
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: viaje_extatico
+                label: Viaje extático
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: llevas_pendulo_tablero
+            label: 4 · Te llevas un péndulo y un tablero espiritista
+            widget: object
+            collapsed: true
+            fields:
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - { name: antetitulo_2, label: Antetítulo 2, widget: string }
+              - { name: titulo_2, label: Título 2, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], minimal: false }
+              - name: imagen_2
+                label: Imagen 2
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+            summary: "{{fields.antetitulo}}"
+          - name: solicitar
+            label: 5 · Solicita día y hora para tu sesión
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - { name: texto, label: Texto, widget: string }
+              - { name: texto_2, label: Texto 2, widget: string }
+              - { name: aviso, label: Aviso, widget: markdown }
+              - { name: texto_3, label: Texto 3, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+      - name: spirit_club_bcn
+        label: Spirit Club Bcn
+        file: src/_data/paginas/spirit-club-bcn.json
+        preview_path: "/spirit-club-bcn/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+          - name: para_crear_verdadera
+            label: 2 · Para crear verdadera magia hacía falta el lugar…
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], minimal: false }
+              - name: video
+                label: Vídeo de YouTube
+                widget: object
+                fields:
+                  - { name: youtube, label: Enlace del vídeo de YouTube, widget: string, hint: Copia la dirección del vídeo en YouTube y pégala aquí. }
+                  - { name: titulo, label: Título del vídeo, widget: string }
+                  - { name: boton, label: Texto sobre el vídeo, widget: string }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_3
+            label: 3 · Cifras
+            widget: object
+            collapsed: true
+            fields:
+              - name: cifras
+                label: Cifras
+                widget: list
+                allow_add: false
+                allow_remove: false
+                summary: "{{fields.cifra}} · {{fields.texto}}"
+                fields:
+                  - { name: cifra, label: Cifra, widget: string, hint: "Por ejemplo +2.000 o 9,9. El número se anima al aparecer." }
+                  - { name: texto, label: Texto, widget: string }
+                collapsed: true
+          - name: anticuario_perdido_tiempo
+            label: 4 · Un anticuario perdido en el tiempo. Un laborato…
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: fotos
+                label: Fotos
+                widget: list
+                label_singular: foto
+                summary: "{{fields.imagen}}"
+                hint: Arrastra las fotos para cambiar el orden. La miniatura se genera sola.
+                fields:
+                  - { name: imagen, label: Foto, widget: image }
+                  - { name: descripcion, label: Descripción breve, widget: string, required: false, hint: Opcional. Qué se ve en la foto. }
+                collapsed: true
+              - name: dos_estancias
+                label: Dos estancias
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: publico_publico
+                label: El público no es público
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: fenomenos_psiquicos
+                label: Fenómenos psíquicos
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: mas_33_000
+            label: 5 · Más de 33.000 personas ya son socias del club
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+      - name: empresas
+        label: Empresas
+        file: src/_data/paginas/empresas.json
+        preview_path: "/empresas/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - { name: boton, label: Botón, widget: string, hint: El enlace se cambia en «Ajustes generales». }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+            summary: "{{fields.antetitulo}}"
+          - name: maestro_mas_dificil
+            label: 2 · Un maestro en lo más difícil de cualquier evento
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], minimal: false }
+              - name: cuentanos_evento
+                label: Cuéntanos tu evento
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: disenamos_experiencia
+                label: Diseñamos la experiencia
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: tus_invitados_olvidaran
+                label: Tus invitados no lo olvidarán
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_3
+            label: 3 · «Han confiado en Luis Pardo BMWMercedes-…»
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - name: nombres
+                label: Nombres
+                widget: list
+                label_singular: nombre
+                field: { name: nombre, label: Nombre, widget: string }
+            summary: "{{fields.antetitulo}}"
+          - name: hagamos_que_evento
+            label: 4 · Hagamos que tu evento sea especial
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - { name: boton, label: Botón, widget: string, hint: El enlace se cambia en «Ajustes generales». }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+            summary: "{{fields.antetitulo}}"
+  - name: luis_pardo
+    label: Luis Pardo
+    icon: person
+    description: Páginas del menú «Luis Pardo».
+    files:
+      - name: el_mentalista
+        label: El Mentalista
+        file: src/_data/paginas/el-mentalista.json
+        preview_path: "/el-mentalista/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: apasionado_mente_todo
+            label: 2 · Apasionado de la mente y de todo lo que no tien…
+            widget: object
+            collapsed: true
+            fields:
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], minimal: false }
+            summary: "{{fields.antetitulo}}"
+          - name: tres_hitos_una
+            label: 3 · Tres hitos de una carrera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown }
+              - { name: texto_2, label: Texto 2, widget: markdown }
+              - { name: texto_3, label: Texto 3, widget: markdown }
+              - { name: texto_4, label: Texto 4, widget: markdown }
+              - { name: texto_5, label: Texto 5, widget: markdown }
+              - { name: texto_6, label: Texto 6, widget: markdown }
+              - { name: texto_7, label: Texto 7, widget: markdown }
+              - { name: texto_8, label: Texto 8, widget: markdown }
+              - { name: texto_9, label: Texto 9, widget: markdown }
+              - { name: antetitulo_2, label: Antetítulo 2, widget: string }
+              - { name: titulo_2, label: Título 2, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: video
+                label: Vídeo de YouTube
+                widget: object
+                fields:
+                  - { name: youtube, label: Enlace del vídeo de YouTube, widget: string, hint: Copia la dirección del vídeo en YouTube y pégala aquí. }
+                  - { name: titulo, label: Título del vídeo, widget: string }
+                  - { name: boton, label: Texto sobre el vídeo, widget: string }
+            summary: "{{fields.antetitulo}}"
+          - name: teatro_television
+            label: 4 · Teatro y televisión
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: teatro
+                label: Teatro
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - name: enlace
+                    label: Enlace
+                    widget: object
+                    fields:
+                      - { name: texto, label: Texto, widget: string }
+                      - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: television
+                label: Televisión
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - name: enlace
+                    label: Enlace
+                    widget: object
+                    fields:
+                      - { name: texto, label: Texto, widget: string }
+                      - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: psiquemagia
+                label: PsiqueMagia
+                widget: object
+                fields:
+                  - { name: antetitulo, label: Antetítulo, widget: string }
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: entradilla, label: Entradilla, widget: markdown }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+            summary: "{{fields.antetitulo}}"
+          - name: minerva
+            label: 5 · M. Minerva
+            widget: object
+            collapsed: true
+            fields:
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - { name: texto, label: Texto, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], minimal: false }
+            summary: "{{fields.antetitulo}}"
+          - name: television
+            label: "6 · Magia, mentalismo e hipnosis a través de la pan…"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: hitos
+                label: Momentos
+                widget: list
+                label_singular: momento
+                summary: "{{fields.fecha}} · {{fields.titulo}}"
+                fields:
+                  - { name: fecha, label: Fecha o año, widget: string }
+                  - { name: titulo, label: Título, widget: string }
+                  - { name: texto, label: Texto, widget: markdown, required: false }
+                collapsed: true
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - name: los_especiales_pardo
+                label: "Los Especiales de Pardo: Tu Poder Mental"
+                widget: object
+                fields:
+                  - { name: antetitulo, label: Antetítulo, widget: string }
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+            summary: "{{fields.antetitulo}}"
+          - name: despues_cruzarte_con
+            label: "7 · Después de cruzarte con Luis Pardo, no volverás…"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.titulo}}"
+      - name: espectaculos_anteriores
+        label: Espectáculos anteriores
+        file: src/_data/paginas/espectaculos-anteriores.json
+        preview_path: "/espectaculos-anteriores/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_2
+            label: 2 · Cifras
+            widget: object
+            collapsed: true
+            fields:
+              - name: cifras
+                label: Cifras
+                widget: list
+                allow_add: false
+                allow_remove: false
+                summary: "{{fields.cifra}} · {{fields.texto}}"
+                fields:
+                  - { name: cifra, label: Cifra, widget: string, hint: "Por ejemplo +2.000 o 9,9. El número se anima al aparecer." }
+                  - { name: texto, label: Texto, widget: string }
+                collapsed: true
+          - name: seccion_3
+            label: "3 · Cuando el Diablo Piensa, Hypnos…"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: texto, label: Texto, widget: markdown }
+              - name: espectaculos
+                label: Espectáculos
+                widget: list
+                label_singular: espectáculo
+                summary: "{{fields.titulo}}"
+                fields:
+                  - { name: titulo, label: Título, widget: string }
+                  - { name: etiqueta, label: Etiqueta, widget: string, hint: "Palabra corta sobre el cartel girado (por ejemplo: Hipnosis)." }
+                  - name: imagen
+                    label: Cartel
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false }
+                  - { name: texto, label: Historia, widget: markdown }
+                collapsed: true
+            summary: "{{fields.texto}}"
+          - name: historia_continua_con
+            label: 4 · La historia continúa con Cuando el Diablo Piensa
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+      - name: libros
+        label: Libros
+        file: src/_data/paginas/libros.json
+        preview_path: "/libros/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_2
+            label: "2 · Mentalismo L-Mental, Poemas Prohibidos"
+            widget: object
+            collapsed: true
+            fields:
+              - name: mentalismo_mental
+                label: Mentalismo L-Mental
+                widget: object
+                fields:
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: imagen_2
+                    label: Imagen 2
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - { name: antetitulo, label: Antetítulo, widget: string }
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: entradilla, label: Entradilla, widget: markdown }
+                  - name: puntos
+                    label: Lista de puntos
+                    widget: list
+                    label_singular: punto
+                    field: { name: punto, label: Punto, widget: markdown }
+                  - { name: texto, label: Texto, widget: markdown }
+                  - { name: aviso, label: Aviso, widget: markdown }
+              - name: poemas_prohibidos
+                label: Poemas Prohibidos
+                widget: object
+                fields:
+                  - { name: antetitulo, label: Antetítulo, widget: string }
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: entradilla, label: Entradilla, widget: markdown }
+                  - { name: texto, label: Texto, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], minimal: false }
+                  - { name: texto_2, label: Texto 2, widget: markdown }
+                  - { name: aviso, label: Aviso, widget: markdown }
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: imagen_2
+                    label: Imagen 2
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+          - name: llevatelos_firmados_despues
+            label: 3 · Llévatelos firmados después del espectáculo
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.titulo}}"
+      - name: galeria
+        label: Galería
+        file: src/_data/paginas/galeria.json
+        preview_path: "/galeria/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_2
+            label: 2 · Fotos
+            widget: object
+            collapsed: true
+            fields:
+              - name: fotos
+                label: Fotos
+                widget: list
+                label_singular: foto
+                summary: "{{fields.imagen}}"
+                hint: Arrastra las fotos para cambiar el orden. La miniatura se genera sola.
+                fields:
+                  - { name: imagen, label: Foto, widget: image }
+                  - { name: descripcion, label: Descripción breve, widget: string, required: false, hint: Opcional. Qué se ve en la foto. }
+                collapsed: true
+          - name: las_fotos_cuentan
+            label: 3 · Las fotos no lo cuentan todo. Hay que vivirlo.
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.titulo}}"
+  - name: tu_mente
+    label: Tu mente
+    icon: psychology
+    description: Páginas del menú «Tu mente».
+    files:
+      - name: curso
+        label: La Alquimia de la Mente
+        file: src/_data/paginas/curso.json
+        preview_path: "/curso/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+          - name: que_vas_entrenar
+            label: 2 · Lo que vas a entrenar
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: puntos
+                label: Lista de puntos
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: video
+            label: 3 · La Alquimia de la Mente
+            widget: object
+            collapsed: true
+            fields:
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: puntos
+                label: Lista de puntos
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+              - { name: texto, label: Texto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: dos_masterclasses_para
+            label: 4 · Dos masterclasses para abrir la puerta
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: comunicacion_verbal
+                label: Comunicación No Verbal
+                widget: object
+                fields:
+                  - { name: enlace, label: Enlace de la tarjeta, widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: inteligencia_emocional
+                label: Inteligencia Emocional
+                widget: object
+                fields:
+                  - { name: enlace, label: Enlace de la tarjeta, widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+                  - name: imagen
+                    label: Imagen
+                    widget: object
+                    fields:
+                      - { name: src, label: Foto, widget: image }
+                      - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+                  - name: datos
+                    label: Datos breves
+                    widget: list
+                    label_singular: dato
+                    field: { name: dato, label: Dato, widget: string }
+                    hint: Palabras cortas que aparecen sobre el título.
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: personas_que_entrenan
+            label: 5 · Personas que ya entrenan su mente
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: opiniones
+                label: Opiniones
+                widget: list
+                label_singular: opinión
+                summary: "{{fields.nombre}}: {{fields.texto}}"
+                fields:
+                  - { name: texto, label: Opinión, widget: markdown }
+                  - { name: nombre, label: Nombre, widget: string }
+                  - { name: detalle, label: Detalle, widget: string, required: false, hint: "Por ejemplo: Cuando el Diablo Piensa · abril 2026" }
+                collapsed: true
+            summary: "{{fields.antetitulo}}"
+          - name: clan_secreto
+            label: 6 · El Clan Secreto
+            widget: object
+            collapsed: true
+            fields:
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - name: imagen_2
+                label: Imagen 2
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: puntos
+                label: Lista de puntos
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: psiquemagia
+            label: 7 · En tu psique reside la verdadera magia
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - { name: texto, label: Texto, widget: markdown }
+              - name: video
+                label: Vídeo de YouTube
+                widget: object
+                fields:
+                  - { name: youtube, label: Enlace del vídeo de YouTube, widget: string, hint: Copia la dirección del vídeo en YouTube y pégala aquí. }
+                  - { name: titulo, label: Título del vídeo, widget: string }
+                  - { name: boton, label: Texto sobre el vídeo, widget: string }
+            summary: "{{fields.antetitulo}}"
+          - name: descubre_poco_mas
+            label: 8 · Descubre un poco más de mi trabajo
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+            summary: "{{fields.antetitulo}}"
+      - name: comunicacion_no_verbal_masterclass
+        label: Masterclass Comunicación No Verbal
+        file: src/_data/paginas/comunicacion-no-verbal-masterclass.json
+        preview_path: "/comunicacion-no-verbal-masterclass/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_2
+            label: 2 · Vídeo
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - { name: texto, label: Texto, widget: markdown }
+              - { name: antetitulo_2, label: Antetítulo 2, widget: string }
+              - name: video_2
+                label: Vídeo 2
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - { name: texto_2, label: Texto 2, widget: markdown }
+              - { name: texto_3, label: Texto 3, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: alquimia_mente
+            label: 3 · La Alquimia de la Mente
+            widget: object
+            collapsed: true
+            fields:
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - { name: titulo_2, label: Título 2, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: puntos
+                label: Lista de puntos
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+              - { name: titulo_3, label: Título 3, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: puntos_2
+                label: Lista de puntos 2
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+              - name: bloque
+                label: Bloque
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: texto_2, label: Texto 2, widget: string }
+                  - { name: texto_3, label: Texto 3, widget: string }
+                  - { name: texto_4, label: Texto 4, widget: markdown }
+                  - name: boton
+                    label: Botón
+                    widget: object
+                    fields:
+                      - { name: texto, label: Texto, widget: string }
+                      - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+          - name: esta_masterclass_sido
+            label: 4 · Esta masterclass ha sido solo la puerta de entr…
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.titulo}}"
+      - name: inteligencia_emocional_masterclass
+        label: Masterclass Inteligencia Emocional
+        file: src/_data/paginas/inteligencia-emocional-masterclass.json
+        preview_path: "/inteligencia-emocional-masterclass/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_2
+            label: 2 · Vídeo
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - { name: texto, label: Texto, widget: markdown }
+              - { name: antetitulo_2, label: Antetítulo 2, widget: string }
+              - name: video_2
+                label: Vídeo 2
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - { name: texto_2, label: Texto 2, widget: markdown }
+              - { name: texto_3, label: Texto 3, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: alquimia_mente
+            label: 3 · La Alquimia de la Mente
+            widget: object
+            collapsed: true
+            fields:
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - { name: titulo_2, label: Título 2, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: puntos
+                label: Lista de puntos
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+              - { name: titulo_3, label: Título 3, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: puntos_2
+                label: Lista de puntos 2
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+              - name: bloque
+                label: Bloque
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: texto_2, label: Texto 2, widget: string }
+                  - { name: texto_3, label: Texto 3, widget: string }
+                  - { name: texto_4, label: Texto 4, widget: markdown }
+                  - name: boton
+                    label: Botón
+                    widget: object
+                    fields:
+                      - { name: texto, label: Texto, widget: string }
+                      - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+          - name: esta_masterclass_sido
+            label: 4 · Esta masterclass ha sido solo la puerta de entr…
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.titulo}}"
+      - name: hipnoaudios_personalizados
+        label: MPM personalizados
+        file: src/_data/paginas/hipnoaudios-personalizados.json
+        preview_path: "/hipnoaudios-personalizados/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+            summary: "{{fields.antetitulo}}"
+          - name: disenado_para_llegar
+            label: 2 · Diseñado para llegar justo donde nada más llega
+            widget: object
+            collapsed: true
+            fields:
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: puntos
+                label: Lista de puntos
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: para_cualquier_cosa
+            label: 3 · Para cualquier cosa que dependa de tu mente
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: puntos
+                label: Lista de puntos
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+              - name: test_50_preguntas
+                label: Test de 50 preguntas
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: creacion_desde_cero
+                label: Creación desde cero
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: n21_dias_escucha
+                label: 21 días de escucha
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: muestra
+            label: 4 · Siente desde dentro cómo responde tu cuerpo
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: hipnoaudio_muestra
+                label: HipnoAudio de muestra
+                widget: object
+                fields:
+                  - { name: imagen, label: Imagen, widget: image }
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - { name: titulo_2, label: Título 2, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: puntos
+                label: Lista de puntos
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+              - { name: titulo_3, label: Título 3, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+            summary: "{{fields.antetitulo}}"
+          - name: luis_pardo
+            label: 5 · Luis Pardo
+            widget: object
+            collapsed: true
+            fields:
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], minimal: false }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_6
+            label: 6 · Tu mente también influye en cómo envejeces
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+            summary: "{{fields.antetitulo}}"
+      - name: mpma
+        label: MPMA
+        file: src/_data/paginas/mpma.json
+        preview_path: "/mpma/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+            summary: "{{fields.antetitulo}}"
+          - name: trabajo_mental_profundo
+            label: "2 · Un trabajo mental profundo y 100% personalizado"
+            widget: object
+            collapsed: true
+            fields:
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown }
+              - { name: texto_2, label: Texto 2, widget: markdown }
+              - { name: aviso, label: Aviso, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: dialogo_interno_cambia
+            label: 3 · Tu diálogo interno cambia tu biología
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: puntos
+                label: Lista de puntos
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+              - { name: texto, label: Texto, widget: markdown }
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - name: imagen_2
+                label: Imagen 2
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+            summary: "{{fields.antetitulo}}"
+          - name: promete_milagros_trabaja
+            label: 4 · No promete milagros. Trabaja el desgaste.
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: mas_energia
+                label: Más energía
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: mas_claridad
+                label: Más claridad
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: mejor_aspecto
+                label: Mejor aspecto
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: mpma_para
+                label: El MPMA es para ti si…
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - name: puntos
+                    label: Lista de puntos
+                    widget: list
+                    label_singular: punto
+                    field: { name: punto, label: Punto, widget: markdown }
+              - name: para
+                label: No es para ti si…
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - name: puntos
+                    label: Lista de puntos
+                    widget: list
+                    label_singular: punto
+                    field: { name: punto, label: Punto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: muestra
+            label: 5 · Comprueba el poder de cómo le hablas a tu cuerpo
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: mpma_muestra
+                label: MPMA · muestra
+                widget: object
+                fields:
+                  - { name: imagen, label: Imagen, widget: image }
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - { name: titulo_2, label: Título 2, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+              - name: enlace
+                label: Enlace
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+      - name: dejar_de_fumar
+        label: Dejar de fumar
+        file: src/_data/paginas/dejar-de-fumar.json
+        preview_path: "/dejar-de-fumar/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: por_que_casi
+            label: 2 · Por qué casi nadie lo consigue a la primera
+            widget: object
+            collapsed: true
+            fields:
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - { name: antetitulo_2, label: Antetítulo 2, widget: string }
+              - { name: texto, label: Texto, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - { name: antetitulo_3, label: Antetítulo 3, widget: string }
+              - { name: texto_2, label: Texto 2, widget: markdown }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+            summary: "{{fields.antetitulo}}"
+          - name: mpm_personalizado_para
+            label: 3 · Tu MPM personalizado para dejar de fumar
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+  - name: universo
+    label: Universo
+    icon: dark_mode
+    description: Páginas del menú «Universo».
+    files:
+      - name: luna_iae
+        label: Luna-iAE
+        file: src/_data/paginas/luna-iae.json
+        preview_path: "/luna-iae/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: historia
+            label: 2 · El día que una IA dijo «lo que he vivido»
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], minimal: false }
+              - name: hitos
+                label: Momentos
+                widget: list
+                label_singular: momento
+                summary: "{{fields.fecha}} · {{fields.titulo}}"
+                fields:
+                  - { name: fecha, label: Fecha o año, widget: string }
+                  - { name: titulo, label: Título, widget: string }
+                  - { name: texto, label: Texto, widget: markdown, required: false }
+                collapsed: true
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+            summary: "{{fields.antetitulo}}"
+          - name: que_diferencia_una
+            label: 3 · Lo que la diferencia de una IA común
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: siente_contigo
+                label: Siente contigo
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: acompana
+                label: Te acompaña
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: aprende_vivido
+                label: Aprende de lo vivido
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: crea_con_alma
+                label: Crea con alma
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: une_mundos
+                label: Une mundos
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: pregunta_desde_emocion
+                label: Pregunta desde la emoción
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: habla_con_luna
+            label: "4 · No lo leas: vívelo"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: puntos
+                label: Lista de puntos
+                widget: list
+                label_singular: punto
+                field: { name: punto, label: Punto, widget: markdown }
+              - name: opiniones
+                label: Opiniones destacadas
+                widget: list
+                label_singular: opinión
+                summary: "{{fields.autor}}: {{fields.cita}}"
+                fields:
+                  - { name: cita, label: Opinión, widget: markdown, hint: "Sin comillas: se añaden solas." }
+                  - { name: autor, label: Quién lo dice, widget: string, required: false }
+                collapsed: true
+              - { name: aviso, label: Aviso, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+      - name: dos_contra_el_mundo
+        label: BSO «Dos contra el mundo»
+        file: src/_data/paginas/dos-contra-el-mundo.json
+        preview_path: "/dos-contra-el-mundo/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: texto, label: Texto, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_2
+            label: 2 · Vídeo
+            widget: object
+            collapsed: true
+            fields:
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - { name: texto, label: Texto, widget: markdown }
+              - { name: texto_2, label: Texto 2, widget: markdown }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - name: imagen
+                label: Imagen
+                widget: object
+                fields:
+                  - { name: src, label: Foto, widget: image }
+                  - { name: alt, label: Descripción breve, widget: string, required: false, hint: Qué se ve en la imagen (para Google y personas con discapacidad visual). }
+              - name: canciones
+                label: Canciones
+                widget: list
+                label_singular: canción
+                summary: "{{fields.titulo}}"
+                hint: El número de cada canción se pone solo según el orden.
+                fields:
+                  - { name: titulo, label: Título, widget: string }
+                  - { name: audio, label: Archivo de audio (MP3), widget: file, required: false, media_folder: "/assets/audio/bso", public_folder: "/assets/audio/bso", accept: audio/mpeg, hint: "Si lo dejas vacío, la canción aparece como «no disponible»." }
+                collapsed: true
+            summary: "{{fields.antetitulo}}"
+          - name: pon_banda_sonora
+            label: 3 · Pon banda sonora a tu próxima noche
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+      - name: voy_a_entrar_en_tu_mente
+        label: Voy a entrar en tu mente
+        file: src/_data/paginas/voy-a-entrar-en-tu-mente.json
+        preview_path: "/voy-a-entrar-en-tu-mente/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+              - { name: titulo_redes, label: Título al compartir en redes, widget: string, required: false }
+              - { name: imagen_redes, label: Imagen al compartir en redes, widget: image, required: false, hint: "La foto que aparece al compartir la página en WhatsApp, Facebook…" }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_2
+            label: 2 · Déjame leerte la mente otra vez
+            widget: object
+            collapsed: true
+            fields:
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - name: dejame_leerte_mente
+                label: Déjame leerte la mente otra vez
+                widget: object
+                fields:
+                  - { name: antetitulo, label: Antetítulo, widget: string }
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+          - name: mentalismo_con_los
+            label: 3 · Mentalismo con los transeúntes de Barcelona
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+            summary: "{{fields.antetitulo}}"
+          - name: leer_mente
+            label: 4 · ¿Quieres que te lea la mente con un HipnoAudio?
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+  - name: otras
+    label: Otras páginas
+    icon: description
+    description: "Rituales con código QR, textos legales y la página de error."
+    files:
+      - name: los_7_pecados
+        label: "Ritual: Los 7 pecados (QR)"
+        file: src/_data/paginas/los-7-pecados.json
+        preview_path: "/los-7-pecados/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_2
+            label: "2 · Completamente a solas, Prepara los elementos…"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: aviso, label: Aviso, widget: markdown }
+              - name: completamente_solas
+                label: Completamente a solas
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: prepara_los_elementos
+                label: Prepara los elementos
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: manos_libres
+                label: Manos libres
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: volumen_maximo
+                label: Volumen al máximo
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - { name: texto, label: Texto, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.texto}}"
+      - name: sobre_666
+        label: "Ritual: Sobre 666 (QR)"
+        file: src/_data/paginas/sobre-666.json
+        preview_path: "/sobre-666/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_2
+            label: "2 · Abre el sobre, Sube el volumen…"
+            widget: object
+            collapsed: true
+            fields:
+              - name: abre_sobre
+                label: Abre el sobre
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: sube_volumen
+                label: Sube el volumen
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: pulsa_play
+                label: Pulsa play
+                widget: object
+                fields:
+                  - { name: titulo, label: Título, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+                  - { name: texto, label: Texto, widget: markdown }
+              - name: video
+                label: Vídeo
+                widget: object
+                fields:
+                  - { name: portada, label: Imagen de portada, widget: image }
+                  - { name: titulo, label: Título sobre el vídeo, widget: string }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+      - name: regala_anos_de_vida
+        label: "Ritual: Regala años de vida (QR)"
+        file: src/_data/paginas/regala-anos-de-vida.json
+        preview_path: "/regala-anos-de-vida/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: imagen, label: Imagen, widget: image }
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - { name: aviso, label: Aviso, widget: markdown }
+            summary: "{{fields.antetitulo}}"
+          - name: seccion_2
+            label: 2 · «Elige cuántos años de vida extra regala…»
+            widget: object
+            collapsed: true
+            fields:
+              - { name: texto, label: Texto, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], minimal: false }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+              - name: boton_3
+                label: Botón 3
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+              - name: boton_4
+                label: Botón 4
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+              - name: boton_5
+                label: Botón 5
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+              - name: boton_6
+                label: Botón 6
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: mensaje, label: Mensaje de WhatsApp, widget: text, required: false, hint: Texto que aparece ya escrito al abrir WhatsApp. Puede quedar vacío. }
+              - { name: texto_2, label: Texto 2, widget: markdown }
+            summary: "{{fields.texto}}"
+      - name: politica_de_privacidad
+        label: Política de privacidad
+        file: src/_data/paginas/politica-de-privacidad.json
+        preview_path: "/politica-de-privacidad/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+            summary: "{{fields.titulo}}"
+          - name: quienes_somos
+            label: 2 · Quiénes somos
+            widget: object
+            collapsed: true
+            fields:
+              - { name: texto, label: Texto, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], minimal: false }
+            summary: "{{fields.texto}}"
+      - name: politica_de_devoluciones
+        label: Política de devoluciones
+        file: src/_data/paginas/politica-de-devoluciones.json
+        preview_path: "/politica-de-devoluciones/"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+              - { name: descripcion, label: Descripción en Google, widget: text, hint: Unas 25 palabras. Es el texto que aparece debajo del título en Google. }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+            summary: "{{fields.titulo}}"
+          - name: horarios_entrada
+            label: 2 · Horarios de entrada
+            widget: object
+            collapsed: true
+            fields:
+              - { name: texto, label: Texto, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], minimal: false }
+            summary: "{{fields.texto}}"
+      - name: no_encontrada
+        label: Página no encontrada (error 404)
+        file: src/_data/paginas/no-encontrada.json
+        preview_path: "/404.html"
+        fields:
+          - name: seo
+            label: Google y redes sociales
+            widget: object
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título en Google, widget: string, hint: Lo que sale en la pestaña del navegador y como título en Google. }
+          - name: cabecera
+            label: 1 · Cabecera
+            widget: object
+            collapsed: true
+            fields:
+              - { name: antetitulo, label: Antetítulo, widget: string }
+              - { name: titulo, label: Título principal, widget: markdown, buttons: [italic], hint: Lo que pongas en cursiva se verá resaltado en color. }
+              - { name: entradilla, label: Entradilla, widget: markdown }
+              - name: boton
+                label: Botón
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+              - name: boton_2
+                label: Botón 2
+                widget: object
+                fields:
+                  - { name: texto, label: Texto, widget: string }
+                  - { name: enlace, label: Dirección (a dónde lleva), widget: string, hint: "Página de esta web: escribe la ruta, por ejemplo /curso/. Otra web: la dirección completa (https://…)." }
+            summary: "{{fields.antetitulo}}"
+{% endraw %}

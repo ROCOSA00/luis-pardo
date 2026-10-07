@@ -1,0 +1,139 @@
+---
+permalink: /admin/guia/index.html
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cómo editar tu web · Panel de Luis Pardo</title>
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07060a; --bg-2: #0d0a11; --ink: #ece4d6; --muted: #b3a998; --dim: #7a7064;
+    --gold: #c9a45a; --gold-2: #ecd59a; --blood: #c4162f; --line: rgba(201, 164, 90, 0.22);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: radial-gradient(ellipse at 50% 0%, rgba(196, 22, 47, 0.14), transparent 55%), var(--bg);
+    color: var(--ink); font: 17px/1.65 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 16px 80px; }
+  header { text-align: center; margin-bottom: 40px; }
+  .sello { width: 56px; height: 56px; color: var(--gold); }
+  h1 { font: 600 clamp(28px, 5vw, 40px)/1.15 Cinzel, Georgia, serif; letter-spacing: 0.04em; margin: 12px 0 8px; }
+  .sub { color: var(--muted); margin: 0; }
+  .boton {
+    display: inline-block; margin-top: 22px; padding: 12px 28px; border-radius: 999px; color: #fff; font-weight: 600;
+    text-decoration: none; background: linear-gradient(180deg, var(--blood), #8a0d20);
+  }
+  ol.pasos { list-style: none; counter-reset: paso; padding: 0; margin: 0; display: grid; gap: 28px; }
+  ol.pasos > li {
+    counter-increment: paso; position: relative; padding: 28px 24px 24px;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line); border-radius: 18px;
+  }
+  ol.pasos > li::before {
+    content: counter(paso); position: absolute; top: -16px; left: 24px; width: 34px; height: 34px; border-radius: 50%;
+    display: grid; place-items: center; font: 600 16px Cinzel, serif; color: var(--bg); background: var(--gold);
+  }
+  h2 { font: 600 21px/1.3 Cinzel, Georgia, serif; letter-spacing: 0.03em; margin: 0 0 8px; color: var(--gold-2); }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 20px; }
+  li li { margin-bottom: 6px; }
+  strong { color: #fff; font-weight: 600; }
+  figure { margin: 16px 0 0; }
+  figure img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(236, 228, 214, 0.12); }
+  figure.pequena img { max-width: 420px; }
+  .nota { margin-top: 32px; padding: 22px 24px; border-radius: 16px; border: 1px solid var(--line); background: rgba(201, 164, 90, 0.07); }
+  .nota h2 { font-size: 18px; }
+  .nota p:last-child { margin-bottom: 0; }
+  a { color: var(--gold); }
+  kbd { font: 600 14px Inter, sans-serif; padding: 1px 7px; border-radius: 6px; border: 1px solid rgba(236, 228, 214, 0.25); background: rgba(255, 255, 255, 0.06); }
+  footer { margin-top: 40px; text-align: center; color: var(--dim); font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <svg class="sello" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+      <circle cx="32" cy="32" r="30"/><circle cx="32" cy="32" r="25" stroke-dasharray="2 4"/>
+      <path d="M32 9 L53 45 H11 Z"/><path d="M18 34 C 24 26, 40 26, 46 34 C 40 42, 24 42, 18 34 Z"/><circle cx="32" cy="34" r="4.5" fill="currentColor"/>
+    </svg>
+    <h1>Cómo editar tu web</h1>
+    <p class="sub">Guía rápida · se lee en 2 minutos</p>
+    <a class="boton" href="/admin/">Ir al panel</a>
+  </header>
+
+  <ol class="pasos">
+    <li>
+      <h2>Entra</h2>
+      <p>Abre <strong>tu web /admin</strong> (por ejemplo, <strong>luispardo.com/admin</strong>) y escribe tu email y tu contraseña. La sesión se queda abierta 30 días en ese ordenador o móvil.</p>
+      <figure><img src="img/1-acceso.webp" width="1100" height="720" alt="Pantalla de acceso al panel con email y contraseña" loading="lazy"></figure>
+    </li>
+
+    <li>
+      <h2>Elige la página</h2>
+      <p>A la izquierda están las páginas, ordenadas igual que el menú de la web. En <strong>Principal</strong> tienes la portada, la página de entradas y los ajustes generales.</p>
+      <figure><img src="img/2-paginas.webp" width="1280" height="800" alt="Lista de secciones del panel: Principal, Experiencias, Luis Pardo, Tu mente, Universo y Otras páginas" loading="lazy"></figure>
+    </li>
+
+    <li>
+      <h2>Abre una sección y cambia lo que quieras</h2>
+      <p>Cada página está dividida en secciones numeradas en el mismo orden en que aparecen en la web. Pulsa la flechita para abrir una y escribe encima del texto.</p>
+      <ul>
+        <li>En los textos tienes los botones de <strong>negrita</strong>, <em>cursiva</em> y enlace.</li>
+        <li>En los títulos, lo que pongas <strong>en cursiva sale resaltado en color</strong>, igual que en la web.</li>
+        <li>Para cambiar una foto, pulsa <strong>Reemplazar</strong> y elige una del ordenador o del móvil. No te preocupes por el tamaño: se ajusta sola.</li>
+      </ul>
+      <figure><img src="img/3-seccion.webp" width="1280" height="800" alt="Sección abierta con la foto, el antetítulo y el título de la portada" loading="lazy"></figure>
+    </li>
+
+    <li>
+      <h2>Listas: opiniones, fotos, espectáculos, canciones…</h2>
+      <ul>
+        <li><strong>Agregar</strong> (abajo del todo) añade un elemento nuevo.</li>
+        <li>Arrastra las dos rayitas <kbd>═</kbd> para cambiar el orden.</li>
+        <li>La <kbd>✕</kbd> lo quita.</li>
+      </ul>
+      <figure><img src="img/5-lista.webp" width="1280" height="800" alt="Lista de fotos de la galería con los botones para reordenar, quitar y agregar" loading="lazy"></figure>
+    </li>
+
+    <li>
+      <h2>Guarda</h2>
+      <p>Cuando termines, pulsa <strong>Guardar</strong> (el botón azul de arriba a la derecha). En <strong>1 o 2 minutos</strong> el cambio aparece en la web. Con <strong>Ver en el sitio en vivo</strong> lo compruebas; si todavía no lo ves, espera un momento y recarga la página.</p>
+      <figure class="pequena"><img src="img/4-guardar.webp" width="580" height="120" alt="Botones «Ver en el sitio en vivo» y «Guardar»" loading="lazy"></figure>
+    </li>
+
+    <li>
+      <h2>Contacto y enlaces de entradas</h2>
+      <p>En <strong>Principal → Ajustes generales</strong> están el email, el WhatsApp, el teléfono, las redes sociales y los enlaces para comprar entradas. Si cambias algo aquí, <strong>se cambia en toda la web</strong> a la vez (menú, pie de página y todos los botones).</p>
+      <figure><img src="img/6-ajustes.webp" width="1280" height="800" alt="Formulario de ajustes generales con email, WhatsApp, teléfono y dirección" loading="lazy"></figure>
+    </li>
+
+    <li>
+      <h2>Sal cuando acabes</h2>
+      <p>Pulsa el icono de tu cuenta (arriba a la derecha) y elige <strong>Cerrar sesión</strong>. Hazlo siempre si usas un ordenador que no es tuyo.</p>
+      <figure class="pequena"><img src="img/7-salir.webp" width="380" height="320" alt="Menú de la cuenta con la opción «Cerrar sesión»" loading="lazy"></figure>
+    </li>
+  </ol>
+
+  <div class="nota">
+    <h2>Sin miedo: no puedes romper el diseño</h2>
+    <p>Desde el panel solo se cambian textos, fotos y enlaces. El diseño, el menú y los formularios están protegidos. Además, cada cambio queda guardado: si algo sale mal, se puede recuperar la versión anterior.</p>
+    <p>Si sales sin guardar, el panel te guarda un borrador para la próxima vez.</p>
+  </div>
+
+  <div class="nota">
+    <h2>Para cambios más grandes</h2>
+    <p>Páginas nuevas, vídeos, cambios de diseño o del menú: avisa a tu desarrollador web y se encarga.</p>
+  </div>
+
+  <footer>Panel de edición de la web de Luis Pardo</footer>
+</div>
+</body>
+</html>

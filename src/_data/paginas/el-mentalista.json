@@ -1,0 +1,145 @@
+{
+  "seo": {
+    "titulo": "Luis Pardo, el mentalista · Biografía, premios y televisión",
+    "descripcion": "Más de 30 años de carrera. 1er Premio Nacional de Mentalismo 2004, 4º Premio Mundial FISM 2017, Récord Mundial de conducción a ciegas en moto 2011 y colaborador habitual de TVE, TV3 y Cuatro.",
+    "titulo_redes": "Luis Pardo · El Mentalista",
+    "imagen_redes": "/assets/img/luis-retrato.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/luis-cerebro.webp",
+    "antetitulo": "El Mentalista",
+    "titulo": "Uno de los *5 mejores mentalistas* del mundo",
+    "entradilla": "Más de 30 años de carrera dedicados a sorprender, pero sobre todo a hacer sentir: emociones, inquietudes y enigmas del ser humano a través de cada experiencia."
+  },
+  "apasionado_mente_todo": {
+    "imagen": {
+      "src": "/assets/img/luis-retrato.webp",
+      "alt": "Retrato de Luis Pardo"
+    },
+    "antetitulo": "Quién es",
+    "titulo": "Apasionado de la mente y de todo lo que no tiene explicación",
+    "texto": "Lo que mueve a Luis Pardo es el **funcionamiento de nuestra mente** y todo lo relacionado con el misterio, lo oculto y lo paranormal. Decidió investigar si había explicación para todo ello y convertirlo en experiencias únicas.\n\nEn 2005 obtuvo el **título de Hipnosis Clínica** por la AIHCE (Asociación Internacional de Hipnosis Clínica y Experimental). Desde entonces no ha dejado de estudiar el cerebro y la psicología humana, y de aplicar esas técnicas para crear un estilo con sello propio y mucho más impacto en el espectador."
+  },
+  "tres_hitos_una": {
+    "antetitulo": "Premios",
+    "titulo": "Tres hitos de una carrera",
+    "texto": "2004",
+    "texto_2": "1er Premio Nacional",
+    "texto_3": "De Mentalismo, en el Congreso Nacional de Magia de Zaragoza (SEI).",
+    "texto_4": "2011",
+    "texto_5": "Récord Mundial",
+    "texto_6": "Conducción a ciegas en moto: más de 7,5 km con los ojos vendados sobre su Harley-Davidson.",
+    "texto_7": "2017",
+    "texto_8": "4º Premio Mundial",
+    "texto_9": "De Mentalismo, en el Congreso Internacional de Magia de Blackpool, Inglaterra (FISM).",
+    "antetitulo_2": "Récord Mundial · 2011",
+    "titulo_2": "A ciegas, por calles abiertas al tráfico",
+    "entradilla": "Con un antifaz de acero de 2 mm y una capucha de cuatro capas de tela negra, recorrió la ciudad sin que se cortaran las calles ni se detuviera el tráfico.",
+    "video": {
+      "youtube": "https://www.youtube.com/watch?v=V9_i_9wS9ws",
+      "titulo": "Récord mundial de conducción a ciegas en moto",
+      "boton": "Vídeo del récord mundial"
+    }
+  },
+  "teatro_television": {
+    "antetitulo": "Dos facetas",
+    "titulo": "Teatro y televisión",
+    "teatro": {
+      "titulo": "Teatro",
+      "texto": "Cada actuación es un reto: innovar y superarse día a día. Sus espectáculos han sido éxito de taquilla allí donde se han representado, con las mejores críticas del público y de la prensa especializada.",
+      "enlace": {
+        "texto": "Espectáculos anteriores",
+        "enlace": "/espectaculos-anteriores/"
+      }
+    },
+    "television": {
+      "titulo": "Televisión",
+      "texto": "Su puesta en escena arriesgada y actual ha impulsado la magia y el mentalismo en televisión, logrando siempre los picos más altos de audiencia.",
+      "enlace": {
+        "texto": "Ver programas",
+        "enlace": "#television"
+      }
+    },
+    "psiquemagia": {
+      "antetitulo": "Un nuevo concepto",
+      "titulo": "PsiqueMagia",
+      "entradilla": "La capacidad de hacer sentir y vivir cosas realmente imposibles en la psique de otra persona, para crear verdadera magia.",
+      "texto": "Para llevarla a cabo creó también su propio espacio: la única sala-museo dedicada exclusivamente al mentalismo de toda Europa, hoy [Spirit Club Bcn](/spirit-club-bcn/).",
+      "imagen": {
+        "src": "/assets/img/luis-dos.webp",
+        "alt": "Luis Pardo en dos momentos de sus espectáculos"
+      }
+    }
+  },
+  "minerva": {
+    "imagen": {
+      "src": "/assets/img/minerva-ouija.webp",
+      "alt": "M. Minerva con un tablero espiritista"
+    },
+    "antetitulo": "Compañera de viaje",
+    "titulo": "M. Minerva",
+    "entradilla": "Artista, amante de las emociones fuertes y apasionada de todo lo misterioso y paranormal. Compañera de Luis Pardo «en la vida y en la muerte».",
+    "texto": "Debutó junto a Luis en **Paranoid** y desde entonces es parte esencial de sus creaciones: *DeMente*, *Secretos*, *Hypnoerotic*, *Posesión Hipnótica* y, hoy, *Cuando el Diablo Piensa*.\n\nExperta en crear emociones de todo tipo, guía las rutas paranormales de [MisterioSants](/comprar_entradas/#misteriosants) y firma el prólogo de [Poemas Prohibidos](/libros/)."
+  },
+  "television": {
+    "antetitulo": "Televisión",
+    "titulo": "Magia, mentalismo e hipnosis a través de la pantalla",
+    "entradilla": "Colaborador en multitud de programas nacionales e internacionales. Sus actuaciones enganchan desde el primer segundo.",
+    "hitos": [
+      {
+        "fecha": "2005",
+        "titulo": "Il·lusionadors · TV3",
+        "texto": "El primer programa de magia callejera que se hizo en España."
+      },
+      {
+        "fecha": "2006",
+        "titulo": "Sábado Noche · TVE",
+        "texto": "Colaborador semanal."
+      },
+      {
+        "fecha": "2010",
+        "titulo": "UAU! · Cuatro",
+        "texto": "Colaborador diario del late night de Santi Millán."
+      },
+      {
+        "fecha": "2013 – 2015",
+        "titulo": "Festival del Humor · Colombia",
+        "texto": "Invitado especial durante tres ediciones."
+      },
+      {
+        "fecha": "2017",
+        "titulo": "Pura Magia · TVE",
+        "texto": "Profesor del programa."
+      },
+      {
+        "fecha": "Y cientos más",
+        "titulo": "Buenafuente, Hora Punta, Així ens va, Els Matins de TV3…",
+        "texto": ""
+      }
+    ],
+    "imagen": {
+      "src": "/assets/img/tv-especiales.webp",
+      "alt": "Los Especiales de Pardo: Tu Poder Mental"
+    },
+    "los_especiales_pardo": {
+      "antetitulo": "Piloto de TV",
+      "titulo": "Los Especiales de Pardo: Tu Poder Mental",
+      "texto": "Luis Pardo sale a la calle para hacer experiencias de mentalismo e hipnosis con quien se cruza en su camino. Quizá también contigo, a través de la pantalla. Simplemente, déjate llevar."
+    },
+    "video": {
+      "portada": "/assets/img/tv-plato.webp",
+      "titulo": "Ver el piloto"
+    }
+  },
+  "despues_cruzarte_con": {
+    "titulo": "Después de cruzarte con Luis Pardo, no volverás a entender tu mente de la misma manera",
+    "boton": {
+      "texto": "Vívelo en directo",
+      "enlace": "/cuando-el-diablo-piensa/"
+    },
+    "boton_2": {
+      "texto": "Ver galería",
+      "enlace": "/galeria/"
+    }
+  }
+}

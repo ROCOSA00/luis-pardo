@@ -1,0 +1,376 @@
+{% extends "layouts/base.njk" %}
+{% block head %}
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ c.seo.titulo_redes | texto }}">
+<meta property="og:description" content="{{ c.seo.descripcion_redes | texto }}">
+<meta property="og:image" content="{{ sitio.url }}{{ c.seo.imagen_redes }}">
+<meta property="og:locale" content="es_ES">
+{% endblock %}
+{% block headExtra %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Luis Pardo",
+  "jobTitle": "Mentalista",
+  "url": "{{ sitio.url }}/",
+  "email": "{{ ajustes.email }}",
+  "award": ["1er Premio Nacional de Mentalismo 2004", "4º Premio Mundial de Mentalismo FISM 2017", "Récord Mundial de Conducción a Ciegas en Moto 2011"],
+  "sameAs": ["{{ ajustes.instagram }}", "{{ ajustes.youtube | replace('/videos', '') }}"]
+}
+</script>
+{% endblock %}
+{% block bodyAttrs %} class="page-home"{% endblock %}
+{% block beforeHeader %}
+<div class="intro" aria-hidden="true">
+  <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="50" cy="50" r="46" stroke-dasharray="3 5"/>
+    <g class="intro-eye-lid">
+      <path d="M8 50 C 28 18, 72 18, 92 50 C 72 82, 28 82, 8 50 Z"/>
+      <circle cx="50" cy="50" r="15"/>
+      <circle cx="50" cy="50" r="6" fill="#c4162f" stroke="none"/>
+    </g>
+  </svg>
+  <p>Mírame a los ojos</p>
+</div>
+{% endblock %}
+{% block main %}
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" data-lantern>
+    <div class="hero-bg hero-bg--side"><img {{ c.cabecera.imagen | img }} alt="" fetchpriority="high"></div>
+    <canvas class="embers" aria-hidden="true"></canvas>
+    <div class="hero-lantern" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-content">
+        <span class="eyebrow" data-reveal>{{ c.cabecera.antetitulo | texto }}</span>
+        <h1 class="display" data-reveal style="--d:.1s">{{ c.cabecera.titulo | titulo }}</h1>
+        <p class="hero-tagline" data-reveal style="--d:.2s">{{ c.cabecera.texto | md }}</p>
+        <p class="lead" data-reveal style="--d:.3s">{{ c.cabecera.entradilla.antes | md }} <span class="scramble" data-scramble="{{ c.cabecera.entradilla.palabras | join('|') }}">{{ c.cabecera.entradilla.palabras[0] | texto }}</span> {{ c.cabecera.entradilla.despues | md }}</p>
+        <div class="hero-badges" data-reveal style="--d:.4s">
+          <span class="badge">{{ c.cabecera.etiqueta | md({negrita: "b"}) }}</span>
+          <span class="badge">{{ c.cabecera.etiqueta_2 | md({negrita: "b"}) }}</span>
+          <span class="badge badge-red">{{ c.cabecera.etiqueta_3 | md({negrita: "b"}) }}</span>
+        </div>
+        <div class="row" data-reveal style="--d:.5s">
+          <a class="btn btn-blood btn-lg" {{ ajustes.entradas.cedp | enlace }}>{{ c.cabecera.boton | texto }}</a>
+          <a class="btn btn-ghost btn-lg" {{ c.cabecera.boton_2.enlace | enlace }}>{{ c.cabecera.boton_2.texto | texto }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">Desciende<span></span></div>
+  </section>
+
+  <!-- ============ TV / PRENSA ============ -->
+  <div class="marquee" aria-label="Ha aparecido en">
+    <div class="marquee-track">{% for m in c.television.nombres %}<span>{{ m | texto }}</span>{% endfor %}{% for m in c.television.nombres %}<span aria-hidden="true">{{ m | texto }}</span>{% endfor %}</div>
+  </div>
+
+  <!-- ============ CIFRAS ============ -->
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="stats" data-reveal>{% for s in c.seccion_3.cifras %}<div class="stat"><span class="stat-num" {{ s.cifra | cifra }}>{{ s.cifra | texto }}</span><span class="stat-label">{{ s.texto | texto }}</span></div>{% endfor %}</div>
+    </div>
+  </section>
+
+  <!-- ============ ESPECTÁCULO DESTACADO ============ -->
+  <section class="section" id="espectaculo">
+    <div class="wrap">
+      <div class="feature">
+        <div class="grid-2">
+          <div class="stack-lg">
+            <div class="stack">
+              <span class="eyebrow" data-reveal>{{ c.espectaculo.cuando_diablo_piensa.antetitulo | texto }}</span>
+              <h2 class="display" data-reveal style="--d:.1s">{{ c.espectaculo.cuando_diablo_piensa.titulo | titulo("text-blood") }}</h2>
+              <p class="lead" data-reveal style="--d:.2s">{{ c.espectaculo.cuando_diablo_piensa.entradilla | md }}</p>
+            </div>
+            <ul class="checklist red" data-reveal style="--d:.3s">{% for p in c.espectaculo.cuando_diablo_piensa.puntos %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
+            <div class="notice" data-reveal style="--d:.35s">{{ c.espectaculo.cuando_diablo_piensa.aviso | md }}</div>
+            <div class="row" data-reveal style="--d:.4s">
+              <a class="btn btn-blood" {{ ajustes.entradas.cedp | enlace }}>{{ c.espectaculo.cuando_diablo_piensa.boton | texto }}</a>
+              <a class="link-arrow" {{ c.espectaculo.cuando_diablo_piensa.enlace.enlace | enlace }}>{{ c.espectaculo.cuando_diablo_piensa.enlace.texto | texto }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+          <div data-reveal="right">
+            <div class="frame frame-deco" data-tilt><img {{ c.espectaculo.cuando_diablo_piensa.imagen.src | img }} alt="{{ c.espectaculo.cuando_diablo_piensa.imagen.alt | texto }}" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guarantee mt-3" data-reveal>
+        <div class="seal">{{ c.espectaculo.garantia_asombro.sello | md }}</div>
+        <div>
+          <h3 class="h3">{{ c.espectaculo.garantia_asombro.titulo | titulo }}</h3>
+          <p class="muted mt-1">{{ c.espectaculo.garantia_asombro.texto | md }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCIAS ============ -->
+  <section class="section bg-vignette" id="experiencias">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow center" data-reveal>{{ c.experiencias.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.experiencias.titulo | titulo }}</h2>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.experiencias.entradilla | md }}</p>
+      </div>
+      <div class="grid-4">
+        <article class="tarot" data-tilt data-reveal>
+          <div class="tarot-media"><span class="tarot-num">I</span><img {{ c.experiencias.cuando_diablo_piensa.imagen.src | img }} alt="{{ c.experiencias.cuando_diablo_piensa.imagen.alt | texto }}" loading="lazy"></div>
+          <div class="tarot-body">
+            <div class="tarot-meta">{% for d in c.experiencias.cuando_diablo_piensa.datos %}<span>{{ d | texto }}</span>{% endfor %}</div>
+            <h3>{{ c.experiencias.cuando_diablo_piensa.titulo | titulo }}</h3>
+            <p>{{ c.experiencias.cuando_diablo_piensa.texto | md }}</p>
+            <div class="tarot-foot"><a class="link-arrow" {{ c.experiencias.cuando_diablo_piensa.enlace.enlace | enlace }}>{{ c.experiencias.cuando_diablo_piensa.enlace.texto | texto }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </article>
+        <article class="tarot" data-tilt data-reveal style="--d:.1s">
+          <div class="tarot-media"><span class="tarot-num">II</span><img {{ c.experiencias.misteriosants.imagen.src | img }} alt="{{ c.experiencias.misteriosants.imagen.alt | texto }}" loading="lazy"></div>
+          <div class="tarot-body">
+            <div class="tarot-meta">{% for d in c.experiencias.misteriosants.datos %}<span>{{ d | texto }}</span>{% endfor %}</div>
+            <h3>{{ c.experiencias.misteriosants.titulo | titulo }}</h3>
+            <p>{{ c.experiencias.misteriosants.texto | md }}</p>
+            <div class="tarot-foot"><a class="link-arrow" {{ ajustes.entradas.misteriosants | enlace }}>{{ c.experiencias.misteriosants.enlace | texto }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </article>
+        <article class="tarot" data-tilt data-reveal style="--d:.2s">
+          <div class="tarot-media"><span class="tarot-num">III</span><img {{ c.experiencias.spirit_pendulum.imagen.src | img }} alt="{{ c.experiencias.spirit_pendulum.imagen.alt | texto }}" loading="lazy"></div>
+          <div class="tarot-body">
+            <div class="tarot-meta">{% for d in c.experiencias.spirit_pendulum.datos %}<span>{{ d | texto }}</span>{% endfor %}</div>
+            <h3>{{ c.experiencias.spirit_pendulum.titulo | titulo }}</h3>
+            <p>{{ c.experiencias.spirit_pendulum.texto | md }}</p>
+            <div class="tarot-foot"><a class="link-arrow" {{ ajustes.entradas.spirit_pendulum | enlace }}>{{ c.experiencias.spirit_pendulum.enlace | texto }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </article>
+        <article class="tarot" data-tilt data-reveal style="--d:.3s">
+          <div class="tarot-media"><span class="tarot-num">IV</span><img {{ c.experiencias.sesion_espiritista.imagen.src | img }} alt="{{ c.experiencias.sesion_espiritista.imagen.alt | texto }}" loading="lazy"></div>
+          <div class="tarot-body">
+            <div class="tarot-meta">{% for d in c.experiencias.sesion_espiritista.datos %}<span>{{ d | texto }}</span>{% endfor %}</div>
+            <h3>{{ c.experiencias.sesion_espiritista.titulo | titulo }}</h3>
+            <p>{{ c.experiencias.sesion_espiritista.texto | md }}</p>
+            <div class="tarot-foot"><a class="link-arrow" {{ c.experiencias.sesion_espiritista.enlace.enlace | enlace }}>{{ c.experiencias.sesion_espiritista.enlace.texto | texto }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LUIS Y MINERVA ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid-2">
+        <div data-reveal="left">
+          <div class="frame frame-tall frame-deco"><img {{ c.luis_pardo_minerva.imagen.src | img }} alt="{{ c.luis_pardo_minerva.imagen.alt | texto }}" loading="lazy"></div>
+        </div>
+        <div class="stack-lg">
+          <div class="stack">
+            <span class="eyebrow" data-reveal>{{ c.luis_pardo_minerva.antetitulo | texto }}</span>
+            <h2 class="h2" data-reveal style="--d:.1s">{{ c.luis_pardo_minerva.titulo | titulo }}</h2>
+            <p class="lead" data-reveal style="--d:.2s">{{ c.luis_pardo_minerva.entradilla | md }}</p>
+          </div>
+          <div class="grid-2" style="gap:24px; align-items:start">
+            <div class="card" data-reveal style="--d:.25s">
+              <h3 class="h3">{{ c.luis_pardo_minerva.luis_pardo.titulo | titulo }}</h3>
+              <p>{{ c.luis_pardo_minerva.luis_pardo.texto | md }}</p>
+            </div>
+            <div class="card" data-reveal style="--d:.35s">
+              <h3 class="h3">{{ c.luis_pardo_minerva.minerva.titulo | titulo }}</h3>
+              <p>{{ c.luis_pardo_minerva.minerva.texto | md }}</p>
+            </div>
+          </div>
+          <div data-reveal style="--d:.4s"><a class="link-arrow" {{ c.luis_pardo_minerva.enlace.enlace | enlace }}>{{ c.luis_pardo_minerva.enlace.texto | texto }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUCO INTERACTIVO ============ -->
+  <section class="section bg-gold-vignette" id="lee-la-mente">
+    <div class="wrap-narrow trick" data-trick>
+      <div class="section-head center">
+        <span class="eyebrow center" data-reveal>{{ c.lee_mente.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.lee_mente.titulo | titulo }}</h2>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.lee_mente.entradilla | md }}</p>
+      </div>
+      <div class="trick-stage" data-reveal="zoom">
+        <div class="trick-cards" aria-live="polite">
+          <div class="pcard back"></div><div class="pcard back"></div><div class="pcard back"></div><div class="pcard back"></div><div class="pcard back"></div><div class="pcard back"></div>
+        </div>
+      </div>
+      <p class="trick-msg" aria-live="polite">Seis cartas boca abajo. Cuando estés preparado, dales la vuelta.</p>
+      <button class="btn btn-gold trick-btn" type="button">Empezar</button>
+    </div>
+  </section>
+
+  <!-- ============ VÍDEO CALLE ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow center" data-reveal>{{ c.hipnosis_mentalismo_plena.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.hipnosis_mentalismo_plena.titulo | titulo }}</h2>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.hipnosis_mentalismo_plena.entradilla | md }}</p>
+      </div>
+      <div class="grid-2" style="align-items:start">
+        <div data-reveal>
+          <div class="video" data-video="./assets/media/experiencias-en-la-calle.mp4">
+            <img {{ c.hipnosis_mentalismo_plena.video.portada | img }} alt="" loading="lazy">
+            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.hipnosis_mentalismo_plena.video.titulo | texto }}</span></button>
+          </div>
+        </div>
+        <div data-reveal style="--d:.15s">
+          <div class="video" data-video="./assets/media/diagotv-luis-pardo.mp4">
+            <img {{ c.hipnosis_mentalismo_plena.video_2.portada | img }} alt="" loading="lazy" style="object-position:center 20%">
+            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.hipnosis_mentalismo_plena.video_2.titulo | texto }}</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RÉCORD ============ -->
+  <section class="section bg-2">
+    <div class="wrap">
+      <div class="grid-2">
+        <div class="stack-lg">
+          <div class="stack">
+            <span class="eyebrow" data-reveal>{{ c.n7_5_moto.antetitulo | texto }}</span>
+            <h2 class="h2" data-reveal style="--d:.1s">{{ c.n7_5_moto.titulo | titulo }}</h2>
+            <p class="lead" data-reveal style="--d:.2s">{{ c.n7_5_moto.entradilla | md }}</p>
+          </div>
+          <ul class="checklist" data-reveal style="--d:.3s">{% for p in c.n7_5_moto.puntos %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
+        </div>
+        <div data-reveal="right">
+          <div class="video" data-youtube="{{ c.n7_5_moto.video.youtube | youtubeId }}" data-title="{{ c.n7_5_moto.video.titulo | texto }}">
+            <img src="https://i.ytimg.com/vi/{{ c.n7_5_moto.video.youtube | youtubeId }}/hqdefault.jpg" width="480" height="360" alt="" loading="lazy">
+            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.n7_5_moto.video.boton | texto }}</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OPINIONES VIP ============ -->
+  <section class="section" id="opiniones">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow center" data-reveal>{{ c.opiniones.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.opiniones.titulo | titulo }}</h2>
+      </div>
+      <div class="carousel" data-carousel data-autoplay="5000" data-reveal>
+        <div class="carousel-track">{% for o in c.opiniones.opiniones %}<figure class="card vip-card"><blockquote>«{{ o.cita | md }}»</blockquote>{% if o.autor %}<figcaption class="who">{{ o.autor | texto }}</figcaption>{% endif %}</figure>{% endfor %}</div>
+        <div class="carousel-nav">
+          <div class="carousel-dots"></div>
+          <button class="carousel-btn carousel-prev" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="carousel-btn carousel-next" type="button" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <div class="divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2l2.5 7.5H22l-6 4.5 2.3 7.5L12 17l-6.3 4.5L8 14 2 9.5h7.5z"/></svg></div>
+
+      <div class="grid-2" style="align-items:start">
+        <div class="stack-lg">
+          <div class="stack">
+            <span class="eyebrow" data-reveal>{{ c.opiniones.antetitulo_2 | texto }}</span>
+            <h3 class="h2" data-reveal style="--d:.1s">{{ c.opiniones.titulo_2 | titulo }}</h3>
+            <p class="lead" data-reveal style="--d:.2s">{{ c.opiniones.entradilla | md }}</p>
+          </div>
+          <div class="stack">{% for o in c.opiniones.opiniones_2 %}<figure class="testimonial" data-reveal{{ retardo(loop.index0, 10) }}><span class="stars" aria-label="5 estrellas">★★★★★</span><blockquote>{{ o.texto | md }}</blockquote><footer><span class="avatar">{{ o.nombre | inicial }}</span><span><span class="who">{{ o.nombre | texto }}</span>{% if o.detalle %}<br><span class="role">{{ o.detalle | texto }}</span>{% endif %}</span></footer></figure>{% endfor %}</div>
+        </div>
+        <div data-reveal="right">
+          <div class="video vertical" data-video="./assets/media/opiniones-publico.mp4">
+            <img {{ c.opiniones.video.portada | img }} alt="" loading="lazy">
+            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.opiniones.video.titulo | texto }}</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SPIRIT CLUB ============ -->
+  <section class="section bg-2">
+    <div class="wrap">
+      <div class="grid-2">
+        <div class="order-first-mobile" data-reveal="left">
+          <div class="frame frame-wide"><img {{ c.lugar_donde_magia.imagen.src | img }} alt="{{ c.lugar_donde_magia.imagen.alt | texto }}" loading="lazy"></div>
+        </div>
+        <div class="stack-lg">
+          <div class="stack">
+            <span class="eyebrow" data-reveal>{{ c.lugar_donde_magia.antetitulo | texto }}</span>
+            <h2 class="h2" data-reveal style="--d:.1s">{{ c.lugar_donde_magia.titulo | titulo }}</h2>
+            <p class="lead" data-reveal style="--d:.2s">{{ c.lugar_donde_magia.entradilla | md }}</p>
+          </div>
+          <p class="muted" data-reveal style="--d:.25s">{{ c.lugar_donde_magia.texto | md }}</p>
+          <div class="stats stats-2" style="--d:.3s" data-reveal>{% for s in c.lugar_donde_magia.cifras %}<div class="stat"><span class="stat-num" {{ s.cifra | cifra }}>{{ s.cifra | texto }}</span><span class="stat-label">{{ s.texto | texto }}</span></div>{% endfor %}</div>
+          <div data-reveal style="--d:.35s"><a class="link-arrow" {{ c.lugar_donde_magia.enlace.enlace | enlace }}>{{ c.lugar_donde_magia.enlace.texto | texto }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TU MENTE ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow center" data-reveal>{{ c.mente_dirige_vida.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.mente_dirige_vida.titulo | titulo }}</h2>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.mente_dirige_vida.entradilla | md }}</p>
+      </div>
+      <div class="grid-3">
+        <a class="tarot" {{ c.mente_dirige_vida.alquimia_mente.enlace | enlace }} data-tilt data-reveal>
+          <div class="tarot-media"><img {{ c.mente_dirige_vida.alquimia_mente.imagen.src | img }} alt="{{ c.mente_dirige_vida.alquimia_mente.imagen.alt | texto }}" loading="lazy"></div>
+          <div class="tarot-body"><div class="tarot-meta">{% for d in c.mente_dirige_vida.alquimia_mente.datos %}<span>{{ d | texto }}</span>{% endfor %}</div><h3>{{ c.mente_dirige_vida.alquimia_mente.titulo | titulo }}</h3><p>{{ c.mente_dirige_vida.alquimia_mente.texto | md }}</p></div>
+        </a>
+        <a class="tarot" {{ c.mente_dirige_vida.mpm_personalizados.enlace | enlace }} data-tilt data-reveal style="--d:.1s">
+          <div class="tarot-media"><img {{ c.mente_dirige_vida.mpm_personalizados.imagen.src | img }} alt="{{ c.mente_dirige_vida.mpm_personalizados.imagen.alt | texto }}" loading="lazy"></div>
+          <div class="tarot-body"><div class="tarot-meta">{% for d in c.mente_dirige_vida.mpm_personalizados.datos %}<span>{{ d | texto }}</span>{% endfor %}</div><h3>{{ c.mente_dirige_vida.mpm_personalizados.titulo | titulo }}</h3><p>{{ c.mente_dirige_vida.mpm_personalizados.texto | md }}</p></div>
+        </a>
+        <a class="tarot" {{ c.mente_dirige_vida.dejar_fumar.enlace | enlace }} data-tilt data-reveal style="--d:.2s">
+          <div class="tarot-media"><img {{ c.mente_dirige_vida.dejar_fumar.imagen.src | img }} alt="{{ c.mente_dirige_vida.dejar_fumar.imagen.alt | texto }}" loading="lazy"></div>
+          <div class="tarot-body"><div class="tarot-meta">{% for d in c.mente_dirige_vida.dejar_fumar.datos %}<span>{{ d | texto }}</span>{% endfor %}</div><h3>{{ c.mente_dirige_vida.dejar_fumar.titulo | titulo }}</h3><p>{{ c.mente_dirige_vida.dejar_fumar.texto | md }}</p></div>
+        </a>
+      </div>
+      <div class="grid-2 mt-3" style="align-items:stretch">
+        <a class="card" {{ c.mente_dirige_vida.luna_iae.enlace | enlace }} data-reveal>
+          <span class="eyebrow">{{ c.mente_dirige_vida.luna_iae.antetitulo | texto }}</span>
+          <h3 class="h3 mt-1">{{ c.mente_dirige_vida.luna_iae.titulo | titulo }}</h3>
+          <p>{{ c.mente_dirige_vida.luna_iae.texto | md }}</p>
+          <span class="link-arrow mt-2">{{ c.mente_dirige_vida.luna_iae.texto_enlace | texto }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="card" {{ c.mente_dirige_vida.dos_contra_mundo.enlace | enlace }} data-reveal style="--d:.1s">
+          <span class="eyebrow">{{ c.mente_dirige_vida.dos_contra_mundo.antetitulo | texto }}</span>
+          <h3 class="h3 mt-1">{{ c.mente_dirige_vida.dos_contra_mundo.titulo | titulo }}</h3>
+          <p>{{ c.mente_dirige_vida.dos_contra_mundo.texto | md }}</p>
+          <span class="link-arrow mt-2">{{ c.mente_dirige_vida.dos_contra_mundo.texto_enlace | texto }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL ============ -->
+  <section class="section cta-final bg-vignette">
+    <svg class="sigil-bg" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width=".6" aria-hidden="true">
+      <circle cx="100" cy="100" r="96"/><circle cx="100" cy="100" r="80" stroke-dasharray="2 4"/><circle cx="100" cy="100" r="60"/>
+      <path d="M100 8 L180 146 H20 Z"/><path d="M100 192 L20 54 H180 Z"/>
+      <path d="M50 100 C 70 70, 130 70, 150 100 C 130 130, 70 130, 50 100 Z"/><circle cx="100" cy="100" r="12"/>
+    </svg>
+    <div class="wrap-narrow stack-lg" style="justify-items:center">
+      <span class="eyebrow center" data-reveal>{{ c.atreves.antetitulo | texto }}</span>
+      <h2 class="display" data-reveal style="--d:.1s">{{ c.atreves.titulo | titulo }}</h2>
+      <p class="lead" data-reveal style="--d:.2s">{{ c.atreves.entradilla | md }}</p>
+      <div class="row center" data-reveal style="--d:.3s">
+        <a class="btn btn-blood btn-lg" {{ c.atreves.boton.enlace | enlace }}>{{ c.atreves.boton.texto | texto }}</a>
+        <a class="btn btn-whatsapp btn-lg" href="{{ c.atreves.boton_2.mensaje | whatsapp(ajustes.whatsapp) }}" target="_blank" rel="noopener">{{ c.atreves.boton_2.texto | texto }}</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="sticky-cta">
+  <a class="btn btn-blood btn-sm" {{ ajustes.entradas.cedp | enlace }}>{{ c.barra_reserva.boton | texto }}</a>
+</div>
+{% endblock %}

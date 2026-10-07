@@ -1,0 +1,114 @@
+{
+  "seo": {
+    "titulo": "MPM personalizados · HipnoAudios hechos para ti | Luis Pardo",
+    "descripcion": "Método de Programación Mental: un HipnoAudio de 60 a 90 minutos creado solo para ti por Luis Pardo para ansiedad, sueño, autoestima, fobias, tabaco o peso. Escucha una muestra gratuita.",
+    "titulo_redes": "MPM personalizados · Luis Pardo",
+    "imagen_redes": "/assets/img/mpm-escucha.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/mpm-escucha.webp",
+    "antetitulo": "Método de Programación Mental",
+    "titulo": "Un audio con *tu nombre, tu historia* y tu necesidad",
+    "entradilla": "La forma en que te hablas no es solo pensamiento: es información que tu cerebro transmite al cuerpo. Cambia ese diálogo y cambiará cómo responde.",
+    "boton": {
+      "texto": "Escuchar la muestra gratis",
+      "enlace": "#muestra"
+    },
+    "boton_2": {
+      "texto": "Quiero mi MPM",
+      "mensaje": "Hola Luis, quiero más información sobre mi MPM personalizado"
+    }
+  },
+  "disenado_para_llegar": {
+    "video": {
+      "portada": "/assets/img/mpm-metodo.webp",
+      "titulo": "Este vídeo te puede cambiar la vida"
+    },
+    "antetitulo": "¿Cómo funciona?",
+    "titulo": "Diseñado para llegar justo donde nada más llega",
+    "puntos": [
+      "**La voz de Luis** guiándote en relajación profunda, con un lenguaje que tu subconsciente entiende y absorbe con facilidad.",
+      "**Frecuencias cerebrales** específicas (theta y delta) que facilitan la transformación.",
+      "**Mensajes subliminales** en la música que tu mente consciente no escucha… pero tu subconsciente sí.",
+      "**Palabras clave, símbolos y sugestiones** diseñados exclusivamente para ti.",
+      "Lo escuchas **todas las veces que quieras**: cuanto más lo escuchas, más transforma."
+    ]
+  },
+  "para_cualquier_cosa": {
+    "antetitulo": "¿Para qué sirve?",
+    "titulo": "Para cualquier cosa que dependa de tu mente",
+    "puntos": [
+      "Dejar de fumar",
+      "Adelgazar con una «banda gástrica mental»",
+      "Dormir profundamente",
+      "Calmar la ansiedad",
+      "Ansiedad social",
+      "Recuperar la autoestima",
+      "Superar miedos y fobias",
+      "Hablar en público",
+      "Concentración en los estudios",
+      "Tomar decisiones",
+      "Romper un patrón",
+      "Relaciones íntimas",
+      "Cuidar tu cuerpo desde el deseo",
+      "Activar tu poder interior"
+    ],
+    "test_50_preguntas": {
+      "titulo": "Test de 50 preguntas",
+      "texto": "Para que tu audio sea 100% exclusivo para ti y tu caso."
+    },
+    "creacion_desde_cero": {
+      "titulo": "Creación desde cero",
+      "texto": "Un HipnoAudio de 60 a 90 minutos, con tu nombre y tus objetivos."
+    },
+    "n21_dias_escucha": {
+      "titulo": "21 días de escucha",
+      "texto": "Es lo que tarda el cerebro de forma natural en aceptar cambios. A veces se recomiendan algunos días más para anclarlo."
+    }
+  },
+  "muestra": {
+    "antetitulo": "Muestra gratuita · 15 min",
+    "titulo": "Siente desde dentro cómo responde tu cuerpo",
+    "entradilla": "Una muestra genérica para que entiendas el concepto. Los MPM personalizados son mucho más completos.",
+    "hipnoaudio_muestra": {
+      "imagen": "/assets/img/mpm-escucha.webp",
+      "titulo": "HipnoAudio de muestra",
+      "texto": "Cuando estés preparado, pulsa play y deja que ocurra."
+    },
+    "titulo_2": "Antes de empezar",
+    "puntos": [
+      "15 minutos de tranquilidad, sin interrupciones.",
+      "Un lugar cómodo: sentado o tumbado.",
+      "Usa **auriculares**, siempre.",
+      "Ropa cómoda y ninguna pantalla encendida.",
+      "Cierra los ojos en cuanto empiece… y déjate llevar."
+    ],
+    "titulo_3": "¿Lo prefieres en tu email?"
+  },
+  "luis_pardo": {
+    "imagen": {
+      "src": "/assets/img/luis-retrato.webp",
+      "alt": "Luis Pardo"
+    },
+    "antetitulo": "¿Quién hará tu MPM?",
+    "titulo": "Luis Pardo",
+    "texto": "Mentalista desde hace más de 30 años, premiado a nivel nacional e internacional y especializado en hipnosis clínica. Ha dedicado su vida a estudiar cómo desbloquear la mente a través de la sugestión, la palabra y la emoción, y ha ayudado a miles de personas a superar miedos y romper hábitos.\n\nLo más potente que ha aprendido: **una idea bien colocada puede cambiar una vida.** Por eso elabora cada audio desde cero: con las palabras adecuadas, las frecuencias exactas y el tono justo.",
+    "boton": {
+      "texto": "Infórmame sin compromiso",
+      "mensaje": "Hola Luis, quiero más información sobre mi MPM personalizado"
+    }
+  },
+  "seccion_6": {
+    "antetitulo": "Un paso más allá",
+    "titulo": "Tu mente también influye en cómo envejeces",
+    "entradilla": "Muchas personas notan que, además de lo que querían cambiar, ganan energía y se ven distintas en el espejo. Para trabajar esa parte existe el MPMA.",
+    "boton": {
+      "texto": "Descubrir el MPMA",
+      "enlace": "/mpma/"
+    },
+    "imagen": {
+      "src": "/assets/img/mpma-rostros.webp",
+      "alt": "Ilustración de un rostro joven y uno envejecido"
+    }
+  }
+}

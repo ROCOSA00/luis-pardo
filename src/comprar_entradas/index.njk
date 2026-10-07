@@ -1,0 +1,101 @@
+{% extends "layouts/base.njk" %}
+{% block head %}
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
+<meta property="og:title" content="{{ c.seo.titulo_redes | texto }}">
+<meta property="og:image" content="{{ sitio.url }}{{ c.seo.imagen_redes }}">
+{% endblock %}
+{% block main %}
+<main id="main">
+  <section class="page-hero">
+    <div class="hero-bg"><img {{ c.cabecera.imagen | img }} alt="" fetchpriority="high"></div>
+    <div class="wrap">
+      <div class="page-hero-inner">
+        <nav class="breadcrumb" aria-label="Migas de pan" data-reveal><a href="../">Inicio</a><span aria-hidden="true">/</span><span>Entradas</span></nav>
+        <span class="eyebrow" data-reveal>{{ c.cabecera.antetitulo | texto }}</span>
+        <h1 class="display" data-reveal style="--d:.1s">{{ c.cabecera.titulo | titulo }}</h1>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.cabecera.entradilla | md }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap stack-lg">
+      <!-- CEDP -->
+      <article class="feature" id="cuando-el-diablo-piensa" data-reveal>
+        <div class="grid-2">
+          <div class="stack-lg">
+            <div class="stack">
+              <div class="tarot-meta">{% for d in c.seccion_2.cuando_diablo_piensa.datos %}<span>{{ d | texto }}</span>{% endfor %}</div>
+              <h2 class="h2">{{ c.seccion_2.cuando_diablo_piensa.titulo | titulo }}</h2>
+              <p class="lead">{{ c.seccion_2.cuando_diablo_piensa.entradilla | md }}</p>
+            </div>
+            <ul class="checklist red">{% for p in c.seccion_2.cuando_diablo_piensa.puntos %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
+            <div class="row">
+              <a class="btn btn-blood" {{ ajustes.entradas.cedp | enlace }}>{{ c.seccion_2.cuando_diablo_piensa.boton | texto }}</a>
+              <a class="link-arrow" {{ c.seccion_2.cuando_diablo_piensa.enlace.enlace | enlace }}>{{ c.seccion_2.cuando_diablo_piensa.enlace.texto | texto }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+          <div class="frame" data-tilt><img {{ c.seccion_2.cuando_diablo_piensa.imagen.src | img }} alt="{{ c.seccion_2.cuando_diablo_piensa.imagen.alt | texto }}" loading="lazy"></div>
+        </div>
+      </article>
+
+      <!-- MisterioSants -->
+      <article class="feature" id="misteriosants" data-reveal>
+        <div class="grid-2">
+          <div class="frame order-first-mobile" data-tilt><img {{ c.seccion_2.misteriosants.imagen.src | img }} alt="{{ c.seccion_2.misteriosants.imagen.alt | texto }}" loading="lazy"></div>
+          <div class="stack-lg">
+            <div class="stack">
+              <div class="tarot-meta">{% for d in c.seccion_2.misteriosants.datos %}<span>{{ d | texto }}</span>{% endfor %}</div>
+              <h2 class="h2">{{ c.seccion_2.misteriosants.titulo | titulo }}</h2>
+              <p class="lead">{{ c.seccion_2.misteriosants.entradilla | md }}</p>
+            </div>
+            <ol class="steps">
+              <li><div><h3>{{ c.seccion_2.misteriosants.una_ruta_misteriosa.titulo | titulo }}</h3><p>{{ c.seccion_2.misteriosants.una_ruta_misteriosa.texto | md }}</p></div></li>
+              <li><div><h3>{{ c.seccion_2.misteriosants.show_mentalismo.titulo | titulo }}</h3><p>{{ c.seccion_2.misteriosants.show_mentalismo.texto | md }}</p></div></li>
+              <li><div><h3>{{ c.seccion_2.misteriosants.coctel_autor.titulo | titulo }}</h3><p>{{ c.seccion_2.misteriosants.coctel_autor.texto | md }}</p></div></li>
+            </ol>
+            <div class="row"><a class="btn btn-blood" {{ ajustes.entradas.misteriosants | enlace }}>{{ c.seccion_2.misteriosants.boton | texto }}</a></div>
+          </div>
+        </div>
+      </article>
+
+      <div class="grid-2" style="align-items:stretch">
+        <!-- Spirit-Péndulum -->
+        <article class="tarot" id="spirit-pendulum" data-tilt data-reveal>
+          <div class="tarot-media" style="aspect-ratio:16/11"><img {{ c.seccion_2.spirit_pendulum.imagen.src | img }} alt="{{ c.seccion_2.spirit_pendulum.imagen.alt | texto }}" loading="lazy"></div>
+          <div class="tarot-body">
+            <div class="tarot-meta">{% for d in c.seccion_2.spirit_pendulum.datos %}<span>{{ d | texto }}</span>{% endfor %}</div>
+            <h3>{{ c.seccion_2.spirit_pendulum.titulo | titulo }}</h3>
+            <p>{{ c.seccion_2.spirit_pendulum.texto | md }}</p>
+            <div class="tarot-foot"><a class="btn btn-gold btn-sm" {{ ajustes.entradas.spirit_pendulum | enlace }}>{{ c.seccion_2.spirit_pendulum.boton | texto }}</a></div>
+          </div>
+        </article>
+        <!-- Sesión privada -->
+        <article class="tarot" data-tilt data-reveal style="--d:.1s">
+          <div class="tarot-media" style="aspect-ratio:16/11"><img {{ c.seccion_2.sesion_espiritista_privada.imagen.src | img }} alt="{{ c.seccion_2.sesion_espiritista_privada.imagen.alt | texto }}" loading="lazy"></div>
+          <div class="tarot-body">
+            <div class="tarot-meta">{% for d in c.seccion_2.sesion_espiritista_privada.datos %}<span>{{ d | texto }}</span>{% endfor %}</div>
+            <h3>{{ c.seccion_2.sesion_espiritista_privada.titulo | titulo }}</h3>
+            <p>{{ c.seccion_2.sesion_espiritista_privada.texto | md }}</p>
+            <div class="tarot-foot"><a class="btn btn-gold btn-sm" {{ c.seccion_2.sesion_espiritista_privada.boton.enlace | enlace }}>{{ c.seccion_2.sesion_espiritista_privada.boton.texto | texto }}</a></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="card center" data-reveal>
+        <h3 class="h3">{{ c.seccion_2.evento_empresa_una.titulo | titulo }}</h3>
+        <p class="mt-1">{{ c.seccion_2.evento_empresa_una.texto | md }}</p>
+        <div class="row center mt-2"><a class="btn btn-ghost" {{ c.seccion_2.evento_empresa_una.boton.enlace | enlace }}>{{ c.seccion_2.evento_empresa_una.boton.texto | texto }}</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap-narrow">
+      <div class="notice" data-reveal>{{ c.seccion_3.aviso | md }}</div>
+    </div>
+  </section>
+</main>
+{% endblock %}

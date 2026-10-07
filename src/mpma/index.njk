@@ -1,0 +1,131 @@
+{% extends "layouts/base.njk" %}
+{% block head %}
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
+<meta property="og:title" content="{{ c.seo.titulo_redes | texto }}">
+<meta property="og:image" content="{{ sitio.url }}{{ c.seo.imagen_redes }}">
+{% endblock %}
+{% block main %}
+<main id="main">
+  <section class="page-hero">
+    <div class="hero-bg"><img {{ c.cabecera.imagen | img }} alt="" fetchpriority="high"></div>
+    <div class="wrap">
+      <div class="page-hero-inner">
+        <nav class="breadcrumb" aria-label="Migas de pan" data-reveal><a href="../">Inicio</a><span aria-hidden="true">/</span><a href="../curso/">Tu mente</a><span aria-hidden="true">/</span><span>MPMA</span></nav>
+        <span class="eyebrow" data-reveal>{{ c.cabecera.antetitulo | texto }}</span>
+        <h1 class="display" data-reveal style="--d:.1s">{{ c.cabecera.titulo | titulo }}</h1>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.cabecera.entradilla | md }}</p>
+        <div class="row" data-reveal style="--d:.3s">
+          <a class="btn btn-gold btn-lg" {{ c.cabecera.boton.enlace | enlace }}>{{ c.cabecera.boton.texto | texto }}</a>
+          <a class="btn btn-whatsapp btn-lg" href="{{ c.cabecera.boton_2.mensaje | whatsapp(ajustes.whatsapp) }}" target="_blank" rel="noopener">{{ c.cabecera.boton_2.texto | texto }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="grid-2">
+        <div data-reveal="left">
+          <div class="video" data-video="../assets/media/mpma.mp4">
+            <img {{ c.trabajo_mental_profundo.video.portada | img }} alt="" loading="lazy">
+            <button class="video-play" type="button"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="label">{{ c.trabajo_mental_profundo.video.titulo | texto }}</span></button>
+          </div>
+        </div>
+        <div class="stack-lg">
+          <div class="stack">
+            <span class="eyebrow" data-reveal>{{ c.trabajo_mental_profundo.antetitulo | texto }}</span>
+            <h2 class="h2" data-reveal style="--d:.1s">{{ c.trabajo_mental_profundo.titulo | titulo }}</h2>
+          </div>
+          <p class="muted" data-reveal style="--d:.2s">{{ c.trabajo_mental_profundo.texto | md({negrita: "gold"}) }}</p>
+          <p class="muted" data-reveal style="--d:.25s">{{ c.trabajo_mental_profundo.texto_2 | md }}</p>
+          <div class="notice" data-reveal style="--d:.3s">{{ c.trabajo_mental_profundo.aviso | md }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-2">
+    <div class="wrap">
+      <div class="grid-2">
+        <div class="stack-lg">
+          <div class="stack">
+            <span class="eyebrow" data-reveal>{{ c.dialogo_interno_cambia.antetitulo | texto }}</span>
+            <h2 class="h2" data-reveal style="--d:.1s">{{ c.dialogo_interno_cambia.titulo | titulo }}</h2>
+            <p class="lead" data-reveal style="--d:.2s">{{ c.dialogo_interno_cambia.entradilla | md }}</p>
+          </div>
+          <ul class="checklist" data-reveal style="--d:.25s">{% for p in c.dialogo_interno_cambia.puntos %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
+          <p class="muted" data-reveal style="--d:.3s">{{ c.dialogo_interno_cambia.texto | md }}</p>
+        </div>
+        <div class="grid-2" style="gap:16px" data-reveal="right">
+          <div class="frame frame-tall"><img {{ c.dialogo_interno_cambia.imagen.src | img }} alt="{{ c.dialogo_interno_cambia.imagen.alt | texto }}" loading="lazy"></div>
+          <div class="frame frame-tall" style="margin-top:40px"><img {{ c.dialogo_interno_cambia.imagen_2.src | img }} alt="{{ c.dialogo_interno_cambia.imagen_2.alt | texto }}" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow center" data-reveal>{{ c.promete_milagros_trabaja.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.promete_milagros_trabaja.titulo | titulo }}</h2>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.promete_milagros_trabaja.entradilla | md }}</p>
+      </div>
+      <div class="grid-3">
+        <div class="card" data-reveal><h3 class="h3">{{ c.promete_milagros_trabaja.mas_energia.titulo | titulo }}</h3><p>{{ c.promete_milagros_trabaja.mas_energia.texto | md }}</p></div>
+        <div class="card" data-reveal style="--d:.1s"><h3 class="h3">{{ c.promete_milagros_trabaja.mas_claridad.titulo | titulo }}</h3><p>{{ c.promete_milagros_trabaja.mas_claridad.texto | md }}</p></div>
+        <div class="card" data-reveal style="--d:.2s"><h3 class="h3">{{ c.promete_milagros_trabaja.mejor_aspecto.titulo | titulo }}</h3><p>{{ c.promete_milagros_trabaja.mejor_aspecto.texto | md }}</p></div>
+      </div>
+      <div class="grid-2 mt-4" style="align-items:start">
+        <div class="card" data-reveal>
+          <h3 class="h3 mb-2">{{ c.promete_milagros_trabaja.mpma_para.titulo | titulo }}</h3>
+          <ul class="checklist">{% for p in c.promete_milagros_trabaja.mpma_para.puntos %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
+        </div>
+        <div class="card" data-reveal style="--d:.1s">
+          <h3 class="h3 mb-2">{{ c.promete_milagros_trabaja.para.titulo | titulo }}</h3>
+          <ul class="checklist cross">{% for p in c.promete_milagros_trabaja.para.puntos %}<li><span>{{ p | md }}</span></li>{% endfor %}</ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-vignette" id="muestra">
+    <div class="wrap-narrow">
+      <div class="section-head center">
+        <span class="eyebrow center" data-reveal>{{ c.muestra.antetitulo | texto }}</span>
+        <h2 class="h2" data-reveal style="--d:.1s">{{ c.muestra.titulo | titulo }}</h2>
+        <p class="lead" data-reveal style="--d:.2s">{{ c.muestra.entradilla | md }}</p>
+      </div>
+      <div class="card audio-card" data-reveal>
+        <img {{ c.muestra.mpma_muestra.imagen | img }} alt="" loading="lazy" style="aspect-ratio:2/3">
+        <div>
+          <h3 class="h3">{{ c.muestra.mpma_muestra.titulo | titulo }}</h3>
+          <p>{{ c.muestra.mpma_muestra.texto | md }}</p>
+          <audio controls preload="none" src="../assets/audio/muestra-mpma.mp3"></audio>
+        </div>
+      </div>
+      <div class="card mt-3" data-reveal>
+        <h3 class="h3">{{ c.muestra.titulo_2 | titulo }}</h3>
+        <form class="form mt-2" data-brevo data-success="¡Listo! Revisa tu correo (y la carpeta de spam): te hemos enviado tu audio del MPMA." method="POST" action="https://446471f7.sibforms.com/serve/MUIFAImLvxmRZUz6USNQk02hBJcLyIG2TG8PjVlIWRac6cwHSLmR8fy9qZk2U4kems-VJZrv8dg4gytxvdMaHcLs5ivPHJ3LCxyfUcyNpGTfBUbUZbIwQwDmYe64-0TQeQdUPkJMwnj1G69uFZupt1ouA_vbpe-9fV-AHupJo2jirbU6ffAbAkLEtnEwCu1l2rkr2u35RhSns5OE">
+          <div class="form-row">
+            <div class="field"><label for="a-nombre">Nombre</label><input id="a-nombre" name="NOMBRE" autocomplete="given-name" required></div>
+            <div class="field"><label for="a-email">Email</label><input id="a-email" type="email" name="EMAIL" autocomplete="email" required></div>
+          </div>
+          <input type="hidden" name="APELLIDOS" value="">
+          <label class="check"><input type="checkbox" name="OPT_IN" value="1" required><span>Acepto recibir el email y la <a href="../politica-de-privacidad/">política de privacidad</a>.</span></label>
+          <input class="hp" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="locale" value="es">
+          <button class="btn btn-gold btn-block" type="submit">Enviarme el audio</button>
+          <div class="form-msg" role="status"></div>
+        </form>
+      </div>
+      <div class="row center mt-3" data-reveal>
+        <a class="btn btn-whatsapp btn-lg" href="{{ c.muestra.boton.mensaje | whatsapp(ajustes.whatsapp) }}" target="_blank" rel="noopener">{{ c.muestra.boton.texto | texto }}</a>
+      </div>
+      <p class="center mt-2" data-reveal><a class="link-arrow" {{ c.muestra.enlace.enlace | enlace }}>{{ c.muestra.enlace.texto | texto }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+    </div>
+  </section>
+</main>
+{% endblock %}

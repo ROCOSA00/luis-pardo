@@ -1,0 +1,34 @@
+{
+  "seo": {
+    "titulo": "Sobre 666 · Alguien que te aprecia te ha enviado esto",
+    "descripcion": "Alguien que te aprecia te ha mandado el sobre 666."
+  },
+  "cabecera": {
+    "imagen": "/assets/img/sobre-666.webp",
+    "antetitulo": "Sobre 666",
+    "titulo": "Alguien que te aprecia te ha enviado *este sobre*",
+    "entradilla": "Y desea que veas el siguiente vídeo."
+  },
+  "seccion_2": {
+    "abre_sobre": {
+      "titulo": "Abre el sobre",
+      "texto": "Antes de ver el vídeo, saca todos los elementos que hay dentro: los vas a necesitar."
+    },
+    "sube_volumen": {
+      "titulo": "Sube el volumen",
+      "texto": "Para escuchar bien todas las instrucciones."
+    },
+    "pulsa_play": {
+      "titulo": "Pulsa play",
+      "texto": "Y sigue el ritual hasta el final."
+    },
+    "video": {
+      "portada": "/assets/img/sobre-666.webp",
+      "titulo": "Ver el vídeo"
+    },
+    "boton": {
+      "texto": "Terminar el ritual",
+      "enlace": "/regala-anos-de-vida/"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "titulo": "Libros de Luis Pardo · Mentalismo L-Mental y Poemas Prohibidos",
+    "descripcion": "Los dos libros de Luis Pardo: «Mentalismo L-Mental», para iniciarse en el mentalismo, y «Poemas Prohibidos», 35 poemas oscuros con fotografías de Luis Gascón.",
+    "titulo_redes": "Libros · Luis Pardo",
+    "imagen_redes": "/assets/img/libro-l-mental.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/libro-poemas.webp",
+    "antetitulo": "Libros",
+    "titulo": "Adéntrate en lo más *profundo de su mente*",
+    "entradilla": "Dos libros, dos caras de Luis Pardo: los secretos del mentalista y la intimidad del poeta."
+  },
+  "seccion_2": {
+    "mentalismo_mental": {
+      "imagen": {
+        "src": "/assets/img/libro-l-mental.webp",
+        "alt": "Portada de Mentalismo L-Mental"
+      },
+      "imagen_2": {
+        "src": "/assets/img/libro-l-mental-contra.webp",
+        "alt": "Contraportada de Mentalismo L-Mental"
+      },
+      "antetitulo": "Iniciación · Ediciones Marré",
+      "titulo": "Mentalismo L-Mental",
+      "entradilla": "Un libro para iniciarse en el apasionante mundo del mentalismo.",
+      "puntos": [
+        "La **historia del mentalismo** desde su nacimiento y su vínculo con el espiritismo.",
+        "Las ramas de la **psicología aplicadas** al mentalismo y los grandes mentalistas de la historia.",
+        "Cada faceta explicada: **telepatía, predicciones, telekinesia, espiritismo, control mental sobre el cuerpo**…",
+        "**10 efectos** que Luis Pardo lleva años realizando: cinco con técnicas de ilusionismo y cinco solo psicológicos."
+      ],
+      "texto": "Prólogo de Alberto Granados, periodista y escritor.",
+      "aviso": "**De venta en exclusiva** en el merchandising de la sala, al terminar el espectáculo."
+    },
+    "poemas_prohibidos": {
+      "antetitulo": "Poesía · Apache Libros",
+      "titulo": "Poemas Prohibidos",
+      "entradilla": "Un viaje a lo más íntimo de Luis Pardo en forma de 35 poemas oscuros sobre sus pasiones, sus miedos y sus deseos.",
+      "texto": "Cada poema va acompañado de una fotografía en blanco y negro, sin censura, de **Luis Gascón**. En ellas colaboran artistas y amigos como Antonio Díaz (El Mago Pop), Chiqui Martí, Dani Nel·lo, Dani el Rojo, Marcos Larva, Mamba o Miquel Tarín, entre otros.\n\nSi quieres conocer los rincones más secretos de uno de los mejores mentalistas del mundo, cada verso te lleva a lo que muy pocas personas saben de él.",
+      "texto_2": "Prólogo de Mistress Minerva, compañera de viaje en la vida y en la muerte de Luis Pardo.",
+      "aviso": "**De venta en exclusiva** en el merchandising de la sala, al terminar el espectáculo.",
+      "imagen": {
+        "src": "/assets/img/libro-poemas.webp",
+        "alt": "Portada de Poemas Prohibidos"
+      },
+      "imagen_2": {
+        "src": "/assets/img/libro-poemas-contra.webp",
+        "alt": "Contraportada de Poemas Prohibidos"
+      }
+    }
+  },
+  "llevatelos_firmados_despues": {
+    "titulo": "Llévatelos firmados después del espectáculo",
+    "boton": {
+      "texto": "Comprar entradas",
+      "enlace": "/comprar_entradas/"
+    }
+  }
+}

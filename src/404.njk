@@ -1,0 +1,28 @@
+---
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+{% extends "layouts/base.njk" %}
+{% block head %}
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="robots" content="noindex">
+{% endblock %}
+{% block main %}
+<main id="main">
+  <section class="hero" data-lantern>
+    <canvas class="embers" aria-hidden="true"></canvas>
+    <div class="hero-lantern" aria-hidden="true"></div>
+    <div class="wrap-narrow center">
+      <div class="hero-content" style="max-width:none; justify-items:center">
+        <span class="eyebrow center">{{ c.cabecera.antetitulo | texto }}</span>
+        <h1 class="display">{{ c.cabecera.titulo | titulo("text-blood") }}</h1>
+        <p class="lead">{{ c.cabecera.entradilla | md }}</p>
+        <div class="row center">
+          <a class="btn btn-blood btn-lg" {{ c.cabecera.boton.enlace | enlace }}>{{ c.cabecera.boton.texto | texto }}</a>
+          <a class="btn btn-ghost btn-lg" {{ c.cabecera.boton_2.enlace | enlace }}>{{ c.cabecera.boton_2.texto | texto }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

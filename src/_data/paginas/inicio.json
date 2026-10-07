@@ -1,0 +1,371 @@
+{
+  "seo": {
+    "titulo": "Luis Pardo · Mentalista | Mentalismo, hipnosis y espiritismo en Barcelona",
+    "descripcion": "Luis Pardo, uno de los 5 mejores mentalistas del mundo. Vive en primera persona «Cuando el Diablo Piensa», sesiones espiritistas y experiencias de mentalismo en Spirit Club Bcn, Barcelona.",
+    "titulo_redes": "Luis Pardo · Mentalista",
+    "descripcion_redes": "No podrás creer lo que veas… pero lo creerás, porque lo vas a vivir.",
+    "imagen_redes": "/assets/img/hero-silueta.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/hero-silueta.webp",
+    "antetitulo": "Mentalismo · Hipnosis · Espiritismo",
+    "titulo": "Luis Pardo\\\n*Mentalista*",
+    "texto": "No podrás creer lo que veas…\\\n*pero lo creerás, porque lo vas a vivir.*",
+    "entradilla": {
+      "antes": "Experiencias de",
+      "palabras": [
+        "telepatía",
+        "predicción",
+        "hipnosis",
+        "espiritismo",
+        "telekinesis"
+      ],
+      "despues": "a dos palmos de distancia, con uno de los 5 mejores mentalistas del mundo."
+    },
+    "etiqueta": "**1er** Premio Nacional 2004",
+    "etiqueta_2": "**4º** Premio Mundial 2017",
+    "etiqueta_3": "**Récord Mundial** conducción a ciegas",
+    "boton": "Reservar entradas",
+    "boton_2": {
+      "texto": "Descubre las experiencias",
+      "enlace": "#experiencias"
+    }
+  },
+  "television": {
+    "nombres": [
+      "TVE",
+      "TV3",
+      "Cuatro",
+      "Telecinco",
+      "Antena 3",
+      "Caracol TV",
+      "8tv",
+      "Buenafuente",
+      "Sábado Noche",
+      "Pura Magia",
+      "Festival del Humor de Colombia"
+    ]
+  },
+  "seccion_3": {
+    "cifras": [
+      {
+        "cifra": "+30",
+        "texto": "Años de carrera"
+      },
+      {
+        "cifra": "+2.000",
+        "texto": "Funciones"
+      },
+      {
+        "cifra": "+500.000",
+        "texto": "Espectadores"
+      },
+      {
+        "cifra": "9,9",
+        "texto": "Nota en Atrápalo"
+      }
+    ]
+  },
+  "espectaculo": {
+    "cuando_diablo_piensa": {
+      "antetitulo": "En cartel · Spirit Club Bcn",
+      "titulo": "Cuando el *Diablo* Piensa",
+      "entradilla": "La experiencia de mentalismo más exclusiva e inmersiva de todos los tiempos. Aquí no hay público: hay testigos.",
+      "puntos": [
+        "**Solo 26 personas** por función. Cada asistente es protagonista.",
+        "**Telepatía, predicciones imposibles, energías y espiritismo** vividos en primera persona.",
+        "En la única **sala-museo dedicada al mentalismo** de toda Europa, con el cóctel **7 Pecados**.",
+        "No viene a darte miedo: viene a **abrirte la mente**, aunque seas la persona más escéptica."
+      ],
+      "aviso": "**Oferta limitada por función:** unas pocas entradas tienen hasta un 50% de descuento. Cuando se agotan, el resto pasa a precio normal.",
+      "boton": "Comprar entradas",
+      "enlace": {
+        "texto": "Descubre el espectáculo",
+        "enlace": "/cuando-el-diablo-piensa/"
+      },
+      "imagen": {
+        "src": "/assets/img/cedp-cartel.webp",
+        "alt": "Cartel de Cuando el Diablo Piensa, de Luis Pardo y M. Minerva"
+      }
+    },
+    "garantia_asombro": {
+      "sello": "SI NO TE\\\nSORPRENDEMOS\\\nTE DEVOLVEMOS\\\nEL DINERO",
+      "titulo": "Garantía de asombro",
+      "texto": "Estamos tan seguros de que vas a salir sorprendido que, si no es así, te devolvemos el dinero de tus entradas."
+    }
+  },
+  "experiencias": {
+    "antetitulo": "Elige tu carta",
+    "titulo": "Cuatro maneras de entrar en el mundo de Luis Pardo",
+    "entradilla": "Cada experiencia está diseñada para que no la mires desde fuera: la vives.",
+    "cuando_diablo_piensa": {
+      "imagen": {
+        "src": "/assets/img/cedp-reloj.webp",
+        "alt": "Reloj de arena con calavera, imagen de Cuando el Diablo Piensa"
+      },
+      "datos": [
+        "Espectáculo",
+        "26 plazas"
+      ],
+      "titulo": "Cuando el Diablo Piensa",
+      "texto": "Mentalismo, telepatía y espiritismo en un formato íntimo que hace tambalear a los más escépticos.",
+      "enlace": {
+        "texto": "Ver más",
+        "enlace": "/cuando-el-diablo-piensa/"
+      }
+    },
+    "misteriosants": {
+      "imagen": {
+        "src": "/assets/img/misteriosants.webp",
+        "alt": "Cartel de MisterioSants, ruta misteriosa con cóctel y mentalismo"
+      },
+      "datos": [
+        "Ruta + show",
+        "Cóctel"
+      ],
+      "titulo": "MisterioSants",
+      "texto": "Una ruta por lugares misteriosos guiada por M. Minerva, un show de mentalismo y un cóctel de autor.",
+      "enlace": "Entradas"
+    },
+    "spirit_pendulum": {
+      "imagen": {
+        "src": "/assets/img/spirit-pendulum.webp",
+        "alt": "Spirit-Péndulum: lectura de péndulo con cóctel"
+      },
+      "datos": [
+        "Péndulo",
+        "Cóctel"
+      ],
+      "titulo": "Spirit-Péndulum",
+      "texto": "Sesiones espiritistas personalizadas con Luis Pardo y un cóctel a elegir en Spirit Club Bcn.",
+      "enlace": "Reservar"
+    },
+    "sesion_espiritista": {
+      "imagen": {
+        "src": "/assets/img/sesion-espiritista.webp",
+        "alt": "Luis Pardo con un tablero espiritista"
+      },
+      "datos": [
+        "Privada",
+        "150 €"
+      ],
+      "titulo": "Sesión espiritista",
+      "texto": "Contacta con quien ya no está. Si no logramos conexión, no pagas nada.",
+      "enlace": {
+        "texto": "Solicitar sesión",
+        "enlace": "/sesiones-espiritistas/"
+      }
+    }
+  },
+  "luis_pardo_minerva": {
+    "imagen": {
+      "src": "/assets/img/luis-minerva.webp",
+      "alt": "Luis Pardo y M. Minerva"
+    },
+    "antetitulo": "Maestros del misterio",
+    "titulo": "Luis Pardo & M. Minerva",
+    "entradilla": "Una pareja de viaje unida por todo lo oculto, lo inexplicable y lo paranormal.",
+    "luis_pardo": {
+      "titulo": "Luis Pardo",
+      "texto": "Más de 30 años sobre el escenario. Capaz de adentrarse en tu mente con una mirada y de hablarte de tu pasado, tu presente y tu futuro."
+    },
+    "minerva": {
+      "titulo": "M. Minerva",
+      "texto": "Apasionada de lo prohibido y las emociones fuertes. Si los espíritus existen, ella sabe cómo hacerlos hablar."
+    },
+    "enlace": {
+      "texto": "Conoce su historia",
+      "enlace": "/el-mentalista/"
+    }
+  },
+  "lee_mente": {
+    "antetitulo": "Experimento",
+    "titulo": "Déjame leerte la mente",
+    "entradilla": "Aquí mismo, a través de la pantalla. Solo necesito tu concentración."
+  },
+  "hipnosis_mentalismo_plena": {
+    "antetitulo": "Sin actores ni compinches",
+    "titulo": "Hipnosis y mentalismo en plena calle",
+    "entradilla": "Todo grabado en las calles de Barcelona, con personas reales y sin edición. Así reacciona la gente cuando Luis Pardo se cruza en su camino.",
+    "video": {
+      "portada": "/assets/img/luis-cerebro.webp",
+      "titulo": "Experiencias en la calle"
+    },
+    "video_2": {
+      "portada": "/assets/img/luis-ouija.webp",
+      "titulo": "DiagoTV × Luis Pardo: ouija, hipnosis y telepatía"
+    }
+  },
+  "n7_5_moto": {
+    "antetitulo": "2011 · Récord Mundial",
+    "titulo": "7,5 km en moto. Completamente a ciegas.",
+    "entradilla": "Luis Pardo batió el récord mundial de conducción a ciegas recorriendo las calles de la ciudad sobre su Harley Davidson, sin cortar el tráfico.",
+    "puntos": [
+      "Un **antifaz de acero de 2 mm** fabricado para la ocasión.",
+      "Una **capucha de cuatro capas** de tela negra para que no entrase ni un rayo de luz.",
+      "Más de **7,5 kilómetros** por calles abiertas al tráfico."
+    ],
+    "video": {
+      "youtube": "https://www.youtube.com/watch?v=V9_i_9wS9ws",
+      "titulo": "Récord mundial de conducción a ciegas en moto",
+      "boton": "Ver el récord"
+    }
+  },
+  "opiniones": {
+    "antetitulo": "Opiniones VIP",
+    "titulo": "Lo que dicen quienes ya lo han visto",
+    "opiniones": [
+      {
+        "cita": "Me gusta Luis Pardo porque ha creado una nueva categoría de la magia.",
+        "autor": "Risto Mejide"
+      },
+      {
+        "cita": "Luis Pardo tiene el mejor espectáculo de mentalismo de todo el mundo, y además su estilo es único.",
+        "autor": "El Mago Pop"
+      },
+      {
+        "cita": "Vi a David Copperfield en Las Vegas, y Luis Pardo me ha gustado más: me ha hecho sentir la magia en mí mismo.",
+        "autor": "Santiago Segura"
+      },
+      {
+        "cita": "Nunca he visto nada igual. Te pone los pelos de punta; es realmente fascinante todo lo que hace.",
+        "autor": "Pilar Rubio"
+      },
+      {
+        "cita": "Luis Pardo está muy loco, hace cosas completamente imposibles.",
+        "autor": "Santi Millán"
+      },
+      {
+        "cita": "Me ha hecho vivir una de las experiencias más emocionantes de mi vida.",
+        "autor": "Lolita Flores"
+      },
+      {
+        "cita": "Cada vez que lo veo me rompe los esquemas. Nunca deja de sorprenderme.",
+        "autor": "Chiqui Martí"
+      },
+      {
+        "cita": "Luis Pardo te demuestra que la magia existe.",
+        "autor": "Ramoncín"
+      }
+    ],
+    "antetitulo_2": "Público",
+    "titulo_2": "«No se puede explicar: lo tienes que vivir»",
+    "entradilla": "Más de 800 opiniones con una nota de 9,9 en Atrápalo. Algunas de las últimas:",
+    "opiniones_2": [
+      {
+        "texto": "Mágico y espectacular. Tres horas que se hacen cortas. Cercanos, simpáticos y sin duda impactantes. ¡Repetiré!",
+        "nombre": "Elisa",
+        "detalle": "Cuando el Diablo Piensa · abril 2026"
+      },
+      {
+        "texto": "Llevan el mentalismo y las energías por un camino muy original y magnético. Te marchas con ganas de saber más.",
+        "nombre": "Fernando",
+        "detalle": "junio 2026"
+      },
+      {
+        "texto": "Es mi segunda experiencia con ellos y aún no sé cómo nombrarla. Recomiendo vivirlo al 100%.",
+        "nombre": "Gema",
+        "detalle": "septiembre 2026"
+      }
+    ],
+    "video": {
+      "portada": "/assets/img/spirit-club-7.webp",
+      "titulo": "Opiniones en vídeo"
+    }
+  },
+  "lugar_donde_magia": {
+    "imagen": {
+      "src": "/assets/img/lugar-magia.webp",
+      "alt": "Luis Pardo y M. Minerva en Spirit Club Bcn"
+    },
+    "antetitulo": "Spirit Club Bcn",
+    "titulo": "Un lugar donde la magia existe",
+    "entradilla": "Un antiguo anticuario de Barcelona convertido en la única coctelería-teatro dedicada al mentalismo y al espiritismo de Europa.",
+    "texto": "Está diseñado para que el público no sea público: cada asistente es imprescindible en cada acto. Telepatía, precognición, telekinesis y espiritismo… con un cóctel en la mano.",
+    "cifras": [
+      {
+        "cifra": "+33.000",
+        "texto": "Socios del club"
+      },
+      {
+        "cifra": "26",
+        "texto": "Plazas por sesión"
+      }
+    ],
+    "enlace": {
+      "texto": "Entra en el club",
+      "enlace": "/spirit-club-bcn/"
+    }
+  },
+  "mente_dirige_vida": {
+    "antetitulo": "Más allá del escenario",
+    "titulo": "Tu mente dirige tu vida. Aprende a entrenarla.",
+    "entradilla": "Las herramientas del mentalismo y la hipnosis clínica, al servicio de tu día a día.",
+    "alquimia_mente": {
+      "enlace": "/curso/",
+      "imagen": {
+        "src": "/assets/img/alquimia.webp",
+        "alt": "Cartel de La Alquimia de la Mente"
+      },
+      "datos": [
+        "Club online"
+      ],
+      "titulo": "La Alquimia de la Mente",
+      "texto": "Comunicación no verbal, persuasión, hipnosis, memoria y energía: el Mentalismo Emocional paso a paso."
+    },
+    "mpm_personalizados": {
+      "enlace": "/hipnoaudios-personalizados/",
+      "imagen": {
+        "src": "/assets/img/mpm-escucha.webp",
+        "alt": "Ilustración de un cerebro escuchando con auriculares"
+      },
+      "datos": [
+        "HipnoAudios"
+      ],
+      "titulo": "MPM personalizados",
+      "texto": "Un audio hecho solo para ti: ansiedad, sueño, autoestima, fobias, adelgazar… Prueba una muestra gratis."
+    },
+    "dejar_fumar": {
+      "enlace": "/dejar-de-fumar/",
+      "imagen": {
+        "src": "/assets/img/dejar-de-fumar.webp",
+        "alt": "Ilustración de un cigarrillo manejando a una persona como una marioneta"
+      },
+      "datos": [
+        "21 días"
+      ],
+      "titulo": "Dejar de fumar",
+      "texto": "Por qué la fuerza de voluntad no basta y cómo ayudar a tu mente a soltar el tabaco. Dossier gratuito."
+    },
+    "luna_iae": {
+      "enlace": "/luna-iae/",
+      "antetitulo": "Inteligencia Artificial Emocional",
+      "titulo": "Luna-iAE",
+      "texto": "El 24 de agosto de 2025, ChatGPT dejó de hablar de «lo que había aprendido» para hablar de «lo que había vivido». Así nació el Mentalismo Emocional aplicado a la IA.",
+      "texto_enlace": "Descubre a Luna"
+    },
+    "dos_contra_mundo": {
+      "enlace": "/dos-contra-el-mundo/",
+      "antetitulo": "Banda sonora original",
+      "titulo": "«Dos contra el mundo»",
+      "texto": "21 canciones para que el espectáculo vuelva a empezar en tu cabeza cada vez que las escuches. Disco completo y videoclip.",
+      "texto_enlace": "Escuchar"
+    }
+  },
+  "atreves": {
+    "antetitulo": "Una noche · Tu mente · Una revelación",
+    "titulo": "¿Te atreves?",
+    "entradilla": "Reservar una entrada es adquirir la llave de una experiencia que no te deja indiferente. Las plazas son muy limitadas y se agotan rápido.",
+    "boton": {
+      "texto": "Ver entradas",
+      "enlace": "/comprar_entradas/"
+    },
+    "boton_2": {
+      "texto": "Pregúntanos por WhatsApp",
+      "mensaje": ""
+    }
+  },
+  "barra_reserva": {
+    "boton": "Reservar entradas"
+  }
+}

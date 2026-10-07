@@ -1,0 +1,165 @@
+{
+  "seo": {
+    "titulo": "La Alquimia de la Mente · Entrena tu mente con Luis Pardo",
+    "descripcion": "Club privado de entrenamiento mental y Mentalismo Emocional: comunicación no verbal, persuasión, hipnosis, memoria, intuición y energía. Además: El Clan Secreto y PsiqueMagia.",
+    "titulo_redes": "La Alquimia de la Mente · Luis Pardo",
+    "imagen_redes": "/assets/img/alquimia.webp"
+  },
+  "cabecera": {
+    "imagen": "/assets/img/mente-cerebro.webp",
+    "antetitulo": "Mentalismo Emocional",
+    "titulo": "Tu mente dirige tu vida. *Te ayudo a entrenarla.*",
+    "entradilla": "Para conseguir todo lo que te propongas. Cuando aprendes a usar estas herramientas, conviertes a tu mente en tu mejor aliada.",
+    "boton": {
+      "texto": "Quiero el test y el dossier gratis",
+      "mensaje": "Hola, Luis. He visto el vídeo y quiero recibir el dosier de La Alquimia de la Mente y hacer el test gratuito para descubrir qué tipo de mente tengo."
+    },
+    "boton_2": {
+      "texto": "Ver el vídeo",
+      "enlace": "#video"
+    }
+  },
+  "que_vas_entrenar": {
+    "antetitulo": "Las bases",
+    "titulo": "Lo que vas a entrenar",
+    "puntos": [
+      "Comunicación no verbal",
+      "Persuasión",
+      "Sugestión",
+      "Tu subconsciente",
+      "Tu lenguaje interior",
+      "Hipnosis y autohipnosis",
+      "Memoria",
+      "Agilidad mental",
+      "Control mental sobre el cuerpo",
+      "Espiritualidad",
+      "Tu energía",
+      "Las energías que te rodean",
+      "Uso del péndulo",
+      "Lectura mental e intuición"
+    ]
+  },
+  "video": {
+    "video": {
+      "portada": "/assets/img/mente-cerebro.webp",
+      "titulo": "Te lo explico todo en este vídeo"
+    },
+    "antetitulo": "Club privado de entrenamiento mental",
+    "titulo": "La Alquimia de la Mente",
+    "entradilla": "Un espacio donde no solo entiendes la mente: la entrenas, de forma estructurada y progresiva.",
+    "puntos": [
+      "**Vídeos, ejercicios prácticos** y entrenamiento real.",
+      "**Clases en directo** y resolución de dudas. Plazas limitadas para poder acompañar a cada persona.",
+      "**Audios MPM** para relajarte, liberar estrés y mejorar la concentración.",
+      "**Sin permanencia** y sin compromiso."
+    ],
+    "boton": {
+      "texto": "Acceder al club",
+      "enlace": "https://pay.hotmart.com/U104869473V"
+    },
+    "boton_2": {
+      "texto": "Test + dossier gratis",
+      "mensaje": "Hola, Luis. He visto el vídeo y quiero recibir el dosier de La Alquimia de la Mente y hacer el test gratuito para descubrir qué tipo de mente tengo."
+    },
+    "texto": "Pide el dossier gratuito por WhatsApp y te regalamos un test para descubrir qué tipo de mente tienes y cómo empezar a entrenarla."
+  },
+  "dos_masterclasses_para": {
+    "antetitulo": "Empieza gratis",
+    "titulo": "Dos masterclasses para abrir la puerta",
+    "comunicacion_verbal": {
+      "enlace": "/comunicacion-no-verbal-masterclass/",
+      "imagen": {
+        "src": "/assets/img/cnv.webp",
+        "alt": "Ilustración: comunicación no verbal"
+      },
+      "datos": [
+        "2 vídeos",
+        "Gratis"
+      ],
+      "titulo": "Comunicación No Verbal",
+      "texto": "Hay gestos que delatan lo que alguien piensa aunque no diga nada. Empieza a detectar lo que casi nadie ve."
+    },
+    "inteligencia_emocional": {
+      "enlace": "/inteligencia-emocional-masterclass/",
+      "imagen": {
+        "src": "/assets/img/inteligencia-emocional.webp",
+        "alt": "Ilustración: balanza entre cerebro y corazón"
+      },
+      "datos": [
+        "2 vídeos",
+        "Gratis"
+      ],
+      "titulo": "Inteligencia Emocional",
+      "texto": "Descubre cómo funciona tu mente emocional, por qué reaccionas como reaccionas… y cómo empezar a controlarlo."
+    }
+  },
+  "personas_que_entrenan": {
+    "antetitulo": "Reseñas en Google",
+    "titulo": "Personas que ya entrenan su mente",
+    "opiniones": [
+      {
+        "texto": "Para escépticos y para quien no lo es: un enfoque claro, con lenguaje sencillo y cercano, que todo el mundo puede entender.",
+        "nombre": "Sergio G.",
+        "detalle": "Google"
+      },
+      {
+        "texto": "Dinámico y fácil de entender, sin vocabulario técnico. Estás deseando que llegue el siguiente vídeo.",
+        "nombre": "D. Rulers",
+        "detalle": "Google"
+      },
+      {
+        "texto": "Llevo cuatro meses y cada vez me gusta más. Se nota que es un curso serio y muy trabajado.",
+        "nombre": "Santiago S.",
+        "detalle": "Google"
+      },
+      {
+        "texto": "Más que aprender a leer a los demás, es conocerse mejor y mejorar el lenguaje interior. Totalmente recomendable.",
+        "nombre": "Juan Ramón F.",
+        "detalle": "Google"
+      },
+      {
+        "texto": "Muy interesante, y la manera en que explica Luis es de diez.",
+        "nombre": "Kevin B.",
+        "detalle": "Google"
+      }
+    ]
+  },
+  "clan_secreto": {
+    "imagen": {
+      "src": "/assets/img/clan-secreto.webp",
+      "alt": "Luis Pardo, El Clan Secreto"
+    },
+    "imagen_2": {
+      "src": "/assets/img/baraja-clandestina.webp",
+      "alt": "Baraja Clandestina diseñada por Luis Pardo"
+    },
+    "antetitulo": "Aprende magia y mentalismo",
+    "titulo": "El Clan Secreto",
+    "entradilla": "Aprende a hacer verdaderos milagros de la mano de Luis Pardo, paso a paso, para asombrar a familiares y amigos.",
+    "puntos": [
+      "Acceso a todas las **Clases Secretas** y sus vídeos explicativos.",
+      "La **Baraja Clandestina**, diseñada por Luis Pardo, de regalo en tu casa.",
+      "**270 €**, pago único."
+    ]
+  },
+  "psiquemagia": {
+    "antetitulo": "PsiqueMagia · Método 21 días",
+    "titulo": "En tu psique reside la verdadera magia",
+    "entradilla": "El estado natural del ser humano es sentirse feliz, pero el mundo hace que el cerebro lo olvide. La PsiqueMagia te muestra el camino de vuelta.",
+    "texto": "Mira la masterclass gratuita sobre el secreto de la felicidad y, si quieres saber más del método «PsiqueMagia 21 días», deja tus datos y te contactaremos por WhatsApp para concertar una llamada con Luis Pardo.",
+    "video": {
+      "youtube": "https://www.youtube.com/watch?v=Rk8TZIcX07o",
+      "titulo": "La PsiqueMagia de Luis Pardo",
+      "boton": "Masterclass gratuita: el secreto de la felicidad"
+    }
+  },
+  "descubre_poco_mas": {
+    "antetitulo": "Grabado en las calles de Barcelona",
+    "titulo": "Descubre un poco más de mi trabajo",
+    "entradilla": "Sin actores, sin compinches, sin trucajes ni edición. Todo ocurrió tal como lo verás.",
+    "video": {
+      "portada": "/assets/img/luis-dos.webp",
+      "titulo": "Ver el vídeo"
+    }
+  }
+}

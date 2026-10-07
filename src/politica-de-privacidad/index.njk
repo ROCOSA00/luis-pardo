@@ -1,0 +1,21 @@
+{% extends "layouts/base.njk" %}
+{% block head %}
+<title>{{ c.seo.titulo | texto }}</title>
+<meta name="description" content="{{ c.seo.descripcion | texto }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
+{% endblock %}
+{% block main %}
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="page-hero-inner">
+        <nav class="breadcrumb" aria-label="Migas de pan"><a href="../">Inicio</a><span aria-hidden="true">/</span><span>Legal</span></nav>
+        <h1 class="display">{{ c.cabecera.titulo | titulo }}</h1>
+      </div>
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="wrap-narrow prose">{{ c.quienes_somos.texto | mdBloque }}</div>
+  </section>
+</main>
+{% endblock %}
