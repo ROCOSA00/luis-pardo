@@ -25,7 +25,7 @@ El cliente entra en **`/admin`** con su email y contraseña (una pantalla con la
 ### Cómo funciona
 
 1. La pantalla de acceso (`src/admin/index.njk`) envía el email y la contraseña a `api/login.js`, que abre una sesión con una cookie firmada de 30 días.
-2. Con la sesión abierta, `api/sesion.js` entrega el token de GitHub del proyecto y la página abre el editor ([Sveltia CMS](https://sveltiacms.app), versión fijada en `package.json` y servida desde la propia web).
+2. Con la sesión abierta, `api/sesion.js` entrega el token de GitHub del proyecto y la página abre el editor ([Sveltia CMS](https://sveltiacms.app), versión fijada en `package.json` y servida desde la propia web). El editor muestra como cuenta el email de acceso y el emblema de la web, no la cuenta de GitHub dueña del token.
 3. El editor guarda los cambios en `src/_data/` mediante la API de GitHub y Vercel vuelve a publicar.
 
 El repositorio y la rama se toman de la compilación de Vercel (`src/_data/sitio.js`). Por eso el panel de una **vista previa** guarda en la rama de esa vista previa, sin tocar la web real.
