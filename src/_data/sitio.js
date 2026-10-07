@@ -7,7 +7,7 @@ const { VERCEL_GIT_REPO_OWNER: dueno, VERCEL_GIT_REPO_SLUG: nombre, VERCEL_GIT_C
 
 export default {
   // Dirección pública de la web (canonical, Open Graph, sitemap y robots).
-  url: "https://luis-pardo.vercel.app",
+  url: "https://luis-pardo-2.vercel.app",
   repositorio: dueno && nombre ? `${dueno}/${nombre}` : "ROCOSA00/luis-pardo",
   rama: rama || "main",
 };

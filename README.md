@@ -145,12 +145,10 @@ ffmpeg -i original.mov -vf "scale=-2:1280" -c:v libx264 -preset slow -crf 26 -c:
 
 ## Publicar (Vercel)
 
-La web está en Vercel (proyecto `luis-pardo`, **https://luis-pardo.vercel.app**). Cada cambio que entra en `main` (tuyo o del panel) se compila con `npm run build` y se publica solo. Cada rama tiene su propia vista previa. Compilar tarda menos de un segundo: los vídeos y audios se enlazan en vez de copiarse.
+La web está en Vercel (proyecto `luis-pardo`, **https://luis-pardo-2.vercel.app**). Cada cambio que entra en `main` (tuyo o del panel) se compila con `npm run build` y se publica solo. Cada rama tiene su propia vista previa. Compilar tarda menos de un segundo: los vídeos y audios se enlazan en vez de copiarse.
 
 `vercel.json` se encarga de:
 
 - **Redirecciones permanentes** de las URLs antiguas de WordPress que se han fusionado en otras páginas (`/television/`, `/el-clan-secreto/`, `/psiquemagia/`, `/dossier-dejar-de-fumar/`, los formularios de audios de muestra…), para no perder visitas ni posicionamiento al cambiar el dominio.
 - **Barra final** en todas las URLs (`/galeria` → `/galeria/`). Las funciones del panel se llaman con barra (`/api/login/`) y una reescritura las lleva a `api/login.js`.
 - **Caché** de una semana para imágenes, vídeos, audios y PDF; el panel sin caché y sin indexar; cabeceras de seguridad básicas.
-
-El proyecto `luis-pardo-web` de Vercel despliega el mismo repositorio y ya no hace falta: se puede borrar.
