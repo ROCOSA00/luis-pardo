@@ -61,7 +61,7 @@ src/
   _includes/partials/             Head, cabecera (menú) y pie
   _data/paginas/<página>.json     Contenido editable de cada página (lo que cambia el panel)
   _data/ajustes.json              Contacto, redes y enlaces de entradas (toda la web)
-  _data/sitio.js                  Dominio público, repositorio y rama
+  _data/sitio.js                  Dirección pública, repositorio y rama (salen de Vercel)
   _data/eleventyComputed.js       Datos calculados: ruta raíz, página actual y contenido
   admin/                          Pantalla de acceso, configuración del panel y guía
   sitemap.njk, robots.njk
@@ -102,9 +102,13 @@ El panel necesita las funciones de `api/`, así que se prueba en Vercel: en una 
 
 ### Cambiar al dominio luispardo.com
 
-1. En Vercel, *Settings → Domains*, añade `luispardo.com` y `www.luispardo.com`.
-2. En cdmon, cambia **solo** el registro `A` de `@` y el `CNAME` de `www` por los valores que indique Vercel. No toques los registros `MX` ni `TXT`, para que el correo siga funcionando.
-3. Cambia `url` en `src/_data/sitio.js` a `https://www.luispardo.com`. Canonical, Open Graph, sitemap y robots se actualizan solos.
+No hay que tocar código: la dirección pública (canonical, Open Graph, sitemap y robots) sale del dominio de producción que tenga el proyecto en Vercel (`src/_data/sitio.js`).
+
+1. En Vercel, *Settings → Domains*, añade `luispardo.com` y acepta la opción recomendada: `www.luispardo.com` como principal y `luispardo.com` redirigiendo a él.
+2. En cdmon, en la zona DNS de `luispardo.com`, cambia **solo** el registro `A` de `@` y el de `www` (bórralo y crea un `CNAME`) con los valores que indique Vercel. No toques los registros `MX`, `TXT` ni `mail`, para que el correo siga funcionando.
+3. Cuando Vercel marque el dominio como *Valid Configuration*, haz *Redeploy* de la última publicación. A partir de ahí la web se presenta como `https://www.luispardo.com` y el panel está en `luispardo.com/admin`.
+
+Para comprobarlo, `/admin/config.yml` muestra en su cabecera el dominio que ha dado Vercel y la dirección pública de la última compilación.
 
 ## Efectos dinámicos
 

@@ -7,6 +7,8 @@ eleventyExcludeFromCollections: true
 # Cada página de la web es un archivo de src/_data/paginas/ y aquí se define
 # el formulario con el que se edita. Si cambias una plantilla y añades un
 # texto nuevo, añade aquí su campo con el mismo nombre que en el JSON.
+#
+# Compilación: dominio de Vercel «{{ sitio.dominioVercel or "no disponible" }}», dirección pública {{ sitio.url }}
 backend:
   name: github
   repo: {{ sitio.repositorio }}
