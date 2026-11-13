@@ -24,7 +24,7 @@ El cliente entra en **`/admin`** con su email y contraseña (una pantalla con la
 
 ### Cómo funciona
 
-1. La pantalla de acceso (`src/admin/index.njk`) envía el email y la contraseña a `api/login.js`, que abre una sesión con una cookie firmada de 30 días.
+1. La pantalla de acceso (`src/admin/index.njk`) envía el email y la contraseña a `api/login.js`, que abre una sesión con una cookie firmada de 30 días. La lógica común (contraseña, sesión, enlaces de recuperación) está en `api/_sesion.js`.
 2. Con la sesión abierta, `api/sesion.js` entrega el token de GitHub del proyecto y la página abre el editor ([Sveltia CMS](https://sveltiacms.app), versión fijada en `package.json` y servida desde la propia web). El editor muestra como cuenta el email de acceso y el emblema de la web, no la cuenta de GitHub dueña del token.
 3. El editor guarda los cambios en `src/_data/` mediante la API de GitHub y Vercel vuelve a publicar.
 
@@ -44,11 +44,28 @@ El repositorio y la rama los da Vercel (`api/sesion.js`) y el panel solo los rec
    | `ADMIN_EMAIL` | el email con el que entrará el cliente |
    | `ADMIN_PASSWORD` | su contraseña (larga: es la llave del panel) |
    | `GITHUB_TOKEN` | el token del paso 1 |
+   | `BREVO_API_KEY` | *(opcional)* clave de la API de Brevo del cliente, para «He olvidado mi contraseña» (ver abajo) |
+   | `BREVO_REMITENTE` | *(opcional)* email remitente verificado en Brevo; si no se pone, se usa `ADMIN_EMAIL` |
 
 3. **Vuelve a publicar** (*Deployments → … → Redeploy*) para que las variables se apliquen.
 4. Entrégale al cliente la dirección `/admin`, su email, su contraseña y la guía `/admin/guia/`.
 
-**Cambiar la contraseña del cliente**: cambia `ADMIN_PASSWORD` en Vercel y vuelve a publicar. Todas las sesiones abiertas se cierran.
+### Contraseña del cliente
+
+El cliente gestiona su contraseña solo, desde la pantalla de acceso:
+
+- **Cambiar la contraseña** (`api/clave.js`): email, contraseña actual y la nueva dos veces (mínimo 10 caracteres). También hay un botón en la guía (`/admin/?contrasena`).
+- **He olvidado mi contraseña** (`api/olvido.js` → `api/restablecer.js`): escribe su email y recibe un enlace que vale una hora y una sola vez. Responde igual aunque el email no sea el correcto. Necesita `BREVO_API_KEY`; sin ella, la pantalla le dice que pida ayuda.
+
+Dónde se guarda: en `panel/acceso.json` del repositorio (un commit «Panel: cambiar la contraseña de acceso»). No es la contraseña, sino un hash scrypt con sal, mezclado con una clave que solo tiene el servidor (sale de `GITHUB_TOKEN`): aunque alguien viera el archivo, no le sirve. Al cambiarla se cierran todas las sesiones abiertas. `ADMIN_PASSWORD` es solo la contraseña inicial: deja de valer en cuanto el cliente pone la suya.
+
+**Si la olvida y no hay Brevo**: borra `panel/acceso.json` en GitHub y vuelve a valer `ADMIN_PASSWORD` (cámbiala antes en Vercel y vuelve a publicar). Lo mismo pasa si se cambia `GITHUB_TOKEN`: la contraseña guardada deja de valer y vuelve a valer `ADMIN_PASSWORD`.
+
+**Activar el email de recuperación (Brevo)**, desde la cuenta de Brevo del cliente:
+
+1. Su nombre (arriba a la derecha) → *SMTP y API* → *Claves API* → *Generar una nueva clave API* («Panel web»). Empieza por `xkeysib-`. Ponla en Vercel como `BREVO_API_KEY` y vuelve a publicar.
+2. Su nombre → *Seguridad* → *IP autorizadas*: deja **desactivado** «Bloquear direcciones IP desconocidas». Vercel envía desde direcciones que cambian y Brevo las bloquearía.
+3. El remitente (`BREVO_REMITENTE`, o si no `ADMIN_EMAIL`) tiene que estar verificado en *Remitentes, dominios e IP dedicadas*. Para que no llegue a spam, conviene autenticar el dominio luispardo.com ahí mismo (Brevo da los registros DNS para cdmon).
 
 **Si el repositorio pasa a otra cuenta de GitHub** (por ejemplo, la del cliente): el panel detecta el nuevo repositorio solo. Basta con crear un token nuevo desde esa cuenta y cambiar `GITHUB_TOKEN`.
 
@@ -66,7 +83,8 @@ src/
   admin/                          Pantalla de acceso, configuración del panel y guía
   sitemap.njk, robots.njk
 lib/contenido.js                  Filtros: Markdown → HTML del diseño, enlaces, imágenes, WhatsApp…
-api/                              Funciones de Vercel del acceso al panel (login, sesión, salir)
+api/                              Funciones de Vercel del panel: entrar, sesión, salir y contraseña
+panel/acceso.json                 Contraseña del panel cifrada (la crea el panel al cambiarla; no se publica)
 assets/                           CSS, JavaScript, imágenes, vídeos, audios y PDF
 eleventy.config.js                Configuración de Eleventy
 vercel.json                       Compilación, redirecciones de las URLs antiguas, caché y cabeceras
