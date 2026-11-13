@@ -87,7 +87,7 @@
         <h2 class="h2" data-reveal style="--d:.1s">{{ c.personas_que_entrenan.titulo | titulo }}</h2>
       </div>
       <div class="carousel" data-carousel data-autoplay="6000" data-reveal>
-        <div class="carousel-track">{% for o in c.personas_que_entrenan.opiniones %}<figure class="testimonial"><span class="stars" aria-label="5 estrellas">★★★★★</span><blockquote>{{ o.texto | md }}</blockquote><footer><span class="avatar">{{ o.nombre | inicial }}</span><span><span class="who">{{ o.nombre | texto }}</span>{% if o.detalle %}<br><span class="role">{{ o.detalle | texto }}</span>{% endif %}</span></footer></figure>{% endfor %}</div>
+        <div class="carousel-track" tabindex="0" role="region" aria-label="Opiniones">{% for o in c.personas_que_entrenan.opiniones %}<figure class="testimonial"><span class="stars" aria-label="5 estrellas">★★★★★</span><blockquote>{{ o.texto | md }}</blockquote><footer><span class="avatar">{{ o.nombre | inicial }}</span><span><span class="who">{{ o.nombre | texto }}</span>{% if o.detalle %}<br><span class="role">{{ o.detalle | texto }}</span>{% endif %}</span></footer></figure>{% endfor %}</div>
         <div class="carousel-nav">
           <div class="carousel-dots"></div>
           <button class="carousel-btn carousel-prev" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -138,7 +138,7 @@
             <p class="lead" data-reveal style="--d:.2s">{{ c.psiquemagia.entradilla | md }}</p>
           </div>
           <p class="muted" data-reveal style="--d:.25s">{{ c.psiquemagia.texto | md }}</p>
-          <form class="card form" data-brevo data-success="¡Gracias! Te escribiremos por WhatsApp para concretar día y hora de la llamada." method="POST" action="https://446471f7.sibforms.com/serve/MUIEAL9IAdShlvJJwmQqROuZSPGfneWZlgylbUOUHgyjBm4uLZDCkaEH3wOi3Gm-v02w8sxvOpFZAQ7KpeZwIaXUQadeXNYuqtj9YUZz7tZ2CYbQhX0Y-FJIo7G0qIf3_FykhM-RQxPb4Jj2EqU4NbIS4UOe88LcGSMVHpcH1uxdbKvg-XgBvqu1_Us1UJXMoOgK2qg5Q4bEcKe8" data-reveal style="--d:.3s">
+          <form class="card form" data-whatsapp="{{ '' | whatsapp(ajustes.whatsapp) }}" data-intro="Hola Luis, quiero concertar una llamada sobre PsiqueMagia." data-success="Se ha abierto WhatsApp con tu solicitud ya escrita: pulsa «Enviar» para que nos llegue y te escribiremos para concretar día y hora de la llamada." method="GET" action="{{ '' | whatsapp(ajustes.whatsapp) }}" target="_blank" data-reveal style="--d:.3s">
             <div class="form-row">
               <div class="field"><label for="p-nombre">Nombre</label><input id="p-nombre" name="NOMBRE" autocomplete="given-name" required></div>
               <div class="field"><label for="p-apellidos">Apellidos</label><input id="p-apellidos" name="APELLIDOS" autocomplete="family-name"></div>

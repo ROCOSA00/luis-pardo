@@ -10,12 +10,10 @@ eleventyExcludeFromCollections: true
 <meta name="robots" content="noindex, nofollow">
 <title>Panel de Luis Pardo</title>
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/fuentes.css">
 <style id="estilo-acceso">
   :root {
-    --bg: #07060a; --ink: #ece4d6; --muted: #b3a998; --dim: #7a7064;
+    --bg: #07060a; --ink: #ece4d6; --muted: #b3a998; --dim: #8a8073;
     --gold: #c9a45a; --gold-2: #ecd59a; --blood: #c4162f; --blood-2: #8a0d20;
     --line: rgba(201, 164, 90, 0.25);
   }
@@ -49,7 +47,7 @@ eleventyExcludeFromCollections: true
   }
   #acceso button:hover { filter: brightness(1.12); }
   #acceso button:disabled { opacity: 0.6; cursor: wait; }
-  #acceso .mensaje { margin: 0; padding: 10px 12px; font-size: 14px; border-radius: 10px; text-align: center; }
+  #acceso .mensaje { margin: 0 0 16px; padding: 10px 12px; font-size: 14px; border-radius: 10px; text-align: center; }
   #acceso .mensaje.error { color: #ffd6d6; background: rgba(196, 22, 47, 0.18); border: 1px solid rgba(196, 22, 47, 0.45); }
   #acceso .mensaje.info { color: var(--gold-2); background: rgba(201, 164, 90, 0.1); border: 1px solid var(--line); }
   #acceso .ayuda { margin: 22px 0 0; font-size: 13px; color: var(--dim); }
@@ -60,6 +58,16 @@ eleventyExcludeFromCollections: true
     border: 2px solid var(--line); border-top-color: var(--gold); animation: girar 0.9s linear infinite;
   }
   @keyframes girar { to { transform: rotate(360deg); } }
+  #acceso h2 { font: 600 18px/1.3 Cinzel, Georgia, serif; letter-spacing: 0.04em; margin: 0; color: var(--gold-2); text-align: center; }
+  #acceso .texto { margin: 0; font-size: 14px; color: var(--muted); text-align: center; }
+  #acceso .pista { margin: -6px 0 0; font-size: 13px; color: var(--dim); }
+  #acceso .enlaces { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; margin: 2px 0 0; }
+  #acceso button.enlace {
+    margin: 0; padding: 4px 2px; font: 400 14px/1.4 Inter, sans-serif; letter-spacing: 0; color: var(--gold); cursor: pointer;
+    background: none; border: 0; border-radius: 4px; text-decoration: underline; text-underline-offset: 3px;
+  }
+  #acceso button.enlace:hover { filter: none; color: var(--gold-2); }
+  #acceso button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
   #acceso [hidden] { display: none !important; }
 </style>
 </head>
@@ -78,16 +86,64 @@ eleventyExcludeFromCollections: true
     <h1>Luis Pardo</h1>
     <p class="sub">Panel de edición</p>
 
-    <form id="formulario" novalidate>
-      <p class="mensaje" id="mensaje" role="alert" hidden></p>
+    <p class="mensaje" id="mensaje" role="alert" hidden></p>
+
+    <form id="v-entrar" novalidate>
       <label>Email
         <input type="email" name="email" autocomplete="username" required>
       </label>
       <label>Contraseña
-        <input type="password" name="password" id="password" autocomplete="current-password" required>
+        <input type="password" name="password" data-clave autocomplete="current-password" required>
       </label>
-      <label class="ver"><input type="checkbox" id="ver"> Mostrar la contraseña</label>
-      <button type="submit" id="entrar">Entrar</button>
+      <label class="ver"><input type="checkbox"> Mostrar la contraseña</label>
+      <button type="submit">Entrar</button>
+      <p class="enlaces">
+        <button type="button" class="enlace" data-ir="olvido">He olvidado mi contraseña</button>
+        <button type="button" class="enlace" data-ir="cambiar">Cambiar la contraseña</button>
+      </p>
+    </form>
+
+    <form id="v-cambiar" novalidate hidden>
+      <h2>Cambiar la contraseña</h2>
+      <label>Email
+        <input type="email" name="email" autocomplete="username" required>
+      </label>
+      <label>Contraseña actual
+        <input type="password" name="actual" data-clave autocomplete="current-password" required>
+      </label>
+      <label>Contraseña nueva
+        <input type="password" name="nueva" data-clave autocomplete="new-password" minlength="10" required>
+      </label>
+      <label>Repite la contraseña nueva
+        <input type="password" name="repetir" data-clave autocomplete="new-password" minlength="10" required>
+      </label>
+      <p class="pista">Mínimo 10 caracteres. Una frase que recuerdes bien sirve, por ejemplo «mi perro come pipas».</p>
+      <label class="ver"><input type="checkbox"> Mostrar las contraseñas</label>
+      <button type="submit">Guardar y entrar</button>
+      <p class="enlaces"><button type="button" class="enlace" data-ir="entrar">Volver</button></p>
+    </form>
+
+    <form id="v-olvido" novalidate hidden>
+      <h2>¿Has olvidado tu contraseña?</h2>
+      <p class="texto">Escribe tu email y te enviamos un enlace para poner una nueva.</p>
+      <label>Email
+        <input type="email" name="email" autocomplete="username" required>
+      </label>
+      <button type="submit">Enviarme el enlace</button>
+      <p class="enlaces"><button type="button" class="enlace" data-ir="entrar">Volver</button></p>
+    </form>
+
+    <form id="v-restablecer" novalidate hidden>
+      <h2>Pon una contraseña nueva</h2>
+      <label>Contraseña nueva
+        <input type="password" name="nueva" data-clave autocomplete="new-password" minlength="10" required>
+      </label>
+      <label>Repite la contraseña nueva
+        <input type="password" name="repetir" data-clave autocomplete="new-password" minlength="10" required>
+      </label>
+      <p class="pista">Mínimo 10 caracteres. Una frase que recuerdes bien sirve, por ejemplo «mi perro come pipas».</p>
+      <label class="ver"><input type="checkbox"> Mostrar las contraseñas</label>
+      <button type="submit">Guardar y entrar</button>
     </form>
 
     <p class="ayuda">Desde aquí puedes cambiar los textos, las fotos y los enlaces de la web.<br><a href="/admin/guia/">¿Primera vez? Mira la guía</a> · <a href="/">Volver a la web</a></p>
@@ -96,10 +152,14 @@ eleventyExcludeFromCollections: true
 
 <script>
 (() => {
-  const REPOSITORIO = "{{ sitio.repositorio }}";
   const USUARIO = "sveltia-cms.user";
   const PREFERENCIAS = "sveltia-cms.prefs";
+  const VISTAS = ["entrar", "cambiar", "olvido", "restablecer"];
+  const SIN_CONEXION = "No hay conexión. Revisa internet y vuelve a intentarlo.";
+  const MINIMO = 10;
   const $ = (id) => document.getElementById(id);
+  let vistaActual = "entrar";
+  let codigoRestablecer = "";
 
   const mostrarEstado = (texto) => {
     $("tarjeta").hidden = true;
@@ -107,16 +167,34 @@ eleventyExcludeFromCollections: true
     $("estado").textContent = texto;
   };
 
-  const mostrarAcceso = (texto, tipo = "error") => {
-    $("estado").hidden = true;
-    $("tarjeta").hidden = false;
+  const aviso = (texto, tipo = "error") => {
     const m = $("mensaje");
     m.hidden = !texto;
     m.textContent = texto || "";
     m.className = "mensaje " + tipo;
-    $("entrar").disabled = false;
-    $("entrar").textContent = "Entrar";
-    if (!texto || tipo === "info") document.querySelector("input[name=email]").focus();
+    // Vuelve a activar el botón del formulario que estaba enviando.
+    document.querySelectorAll("#acceso button[type=submit]").forEach((b) => {
+      b.disabled = false;
+      if (b.dataset.texto) b.textContent = b.dataset.texto;
+    });
+  };
+
+  // Muestra una de las pantallas: entrar, cambiar, olvido o restablecer.
+  const mostrarVista = (nombre, texto, tipo = "error") => {
+    vistaActual = nombre;
+    $("estado").hidden = true;
+    $("tarjeta").hidden = false;
+    for (const v of VISTAS) $("v-" + v).hidden = v !== nombre;
+    aviso(texto, tipo);
+    if (!texto || tipo === "info") $("v-" + nombre).querySelector("input:not([type=checkbox])")?.focus();
+  };
+  const mostrarAcceso = (texto, tipo) => mostrarVista("entrar", texto, tipo);
+
+  const ocupado = (formulario, texto) => {
+    const b = formulario.querySelector("button[type=submit]");
+    b.dataset.texto ||= b.textContent;
+    b.disabled = true;
+    b.textContent = texto;
   };
 
   const guardar = (clave, valor) => {
@@ -129,11 +207,31 @@ eleventyExcludeFromCollections: true
     try { localStorage.removeItem(USUARIO); } catch {}
   };
 
+  // Llama al servidor; si responde con error, lanza su mensaje.
+  async function llamar(url, cuerpo) {
+    const r = await fetch(url, {
+      method: "POST",
+      credentials: "same-origin",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(cuerpo),
+    }).catch(() => {
+      throw new Error(SIN_CONEXION);
+    });
+    const json = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(json.error || "No se ha podido completar. Inténtalo de nuevo.");
+    return json;
+  }
+
   // Pide el permiso de edición (y el email de acceso) al servidor, solo si la
   // sesión está abierta.
   async function pedirToken() {
-    const r = await fetch("/api/sesion/", { credentials: "same-origin", cache: "no-store" });
-    if (r.status === 503) throw new Error("El panel todavía no está configurado. Avisa a quien te hizo la web.");
+    const r = await fetch("/api/sesion/", { credentials: "same-origin", cache: "no-store" }).catch(() => {
+      throw new Error(SIN_CONEXION);
+    });
+    if (r.status === 503) {
+      const { error } = await r.json().catch(() => ({}));
+      throw new Error(error || "El panel todavía no está configurado.");
+    }
     if (!r.ok) return null;
     return r.json();
   }
@@ -163,17 +261,17 @@ eleventyExcludeFromCollections: true
     };
   }
 
-  async function abrirEditor({ token, email }) {
-    mostrarEstado("Abriendo el panel…");
+  async function abrirEditor({ token, email, repositorio, rama }, texto = "Abriendo el panel…") {
+    mostrarEstado(texto);
     // Comprobar que el permiso sigue funcionando antes de abrir el editor.
-    const prueba = await fetch(`https://api.github.com/repos/${REPOSITORIO}`, {
+    const prueba = await fetch(`https://api.github.com/repos/${repositorio}`, {
       headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" },
     }).catch(() => null);
     if (!prueba || !prueba.ok) {
       olvidar();
       const motivo = prueba
         ? "El permiso para guardar cambios ha caducado o se ha retirado. Avisa a quien te hizo la web."
-        : "No hay conexión. Revisa internet y vuelve a intentarlo.";
+        : SIN_CONEXION;
       mostrarAcceso(motivo);
       return;
     }
@@ -186,47 +284,116 @@ eleventyExcludeFromCollections: true
     document.body.classList.remove("acceso-activo");
     $("acceso").remove();
     $("estilo-acceso").remove();
+    // El repositorio no está en config.yml (no se publica): se le pasa al editor aquí.
+    window.CMS_MANUAL_INIT = true;
     const s = document.createElement("script");
     s.src = "./sveltia-cms.js";
+    s.onload = () => window.CMS.init({ config: { backend: { name: "github", repo: repositorio, branch: rama } } });
     document.body.append(s);
   }
 
-  $("ver").addEventListener("change", (e) => {
-    $("password").type = e.target.checked ? "text" : "password";
-  });
+  // Con la sesión ya abierta por el servidor, entra en el editor.
+  async function entrarAlEditor(texto) {
+    const sesion = await pedirToken();
+    if (!sesion?.token) throw new Error("Tu navegador no ha guardado la sesión. Activa las cookies e inténtalo de nuevo.");
+    await abrirEditor(sesion, texto);
+  }
 
-  $("formulario").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const datos = Object.fromEntries(new FormData(e.target));
-    if (!datos.email || !datos.password) return mostrarAcceso("Escribe tu email y tu contraseña.");
-    $("entrar").disabled = true;
-    $("entrar").textContent = "Entrando…";
-    try {
-      const r = await fetch("/api/login/", {
-        method: "POST",
-        credentials: "same-origin",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: datos.email, password: datos.password }),
-      });
-      if (!r.ok) {
-        const { error } = await r.json().catch(() => ({}));
-        return mostrarAcceso(error || "No se ha podido entrar. Inténtalo de nuevo.");
+  // Comprueba la contraseña nueva antes de enviarla.
+  function problemaConLaNueva({ nueva, repetir, actual }) {
+    if (!nueva || nueva.length < MINIMO) return `La contraseña nueva debe tener al menos ${MINIMO} caracteres.`;
+    if (nueva !== repetir) return "Las dos contraseñas nuevas no son iguales. Escríbelas otra vez.";
+    if (actual !== undefined && nueva === actual) return "La contraseña nueva tiene que ser distinta de la actual.";
+    return null;
+  }
+
+  // Enlaces entre pantallas y «Mostrar la contraseña».
+  document.querySelectorAll("[data-ir]").forEach((b) =>
+    b.addEventListener("click", () => {
+      const email = $("v-" + vistaActual).querySelector("input[name=email]")?.value;
+      const destino = $("v-" + b.dataset.ir).querySelector("input[name=email]");
+      if (email && destino && !destino.value) destino.value = email;
+      mostrarVista(b.dataset.ir);
+    })
+  );
+  document.querySelectorAll(".ver input").forEach((casilla) =>
+    casilla.addEventListener("change", () => {
+      casilla.closest("form").querySelectorAll("[data-clave]").forEach((i) => (i.type = casilla.checked ? "text" : "password"));
+    })
+  );
+
+  const al = (vista, accion) =>
+    $("v-" + vista).addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formulario = e.target;
+      const datos = Object.fromEntries(new FormData(formulario));
+      try {
+        await accion(datos, formulario);
+      } catch (err) {
+        if ($("acceso")) mostrarVista(vista, err.message || SIN_CONEXION);
       }
-      const sesion = await pedirToken();
-      if (!sesion?.token) return mostrarAcceso("Tu navegador no ha guardado la sesión. Activa las cookies e inténtalo de nuevo.");
-      await abrirEditor(sesion);
-    } catch (err) {
-      mostrarAcceso(err.message || "No hay conexión. Revisa internet y vuelve a intentarlo.");
-    }
+    });
+
+  al("entrar", async ({ email, password }, f) => {
+    if (!email || !password) return aviso("Escribe tu email y tu contraseña.");
+    ocupado(f, "Entrando…");
+    await llamar("/api/login/", { email, password });
+    await entrarAlEditor();
   });
 
-  // Al cargar: si la sesión sigue abierta, directo al editor.
+  al("cambiar", async ({ email, actual, nueva, repetir }, f) => {
+    if (!email || !actual) return aviso("Escribe tu email y tu contraseña actual.");
+    const problema = problemaConLaNueva({ nueva, repetir, actual });
+    if (problema) return aviso(problema);
+    ocupado(f, "Guardando…");
+    await llamar("/api/clave/", { email, actual, nueva });
+    f.reset();
+    await entrarAlEditor("Contraseña cambiada. Abriendo el panel…");
+  });
+
+  al("olvido", async ({ email }, f) => {
+    if (!email) return aviso("Escribe tu email.");
+    ocupado(f, "Enviando…");
+    const { modo } = await llamar("/api/olvido/", { email });
+    if (modo === "manual") {
+      return aviso("La recuperación por email no está activada en esta web. Pide ayuda a quien te la configuró.");
+    }
+    $("v-entrar").querySelector("input[name=password]").value = "";
+    mostrarAcceso(
+      "Si el email es el correcto, te acabamos de enviar un enlace para poner una contraseña nueva. Mira tu correo (y la carpeta de spam). El enlace vale durante una hora.",
+      "info"
+    );
+  });
+
+  al("restablecer", async ({ nueva, repetir }, f) => {
+    const problema = problemaConLaNueva({ nueva, repetir });
+    if (problema) return aviso(problema);
+    ocupado(f, "Guardando…");
+    await llamar("/api/restablecer/", { codigo: codigoRestablecer, nueva });
+    f.reset();
+    await entrarAlEditor("Contraseña guardada. Abriendo el panel…");
+  });
+
+  // Al cargar.
   (async () => {
-    if (location.search.includes("salir")) {
+    const parametros = new URLSearchParams(location.search);
+    // Enlace del email «He olvidado mi contraseña».
+    if (parametros.has("restablecer")) {
+      codigoRestablecer = parametros.get("restablecer") || "";
+      history.replaceState(null, "", location.pathname);
+      return mostrarVista("restablecer");
+    }
+    // Enlace «Cambiar mi contraseña» de la guía.
+    if (parametros.has("contrasena")) {
+      history.replaceState(null, "", location.pathname);
+      return mostrarVista("cambiar");
+    }
+    if (parametros.has("salir")) {
       olvidar();
       history.replaceState(null, "", location.pathname);
       return mostrarAcceso("Has cerrado la sesión. ¡Hasta pronto!", "info");
     }
+    // Si la sesión sigue abierta, directo al editor.
     try {
       const sesion = await pedirToken();
       if (sesion?.token) return abrirEditor(sesion);

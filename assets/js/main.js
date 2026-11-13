@@ -488,6 +488,39 @@
     });
   });
 
+  /* ---------- Formularios que se envían por WhatsApp ----------
+     Abren WhatsApp con un mensaje para Luis que ya lleva los datos escritos. */
+  $$("form[data-whatsapp]").forEach(function (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var msg = $(".form-msg", form);
+      var trampa = $(".hp", form);
+      if (trampa && trampa.value) return;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var lineas = [form.getAttribute("data-intro") || ""];
+      $$("input, textarea, select", form).forEach(function (campo) {
+        if (!campo.name || campo.type === "hidden" || campo.type === "checkbox" || campo.classList.contains("hp")) return;
+        var valor = (campo.value || "").trim();
+        if (!valor) return;
+        var etiqueta = campo.id ? form.querySelector('label[for="' + campo.id + '"]') : null;
+        var nombre = etiqueta && etiqueta.firstChild ? etiqueta.firstChild.textContent.trim() : campo.name;
+        lineas.push(nombre + ": " + valor);
+      });
+      var enlace = document.createElement("a");
+      enlace.href = form.getAttribute("data-whatsapp") + "?text=" + encodeURIComponent(lineas.join("\n"));
+      enlace.target = "_blank";
+      enlace.rel = "noopener";
+      document.body.appendChild(enlace);
+      enlace.click();
+      document.body.removeChild(enlace);
+      if (msg) {
+        msg.className = "form-msg ok";
+        msg.textContent = form.getAttribute("data-success") || "Se ha abierto WhatsApp: pulsa «Enviar» para que nos llegue.";
+      }
+      form.reset();
+    });
+  });
+
   /* ---------- Año en el pie ---------- */
   $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();

@@ -8,11 +8,12 @@ eleventyExcludeFromCollections: true
 # el formulario con el que se edita. Si cambias una plantilla y añades un
 # texto nuevo, añade aquí su campo con el mismo nombre que en el JSON.
 #
+# El repositorio y la rama no están aquí: el panel los recibe de /api/sesion/
+# al entrar, para que no se vean públicamente.
+#
 # Compilación: dominio de Vercel «{{ sitio.dominioVercel or "no disponible" }}», dirección pública {{ sitio.url }}
 backend:
   name: github
-  repo: {{ sitio.repositorio }}
-  branch: {{ sitio.rama }}
   auth_methods: [token]
   commit_messages:
     create: "Panel: crear {{ '{{' }}collection{{ '}}' }} «{{ '{{' }}slug{{ '}}' }}»"

@@ -262,7 +262,7 @@
         <h2 class="h2" data-reveal style="--d:.1s">{{ c.opiniones.titulo | titulo }}</h2>
       </div>
       <div class="carousel" data-carousel data-autoplay="5000" data-reveal>
-        <div class="carousel-track">{% for o in c.opiniones.opiniones %}<figure class="card vip-card"><blockquote>«{{ o.cita | md }}»</blockquote>{% if o.autor %}<figcaption class="who">{{ o.autor | texto }}</figcaption>{% endif %}</figure>{% endfor %}</div>
+        <div class="carousel-track" tabindex="0" role="region" aria-label="Opiniones">{% for o in c.opiniones.opiniones %}<figure class="card vip-card"><blockquote>«{{ o.cita | md }}»</blockquote>{% if o.autor %}<figcaption class="who">{{ o.autor | texto }}</figcaption>{% endif %}</figure>{% endfor %}</div>
         <div class="carousel-nav">
           <div class="carousel-dots"></div>
           <button class="carousel-btn carousel-prev" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>

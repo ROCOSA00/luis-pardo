@@ -130,7 +130,7 @@
   ],
   "headers": [
     {
-      "source": "/assets/:dir(img|media|audio|docs)/:file*",
+      "source": "/assets/:dir(img|media|audio|docs|fonts)/:file*",
       "headers": [
         {
           "key": "Cache-Control",

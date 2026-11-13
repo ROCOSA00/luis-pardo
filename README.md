@@ -18,17 +18,17 @@ Además: **Entradas** (`/comprar_entradas/`) como página central de reservas, p
 El cliente entra en **`/admin`** con su email y contraseña (una pantalla con la imagen de la web, sin cuentas de GitHub ni nada técnico) y edita cada página con formularios en español. Al pulsar *Guardar*, el cambio se publica solo en 1–2 minutos. Tiene una guía con capturas en **`/admin/guia/`**, enlazada desde la pantalla de acceso.
 
 - **Qué puede cambiar**: todos los textos, fotos y enlaces de las 25 páginas; las listas que crecen (opiniones, fotos de la galería, espectáculos anteriores, apariciones en televisión, canciones de la BSO, cifras y puntos de las listas); y en *Ajustes generales* el email, el WhatsApp, el teléfono, la dirección, las redes y los enlaces de compra de entradas, que se aplican en toda la web.
-- **Qué no puede tocar**: el diseño, el menú, los formularios de Brevo, los vídeos ni la estructura de las páginas. Eso queda para ti.
+- **Qué no puede tocar**: el diseño, el menú, los formularios, los vídeos ni la estructura de las páginas. Eso queda para ti.
 - **Fotos**: al subirlas se convierten a WebP de 1600 px como máximo. Las fotos nuevas de la galería generan su miniatura al publicar.
 - **Historial**: cada *Guardar* es un commit en `main` («Panel: editar …»), así que todo se puede deshacer desde GitHub.
 
 ### Cómo funciona
 
-1. La pantalla de acceso (`src/admin/index.njk`) envía el email y la contraseña a `api/login.js`, que abre una sesión con una cookie firmada de 30 días.
+1. La pantalla de acceso (`src/admin/index.njk`) envía el email y la contraseña a `api/login.js`, que abre una sesión con una cookie firmada de 30 días. La lógica común (contraseña, sesión, enlaces de recuperación) está en `api/_sesion.js`.
 2. Con la sesión abierta, `api/sesion.js` entrega el token de GitHub del proyecto y la página abre el editor ([Sveltia CMS](https://sveltiacms.app), versión fijada en `package.json` y servida desde la propia web). El editor muestra como cuenta el email de acceso y el emblema de la web, no la cuenta de GitHub dueña del token.
 3. El editor guarda los cambios en `src/_data/` mediante la API de GitHub y Vercel vuelve a publicar.
 
-El repositorio y la rama se toman de la compilación de Vercel (`src/_data/sitio.js`). Por eso el panel de una **vista previa** guarda en la rama de esa vista previa, sin tocar la web real.
+El repositorio y la rama los da Vercel (`api/sesion.js`) y el panel solo los recibe después de entrar: no aparecen en `/admin/` ni en `/admin/config.yml`. El panel de una **vista previa** guarda en la rama de esa vista previa, sin tocar la web real. Si alguna vez hiciera falta fijarlos a mano, se pueden poner las variables `GITHUB_REPO` (`dueño/repositorio`) y `GITHUB_BRANCH` en Vercel.
 
 ### Puesta en marcha (una sola vez)
 
@@ -44,11 +44,28 @@ El repositorio y la rama se toman de la compilación de Vercel (`src/_data/sitio
    | `ADMIN_EMAIL` | el email con el que entrará el cliente |
    | `ADMIN_PASSWORD` | su contraseña (larga: es la llave del panel) |
    | `GITHUB_TOKEN` | el token del paso 1 |
+   | `BREVO_API_KEY` | *(opcional)* clave de la API de Brevo del cliente, para «He olvidado mi contraseña» (ver abajo) |
+   | `BREVO_REMITENTE` | *(opcional)* email remitente verificado en Brevo; si no se pone, se usa `ADMIN_EMAIL` |
 
 3. **Vuelve a publicar** (*Deployments → … → Redeploy*) para que las variables se apliquen.
 4. Entrégale al cliente la dirección `/admin`, su email, su contraseña y la guía `/admin/guia/`.
 
-**Cambiar la contraseña del cliente**: cambia `ADMIN_PASSWORD` en Vercel y vuelve a publicar. Todas las sesiones abiertas se cierran.
+### Contraseña del cliente
+
+El cliente gestiona su contraseña solo, desde la pantalla de acceso:
+
+- **Cambiar la contraseña** (`api/clave.js`): email, contraseña actual y la nueva dos veces (mínimo 10 caracteres). También hay un botón en la guía (`/admin/?contrasena`).
+- **He olvidado mi contraseña** (`api/olvido.js` → `api/restablecer.js`): escribe su email y recibe un enlace que vale una hora y una sola vez. Responde igual aunque el email no sea el correcto. Necesita `BREVO_API_KEY`; sin ella, la pantalla le dice que pida ayuda.
+
+Dónde se guarda: en `panel/acceso.json` del repositorio (un commit «Panel: cambiar la contraseña de acceso»). No es la contraseña, sino un hash scrypt con sal, mezclado con una clave que solo tiene el servidor (sale de `GITHUB_TOKEN`): aunque alguien viera el archivo, no le sirve. Al cambiarla se cierran todas las sesiones abiertas. `ADMIN_PASSWORD` es solo la contraseña inicial: deja de valer en cuanto el cliente pone la suya.
+
+**Si la olvida y no hay Brevo**: borra `panel/acceso.json` en GitHub y vuelve a valer `ADMIN_PASSWORD` (cámbiala antes en Vercel y vuelve a publicar). Lo mismo pasa si se cambia `GITHUB_TOKEN`: la contraseña guardada deja de valer y vuelve a valer `ADMIN_PASSWORD`.
+
+**Activar el email de recuperación (Brevo)**, desde la cuenta de Brevo del cliente:
+
+1. Su nombre (arriba a la derecha) → *SMTP y API* → *Claves API* → *Generar una nueva clave API* («Panel web»). Empieza por `xkeysib-`. Ponla en Vercel como `BREVO_API_KEY` y vuelve a publicar.
+2. Su nombre → *Seguridad* → *IP autorizadas*: deja **desactivado** «Bloquear direcciones IP desconocidas». Vercel envía desde direcciones que cambian y Brevo las bloquearía.
+3. El remitente (`BREVO_REMITENTE`, o si no `ADMIN_EMAIL`) tiene que estar verificado en *Remitentes, dominios e IP dedicadas*. Para que no llegue a spam, conviene autenticar el dominio luispardo.com ahí mismo (Brevo da los registros DNS para cdmon).
 
 **Si el repositorio pasa a otra cuenta de GitHub** (por ejemplo, la del cliente): el panel detecta el nuevo repositorio solo. Basta con crear un token nuevo desde esa cuenta y cambiar `GITHUB_TOKEN`.
 
@@ -61,12 +78,13 @@ src/
   _includes/partials/             Head, cabecera (menú) y pie
   _data/paginas/<página>.json     Contenido editable de cada página (lo que cambia el panel)
   _data/ajustes.json              Contacto, redes y enlaces de entradas (toda la web)
-  _data/sitio.js                  Dirección pública, repositorio y rama (salen de Vercel)
+  _data/sitio.js                  Dirección pública (sale del dominio de Vercel)
   _data/eleventyComputed.js       Datos calculados: ruta raíz, página actual y contenido
   admin/                          Pantalla de acceso, configuración del panel y guía
   sitemap.njk, robots.njk
 lib/contenido.js                  Filtros: Markdown → HTML del diseño, enlaces, imágenes, WhatsApp…
-api/                              Funciones de Vercel del acceso al panel (login, sesión, salir)
+api/                              Funciones de Vercel del panel: entrar, sesión, salir y contraseña
+panel/acceso.json                 Contraseña del panel cifrada (la crea el panel al cambiarla; no se publica)
 assets/                           CSS, JavaScript, imágenes, vídeos, audios y PDF
 eleventy.config.js                Configuración de Eleventy
 vercel.json                       Compilación, redirecciones de las URLs antiguas, caché y cabeceras
@@ -110,6 +128,12 @@ No hay que tocar código: la dirección pública (canonical, Open Graph, sitemap
 
 Para comprobarlo, `/admin/config.yml` muestra en su cabecera el dominio que ha dado Vercel y la dirección pública de la última compilación.
 
+## Privacidad
+
+- Las fuentes (Cinzel, Cormorant Garamond e Inter, licencia SIL OFL) se sirven desde la propia web (`assets/fonts/` y `assets/css/fuentes.css`): la web no envía datos de los visitantes a Google Fonts.
+- Los vídeos de YouTube solo se cargan al pulsarlos. Lo único externo al abrir una página es la miniatura de esos vídeos (i.ytimg.com).
+- Las fotos no llevan datos de ubicación ni de cámara.
+
 ## Efectos dinámicos
 
 - Animación de entrada (un ojo que se abre) en la primera visita.
@@ -134,7 +158,7 @@ Todo respeta `prefers-reduced-motion` y el contenido sigue visible sin JavaScrip
   - `assets/media/voy-a-entrar-en-tu-mente.mp4` — vídeo de «Voy a entrar en tu mente»
 - **Canción 19 «iA» de la BSO**: en el WordPress apuntaba por error a una copia de «La Inquisición». Aparece como «no disponible»; se puede subir el audio correcto desde el panel (*Universo → BSO → Canciones → 19 → Archivo de audio*).
 - **Chat de Luna-iAE**: en WordPress funcionaba con el plugin *AI Engine*. Una web estática no puede ejecutarlo; la página mantiene la historia y las preguntas sugeridas. Si se quiere el chat, hay que conectarlo a un servicio externo.
-- **Formularios**: envían directamente a los mismos formularios de **Brevo** que usaba la web anterior (sesiones espiritistas, audios gratuitos, El Clan Secreto, PsiqueMagia, «Te voy a leer la mente»). Conviene hacer una prueba real de cada uno.
+- **Formularios**: cuatro envían a los formularios de **Brevo** de la web anterior (audios gratuitos del MPM y del MPMA, El Clan Secreto y «Te voy a leer la mente»). Los de **sesión espiritista** y **PsiqueMagia** ya no existían en Brevo (daban página de error), así que ahora abren WhatsApp con la solicitud ya escrita para Luis (`form[data-whatsapp]` en `assets/js/main.js`). Si se vuelven a crear en Brevo, basta con poner su dirección en `action` y cambiar `data-whatsapp` por `data-brevo`. Conviene hacer una prueba real de cada formulario de Brevo.
 - **Regala años de vida**: en la web anterior los botones de 10 a 5 años no tenían enlace. Ahora abren WhatsApp con el mensaje preparado; cámbialos si hay otro sistema de pedido.
 - **Textos legales**: la política de privacidad se ha adaptado a lo que hace la nueva web (sin comentarios ni cuentas de WordPress). Revisadla con vuestro asesor.
 - **Píxel de Meta / analítica**: la web anterior cargaba el píxel de Meta. No se ha incluido; si lo necesitáis, añadid el código en `src/_includes/partials/head.njk` junto con un aviso de cookies.
