@@ -15,6 +15,6 @@
     "@11ty/eleventy-img": "7.0.0",
     "@sveltia/cms": "0.230.0",
     "image-size": "2.0.4",
-    "markdown-it": "15.0.2"
+    "markdown-it": "15.0.3"
   }
 }

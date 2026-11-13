@@ -174,7 +174,7 @@
           </div>
         </div>
         <div class="carousel" data-carousel data-autoplay="6000" data-reveal style="--d:.1s">
-          <div class="carousel-track" style="grid-auto-columns:100%">{% for o in c.n9_9_sobre.opiniones %}<figure class="card vip-card"><blockquote>«{{ o.cita | md }}»</blockquote>{% if o.autor %}<figcaption class="who">{{ o.autor | texto }}</figcaption>{% endif %}</figure>{% endfor %}</div>
+          <div class="carousel-track" tabindex="0" role="region" aria-label="Opiniones" style="grid-auto-columns:100%">{% for o in c.n9_9_sobre.opiniones %}<figure class="card vip-card"><blockquote>«{{ o.cita | md }}»</blockquote>{% if o.autor %}<figcaption class="who">{{ o.autor | texto }}</figcaption>{% endif %}</figure>{% endfor %}</div>
           <div class="carousel-nav">
             <div class="carousel-dots"></div>
             <button class="carousel-btn carousel-prev" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>

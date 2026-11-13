@@ -113,7 +113,7 @@
           <div class="notice" data-reveal style="--d:.3s">{{ c.solicitar.aviso | md }}</div>
           <p class="muted" data-reveal style="--d:.35s">{{ c.solicitar.texto_3 | md }}</p>
         </div>
-        <form class="card form" data-brevo data-success="¡Solicitud enviada! Te contactaremos para concretar día y hora de tu sesión." method="POST" action="https://446471f7.sibforms.com/serve/MUIFAEWHV-LeHFOf1XiQxmD9BQIu3dP6Z-898aKi7oNK4-rEorgVSqooAvAgFmNP2Gn4SZLueYPJN61T3xwFDWjl4yFDl23n85n2KXcWzb90V7VelfegXvd4M-9Fffak96nbn6D20SVUqszu9nIavgftJcE4e_D6tvGfOGkTFM0RRYknEY8y2YrpoWWEqp4JYqp1SvPnejoiz88Q" data-reveal style="--d:.1s">
+        <form class="card form" data-whatsapp="{{ '' | whatsapp(ajustes.whatsapp) }}" data-intro="Hola Luis, quiero solicitar una sesión espiritista privada." data-success="Se ha abierto WhatsApp con tu solicitud ya escrita: pulsa «Enviar» para que nos llegue y te contactaremos para concretar día y hora." method="GET" action="{{ '' | whatsapp(ajustes.whatsapp) }}" target="_blank" data-reveal style="--d:.1s">
           <div class="form-row">
             <div class="field"><label for="s-nombre">Nombre</label><input id="s-nombre" name="NOMBRE" autocomplete="given-name" required></div>
             <div class="field"><label for="s-apellidos">Apellidos</label><input id="s-apellidos" name="APELLIDOS" autocomplete="family-name"></div>

@@ -10,9 +10,7 @@ eleventyExcludeFromCollections: true
 <meta name="robots" content="noindex, nofollow">
 <title>Panel de Luis Pardo</title>
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/fuentes.css">
 <style id="estilo-acceso">
   :root {
     --bg: #07060a; --ink: #ece4d6; --muted: #b3a998; --dim: #7a7064;
@@ -96,7 +94,6 @@ eleventyExcludeFromCollections: true
 
 <script>
 (() => {
-  const REPOSITORIO = "{{ sitio.repositorio }}";
   const USUARIO = "sveltia-cms.user";
   const PREFERENCIAS = "sveltia-cms.prefs";
   const $ = (id) => document.getElementById(id);
@@ -163,10 +160,10 @@ eleventyExcludeFromCollections: true
     };
   }
 
-  async function abrirEditor({ token, email }) {
+  async function abrirEditor({ token, email, repositorio, rama }) {
     mostrarEstado("Abriendo el panel…");
     // Comprobar que el permiso sigue funcionando antes de abrir el editor.
-    const prueba = await fetch(`https://api.github.com/repos/${REPOSITORIO}`, {
+    const prueba = await fetch(`https://api.github.com/repos/${repositorio}`, {
       headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" },
     }).catch(() => null);
     if (!prueba || !prueba.ok) {
@@ -186,8 +183,11 @@ eleventyExcludeFromCollections: true
     document.body.classList.remove("acceso-activo");
     $("acceso").remove();
     $("estilo-acceso").remove();
+    // El repositorio no está en config.yml (no se publica): se le pasa al editor aquí.
+    window.CMS_MANUAL_INIT = true;
     const s = document.createElement("script");
     s.src = "./sveltia-cms.js";
+    s.onload = () => window.CMS.init({ config: { backend: { name: "github", repo: repositorio, branch: rama } } });
     document.body.append(s);
   }
 
